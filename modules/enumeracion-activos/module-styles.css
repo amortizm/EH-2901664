@@ -1,0 +1,986 @@
+/* ========================================
+   MODULE STYLES: ENUMERACIÓN DE ACTIVOS
+   ======================================== */
+
+/* Estilos específicos para el módulo de Enumeración de Activos */
+
+/* Colors específicos del módulo - Usando paleta SENA */
+:root {
+    /* Manteniendo la paleta SENA consistente */
+    --enum-primary: #39A900;        /* Verde principal SENA */
+    --enum-secondary: #FF6600;      /* Naranja SENA */
+    --enum-accent: #0066CC;         /* Azul SENA */
+    --enum-light: #E8F5E8;          /* Verde claro SENA */
+    --enum-dark: #2C5F2D;           /* Verde oscuro SENA */
+    --enum-success: #27ae60;        /* Verde éxito */
+    --enum-warning: #f39c12;        /* Amarillo advertencia */
+    --enum-info: #3498db;           /* Azul información */
+    
+    /* Gradientes SENA */
+    --enum-gradient: linear-gradient(135deg, var(--enum-primary) 0%, var(--enum-dark) 100%);
+    --enum-gradient-secondary: linear-gradient(135deg, var(--enum-secondary) 0%, #E55100 100%);
+    --enum-gradient-accent: linear-gradient(135deg, var(--enum-accent) 0%, #004499 100%);
+    
+    /* Sombras SENA */
+    --enum-shadow: 0 4px 15px rgba(57, 169, 0, 0.15);
+    --enum-shadow-hover: 0 8px 25px rgba(57, 169, 0, 0.25);
+}
+
+/* Enum specific cards */
+.enum-card {
+    background: linear-gradient(135deg, var(--enum-light) 0%, #fff 100%);
+    border: 2px solid var(--enum-primary);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.enum-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--enum-shadow-hover);
+    border-color: var(--enum-dark);
+}
+
+.enum-card-header {
+    background: var(--enum-gradient);
+    color: white;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.enum-card-body {
+    padding: 1.5rem;
+}
+
+/* Information types visualization */
+.info-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.info-type-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-left: 5px solid var(--enum-primary);
+    transition: all 0.3s ease;
+}
+
+.info-type-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.info-type-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--enum-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--enum-shadow);
+}
+
+/* Enumeration techniques styles */
+.enum-technique {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-left: 4px solid var(--enum-primary);
+}
+
+.enum-technique h5 {
+    color: var(--enum-primary);
+    margin-bottom: 1rem;
+}
+
+.technique-command {
+    background: var(--enum-dark);
+    color: #00ff00;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    margin: 0.5rem 0;
+    overflow-x: auto;
+}
+
+.technique-output {
+    background: #000;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    margin: 0.5rem 0;
+    border: 1px solid var(--enum-primary);
+}
+
+/* Tools showcase */
+.tools-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.tool-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.tool-header {
+    background: var(--enum-gradient-accent);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.tool-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 1rem;
+}
+
+.tool-body {
+    padding: 1.5rem;
+}
+
+.tool-features {
+    list-style: none;
+    padding: 0;
+}
+
+.tool-features li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.tool-features li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--enum-success);
+    font-weight: bold;
+}
+
+/* NetBIOS specific styles */
+.netbios-demo {
+    background: var(--enum-gradient);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    box-shadow: var(--enum-shadow);
+}
+
+.netbios-command {
+    background: #000;
+    color: #00ff00;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    margin: 1rem 0;
+    border: 2px solid var(--enum-primary);
+}
+
+.netbios-output {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    margin: 1rem 0;
+    border: 1px solid #555;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* LDAP visualization */
+.ldap-tree {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.ldap-node {
+    background: white;
+    border: 1px solid var(--enum-primary);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.ldap-connection {
+    border-left: 2px solid var(--enum-primary);
+    margin-left: 1rem;
+    padding-left: 1rem;
+}
+
+/* Sysinternals tools styling */
+.sysinternals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.sysinternals-tool {
+    background: var(--enum-gradient-secondary);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--enum-shadow);
+}
+
+.sysinternals-tool:hover {
+    transform: scale(1.05);
+    box-shadow: var(--enum-shadow-hover);
+}
+
+/* Progress and status indicators */
+.enum-progress {
+    background: var(--enum-gradient);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.enum-status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--enum-primary);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.enum-status-badge.success {
+    background: var(--enum-success);
+}
+
+.enum-status-badge.warning {
+    background: var(--enum-warning);
+}
+
+.enum-status-badge.info {
+    background: var(--enum-info);
+}
+
+/* Concept visualization */
+.concept-flow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+    border-radius: 15px;
+    border: 2px solid #dee2e6;
+}
+
+.concept-step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+}
+
+.concept-step:not(:last-child):after {
+    content: '→';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--enum-primary);
+}
+
+.concept-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--enum-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 auto 0.5rem;
+    box-shadow: var(--enum-shadow);
+}
+
+/* Phase indicator specific to enumeration */
+.enum-phase-indicator {
+    background: var(--enum-gradient);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    display: inline-block;
+    margin: 1rem 0;
+    font-weight: 600;
+    box-shadow: var(--enum-shadow);
+}
+
+/* ========================================
+   SIDEBAR NAVIGATION STYLES
+   ======================================== */
+
+/* Enhanced navigation items */
+.nav-item {
+    display: block;
+    padding: 0;
+    margin-bottom: 0.75rem;
+    border-radius: 12px;
+    background: #fff;
+    border: 2px solid #e9ecef;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.nav-item:hover {
+    text-decoration: none;
+    color: inherit;
+    transform: translateX(5px);
+    border-color: var(--enum-primary);
+    box-shadow: var(--enum-shadow);
+}
+
+.nav-item.active {
+    border-color: var(--enum-primary);
+    background: var(--enum-gradient);
+    color: white;
+    transform: translateX(8px);
+    box-shadow: var(--enum-shadow-hover);
+}
+
+.nav-item.completed {
+    border-color: var(--enum-success);
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+}
+
+.nav-item.completed:hover {
+    border-color: var(--enum-success);
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.1);
+}
+
+.nav-item-content {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-item-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item-icon i {
+    font-size: 1.1rem;
+}
+
+.nav-item.active .nav-item-icon i {
+    color: white;
+}
+
+.nav-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.nav-item-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+    color: inherit;
+}
+
+.nav-item.active .nav-item-title {
+    color: white;
+}
+
+.nav-item-duration {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.nav-item.active .nav-item-duration {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Progress indicator enhancements */
+.sidebar-progress {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 2px solid #e9ecef;
+}
+
+.sidebar-progress h6 {
+    color: var(--enum-accent);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.progress-bar-custom {
+    background: var(--enum-gradient);
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+/* Notification styles */
+.notification-toast {
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    font-weight: 500;
+}
+
+.notification-toast.alert-success {
+    background: rgba(39, 174, 96, 0.95);
+    color: white;
+    border: none;
+}
+
+.notification-toast.alert-info {
+    background: rgba(52, 152, 219, 0.95);
+    color: white;
+    border: none;
+}
+
+/* ======================================== */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .info-types-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tools-showcase {
+        grid-template-columns: 1fr;
+    }
+    
+    .concept-flow {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .concept-step:not(:last-child):after {
+        content: '↓';
+        position: static;
+        display: block;
+        margin: 0.5rem 0;
+    }
+    
+    .sysinternals-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+/* Animation effects */
+@keyframes enumGlow {
+    0%, 100% {
+        box-shadow: var(--enum-shadow);
+    }
+    50% {
+        box-shadow: var(--enum-shadow-hover);
+    }
+}
+
+.enum-highlight {
+    animation: enumGlow 2s ease-in-out infinite;
+}
+
+/* Print styles */
+@media print {
+    .enum-card,
+    .tool-card,
+    .info-type-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+    
+    .technique-command,
+    .technique-output,
+    .netbios-command,
+    .netbios-output {
+        background: #f5f5f5 !important;
+        color: #000 !important;
+        border: 1px solid #ccc !important;
+    }
+}
+
+/* ========================================
+   ENHANCED TOPIC STYLES FOR CONCEPTOS BASICOS
+   ======================================== */
+
+/* Topic header enhanced */
+.topic-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--enum-light) 0%, white 100%);
+    border-radius: 15px;
+    border: 1px solid #e9ecef;
+}
+
+.topic-icon {
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+}
+
+.topic-intro {
+    font-size: 1.1rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 1rem auto 0;
+    line-height: 1.6;
+}
+
+/* Concept cards enhanced */
+.concept-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.concept-card:hover {
+    box-shadow: var(--enum-shadow-hover);
+    transform: translateY(-2px);
+}
+
+.concept-card h4 {
+    color: var(--enum-primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.concept-icon {
+    color: var(--enum-primary);
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+}
+
+/* Info highlight sections */
+.info-highlight {
+    background: linear-gradient(135deg, rgba(57, 169, 0, 0.05) 0%, rgba(57, 169, 0, 0.02) 100%);
+    border-left: 4px solid var(--enum-primary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.info-highlight h6 {
+    color: var(--enum-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.info-highlight ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.info-highlight li {
+    margin: 0.5rem 0;
+    line-height: 1.5;
+}
+
+/* Comparison tables enhanced */
+.comparison-table {
+    margin: 2rem 0;
+}
+
+.comparison-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.comparison-card.scanning {
+    border-color: var(--enum-info);
+    background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, white 100%);
+}
+
+.comparison-card.enumeration {
+    border-color: var(--enum-primary);
+    background: linear-gradient(135deg, rgba(57, 169, 0, 0.05) 0%, white 100%);
+}
+
+.comparison-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.comparison-card h6 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.comparison-details {
+    margin-top: 1rem;
+}
+
+.comparison-details h6 {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.comparison-details ul {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Badge containers */
+.badge-container {
+    margin-top: 1rem;
+}
+
+.badge-container .badge {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Info categories grid */
+.info-categories {
+    margin: 2rem 0;
+}
+
+.category-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    height: 100%;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.category-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.category-card.network {
+    border-left: 4px solid #3498db;
+}
+
+.category-card.users {
+    border-left: 4px solid #9b59b6;
+}
+
+.category-card.applications {
+    border-left: 4px solid #e67e22;
+}
+
+.category-card.audit {
+    border-left: 4px solid #27ae60;
+}
+
+.category-card h6 {
+    color: var(--enum-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Hacking phases timeline */
+.hacking-phases {
+    margin: 2rem 0;
+}
+
+.phases-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+    overflow-x: auto;
+}
+
+.phase-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+    text-align: center;
+}
+
+.phase-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #6c757d;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.phase-item.current-phase .phase-number {
+    background: var(--enum-primary);
+    box-shadow: var(--enum-shadow);
+}
+
+.phase-content h6 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0.5rem 0 0.25rem;
+}
+
+.phase-content p {
+    font-size: 0.75rem;
+    color: #6c757d;
+    margin: 0;
+}
+
+.phase-connector {
+    flex-grow: 1;
+    height: 2px;
+    background: #dee2e6;
+    margin: 0 0.5rem;
+}
+
+.phase-importance {
+    margin-top: 1.5rem;
+}
+
+/* Ethics and legal framework */
+.ethics-guidelines {
+    margin: 2rem 0;
+}
+
+.legal-framework {
+    margin: 1.5rem 0;
+}
+
+.requirement-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--enum-primary);
+    height: 100%;
+}
+
+.requirement-card h6 {
+    color: var(--enum-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.best-practices {
+    margin: 1.5rem 0;
+}
+
+.practice-list {
+    list-style: none;
+    padding: 0;
+}
+
+.practice-list li {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* Quiz styles */
+.topic-quiz {
+    background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid #e9ecef;
+    margin: 2rem 0;
+}
+
+.quiz-icon {
+    color: var(--enum-warning);
+}
+
+.quiz-question {
+    margin-top: 1.5rem;
+}
+
+.quiz-options {
+    margin-top: 1rem;
+}
+
+.quiz-option {
+    display: block;
+    margin: 0.75rem 0;
+    padding: 0.75rem;
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quiz-option:hover {
+    background: rgba(57, 169, 0, 0.05);
+    border-color: var(--enum-primary);
+}
+
+.quiz-option input[type="radio"] {
+    margin-right: 0.75rem;
+}
+
+/* Case study styles */
+.case-study {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+}
+
+.case-icon {
+    color: var(--enum-info);
+}
+
+.case-scenario {
+    background: rgba(52, 152, 219, 0.05);
+    border-left: 4px solid var(--enum-info);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.case-question {
+    margin: 1.5rem 0;
+}
+
+.case-options {
+    margin-top: 1rem;
+}
+
+.case-option {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+    text-align: left;
+    padding: 0.75rem 1rem;
+}
+
+.case-feedback {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* Topic actions */
+.topic-actions {
+    text-align: center;
+    margin: 3rem 0 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--enum-light) 0%, white 100%);
+    border-radius: 15px;
+}
+
+.btn-sena-primary {
+    background: var(--enum-gradient);
+    border: none;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: var(--enum-shadow);
+}
+
+.btn-sena-primary:hover {
+    background: var(--enum-gradient);
+    transform: translateY(-2px);
+    box-shadow: var(--enum-shadow-hover);
+    color: white;
+}
+
+.btn-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .topic-header {
+        padding: 1.5rem;
+    }
+    
+    .concept-card, .case-study, .topic-quiz {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .phases-timeline {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .phase-connector {
+        display: none;
+    }
+    
+    .comparison-table .row > div {
+        margin-bottom: 1rem;
+    }
+}

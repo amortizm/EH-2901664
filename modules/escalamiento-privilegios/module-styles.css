@@ -1,0 +1,16 @@
+/* ========================================
+   ESCALAMIENTO DE PRIVILEGIOS - ESTILOS GLOBALES ÚNICAMENTE
+   ======================================== */
+
+/* Este archivo está intencionalmente vacío de estilos personalizados */
+/* El módulo usa únicamente los estilos globales del proyecto para mantener consistencia total */
+/* con el módulo de referencia "Escaneo de Dispositivos" */
+
+/* 
+   Todos los elementos usan las clases CSS globales definidas en:
+   - assets/css/global.css
+   - assets/css/module.css  
+   - assets/css/main.css
+   
+   Esto garantiza que los colores y estilos sean idénticos al módulo de referencia.
+*/

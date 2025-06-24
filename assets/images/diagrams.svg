@@ -1,0 +1,1662 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  
+  <!-- Hacker Types Comparison -->
+  <symbol id="hacker-types" viewBox="0 0 800 320">
+    <defs>
+      <filter id="hackerTypesDropShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+        <feOffset dx="3" dy="3" result="offset"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.3"/>
+        </feComponentTransfer>
+        <feMerge> 
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/> 
+        </feMerge>
+      </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="800" height="320" fill="#f8f9fa" rx="10" stroke="#dee2e6" stroke-width="2"/>
+    
+    <!-- Title -->
+    <text x="400" y="30" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50" font-family="Arial, sans-serif">
+      Clasificación de Hackers por Intención
+    </text>
+    <text x="400" y="50" text-anchor="middle" font-size="14" fill="#7f8c8d" font-family="Arial, sans-serif">
+      Tipos principales según motivación y legalidad
+    </text>
+    
+    <!-- White Hat -->
+    <g class="white-hat">
+      <rect x="50" y="70" width="150" height="210" rx="15" fill="white" stroke="#28a745" stroke-width="4" filter="url(#hackerTypesDropShadow)"/>
+      <circle cx="125" cy="110" r="22" fill="#28a745" filter="url(#hackerTypesDropShadow)"/>
+      <path d="M115 105 L122 112 L138 96" stroke="white" stroke-width="4" fill="none"/>
+      <text x="125" y="145" text-anchor="middle" font-size="16" font-weight="bold" fill="#28a745" font-family="Arial, sans-serif">WHITE HAT</text>
+      <text x="125" y="165" text-anchor="middle" font-size="12" fill="#495057" font-family="Arial, sans-serif" font-weight="bold">Hacker Ético</text>
+      <text x="65" y="185" font-size="10" fill="#6c757d" font-family="Arial, sans-serif">• Autorización legal explícita</text>
+      <text x="65" y="200" font-size="10" fill="#6c757d" font-family="Arial, sans-serif">• Mejora de la seguridad</text>
+      <text x="65" y="215" font-size="10" fill="#6c757d" font-family="Arial, sans-serif">• Reporta vulnerabilidades</text>
+      <text x="65" y="230" font-size="10" fill="#6c757d" font-family="Arial, sans-serif">• Cumple todas las normativas</text>
+      <text x="65" y="245" font-size="10" fill="#6c757d" font-family="Arial, sans-serif">• Metodología profesional</text>
+      <text x="125" y="265" text-anchor="middle" font-size="11" fill="#28a745" font-weight="bold" font-family="Arial, sans-serif">LEGAL ✓</text>
+    </g>
+    
+    <!-- Black Hat -->
+    <g class="black-hat">
+      <rect x="225" y="70" width="150" height="210" rx="15" fill="#2c3e50" stroke="#dc3545" stroke-width="4" filter="url(#hackerTypesDropShadow)"/>
+      <circle cx="300" cy="110" r="22" fill="#dc3545" filter="url(#hackerTypesDropShadow)"/>
+      <path d="M290 100 L310 120 M310 100 L290 120" stroke="white" stroke-width="4"/>
+      <text x="300" y="145" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc3545" font-family="Arial, sans-serif">BLACK HAT</text>
+      <text x="300" y="165" text-anchor="middle" font-size="12" fill="#ecf0f1" font-family="Arial, sans-serif" font-weight="bold">Hacker Malicioso</text>
+      <text x="240" y="185" font-size="10" fill="#bdc3c7" font-family="Arial, sans-serif">• Actividad completamente ilegal</text>
+      <text x="240" y="200" font-size="10" fill="#bdc3c7" font-family="Arial, sans-serif">• Daño intencional a sistemas</text>
+      <text x="240" y="215" font-size="10" fill="#bdc3c7" font-family="Arial, sans-serif">• Beneficio personal/económico</text>
+      <text x="240" y="230" font-size="10" fill="#bdc3c7" font-family="Arial, sans-serif">• Viola leyes de ciberseguridad</text>
+      <text x="240" y="245" font-size="10" fill="#bdc3c7" font-family="Arial, sans-serif">• Oculta sus actividades</text>
+      <text x="300" y="265" text-anchor="middle" font-size="11" fill="#dc3545" font-weight="bold" font-family="Arial, sans-serif">ILEGAL ✗</text>
+    </g>
+    
+    <!-- Gray Hat -->
+    <g class="gray-hat">
+      <rect x="400" y="70" width="150" height="210" rx="15" fill="#6c757d" stroke="#ffc107" stroke-width="4" filter="url(#hackerTypesDropShadow)"/>
+      <circle cx="475" cy="110" r="22" fill="#ffc107" filter="url(#hackerTypesDropShadow)"/>
+      <path d="M465 105 L475 115 L485 105" stroke="#2c3e50" stroke-width="4" fill="none"/>
+      <text x="475" y="145" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffc107" font-family="Arial, sans-serif">GRAY HAT</text>
+      <text x="475" y="165" text-anchor="middle" font-size="12" fill="white" font-family="Arial, sans-serif" font-weight="bold">Área Gris</text>
+      <text x="415" y="185" font-size="10" fill="#f8f9fa" font-family="Arial, sans-serif">• Sin autorización previa</text>
+      <text x="415" y="200" font-size="10" fill="#f8f9fa" font-family="Arial, sans-serif">• Buenas intenciones aparentes</text>
+      <text x="415" y="215" font-size="10" fill="#f8f9fa" font-family="Arial, sans-serif">• Riesgo legal considerable</text>
+      <text x="415" y="230" font-size="10" fill="#f8f9fa" font-family="Arial, sans-serif">• Zona legalmente ambigua</text>
+      <text x="415" y="245" font-size="10" fill="#f8f9fa" font-family="Arial, sans-serif">• Puede revelar hallazgos</text>
+      <text x="475" y="265" text-anchor="middle" font-size="11" fill="#ffc107" font-weight="bold" font-family="Arial, sans-serif">RIESGO ?</text>
+    </g>
+    
+    <!-- Suicide Hacker -->
+    <g class="suicide-hat">
+      <rect x="575" y="70" width="150" height="210" rx="15" fill="#8b0000" stroke="#721c24" stroke-width="4" filter="url(#hackerTypesDropShadow)"/>
+      <circle cx="650" cy="110" r="22" fill="#721c24" filter="url(#hackerTypesDropShadow)"/>
+      <polygon points="640,105 650,95 660,105 655,115 645,115" fill="white"/>
+      <text x="650" y="145" text-anchor="middle" font-size="16" font-weight="bold" fill="#ff6b6b" font-family="Arial, sans-serif">SUICIDE HAT</text>
+      <text x="650" y="165" text-anchor="middle" font-size="12" fill="#ffcccb" font-family="Arial, sans-serif" font-weight="bold">Extremista</text>
+      <text x="590" y="185" font-size="10" fill="#ffcccb" font-family="Arial, sans-serif">• Máximo daño posible</text>
+      <text x="590" y="200" font-size="10" fill="#ffcccb" font-family="Arial, sans-serif">• Sin importar consecuencias</text>
+      <text x="590" y="215" font-size="10" fill="#ffcccb" font-family="Arial, sans-serif">• Motivación ideológica/personal</text>
+      <text x="590" y="230" font-size="10" fill="#ffcccb" font-family="Arial, sans-serif">• Extremadamente peligroso</text>
+      <text x="590" y="245" font-size="10" fill="#ffcccb" font-family="Arial, sans-serif">• Acepta consecuencias legales</text>
+      <text x="650" y="265" text-anchor="middle" font-size="11" fill="#ff6b6b" font-weight="bold" font-family="Arial, sans-serif">EXTREMO ⚠</text>
+    </g>
+    
+    <!-- Bottom information -->
+    <g class="bottom-info">
+      <rect x="50" y="290" width="700" height="25" fill="white" stroke="#dee2e6" stroke-width="1" rx="5" opacity="0.9"/>
+      <text x="400" y="305" text-anchor="middle" font-size="12" fill="#495057" font-family="Arial, sans-serif" font-weight="bold">
+        La distinción principal radica en la legalidad, autorización y propósito de las actividades
+      </text>
+    </g>
+  </symbol>    <!-- Skills Wheel -->  <symbol id="skills-wheel" viewBox="0 0 420 420">
+    <defs>
+      <!-- Enhanced font definitions for better cross-platform compatibility -->
+      <style>
+        .skills-title { 
+          font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
+          font-weight: 700; 
+          font-size: 18px;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+        }
+        .skills-subtitle { 
+          font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
+          font-weight: 600; 
+          font-size: 14px;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+        }
+        .skills-center { 
+          font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
+          font-weight: 700; 
+          font-size: 13px;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+        }
+        .skills-label { 
+          font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
+          font-weight: 700; 
+          font-size: 14px;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+        }
+        .skills-tech { 
+          font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
+          font-weight: 500; 
+          font-size: 11px;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+        }
+        .skills-motivational { 
+          font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
+          font-weight: 600; 
+          font-size: 10px;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+        }
+        .skills-legend { 
+          font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
+          font-weight: 600; 
+          font-size: 12px;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+        }
+        .skills-legend-small { 
+          font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; 
+          font-weight: 400; 
+          font-size: 10px;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+        }
+      </style>
+      
+      <!-- Friendly gradients for each skill area -->
+      <radialGradient id="friendlyProgrammingGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#81C784;stop-opacity:1" />
+      </radialGradient>
+      
+      <radialGradient id="friendlyNetworkGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#2196F3;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#64B5F6;stop-opacity:1" />
+      </radialGradient>
+      
+      <radialGradient id="friendlySystemsGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#FF9800;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#FFB74D;stop-opacity:1" />
+      </radialGradient>
+      
+      <radialGradient id="friendlyToolsGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#F44336;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#E57373;stop-opacity:1" />
+      </radialGradient>
+      
+      <radialGradient id="friendlyWebGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#9C27B0;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#BA68C8;stop-opacity:1" />
+      </radialGradient>
+      
+      <radialGradient id="friendlyCryptoGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#00BCD4;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#4DD0E1;stop-opacity:1" />
+      </radialGradient>
+      
+      <radialGradient id="friendlyCenterGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#FFC107;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#FFD54F;stop-opacity:1" />
+      </radialGradient>
+      
+      <!-- Enhanced text shadow filter for better readability -->
+      <filter id="enhancedTextShadow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="1.5"/>
+        <feOffset dx="1" dy="1" result="offset"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.8"/>
+        </feComponentTransfer>
+        <feMerge> 
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/> 
+        </feMerge>
+      </filter>
+      
+      <!-- Soft shadow filter -->
+      <filter id="friendlyShadow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+        <feOffset dx="2" dy="2" result="offset"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.3"/>
+        </feComponentTransfer>
+        <feMerge> 
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/> 
+        </feMerge>
+      </filter>
+      
+      <!-- Glow effect -->
+      <filter id="friendlyGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    
+    <!-- Friendly background with subtle pattern -->
+    <rect width="420" height="420" fill="#f8f9fa" rx="20"/>
+    
+    <!-- Decorative corner elements -->
+    <circle cx="30" cy="30" r="8" fill="#FFE082" opacity="0.6"/>
+    <circle cx="390" cy="30" r="6" fill="#FFAB91" opacity="0.6"/>
+    <circle cx="30" cy="390" r="6" fill="#C5E1A5" opacity="0.6"/>
+    <circle cx="390" cy="390" r="8" fill="#B39DDB" opacity="0.6"/>
+      <!-- Fun title with educational styling -->
+    <text x="210" y="25" text-anchor="middle" class="skills-title" fill="#1976D2" filter="url(#enhancedTextShadow)">
+      🎯 Rueda de Superpoderes
+    </text>
+    <text x="210" y="42" text-anchor="middle" class="skills-subtitle" fill="#FF6F00" filter="url(#enhancedTextShadow)">
+      del Hacker Ético
+    </text>
+    
+    <!-- Subtle background circle with friendly gradient -->
+    <circle cx="210" cy="220" r="175" fill="none" stroke="#E3F2FD" stroke-width="2" stroke-dasharray="5,5" opacity="0.6"/>
+      <!-- Center hub with friendly design -->
+    <circle cx="210" cy="220" r="45" fill="url(#friendlyCenterGradient)" filter="url(#friendlyShadow)" stroke="#FFF" stroke-width="3"/>
+    <text x="210" y="215" text-anchor="middle" class="skills-center" fill="#1565C0" filter="url(#enhancedTextShadow)">🛡️ HACKER</text>
+    <text x="210" y="230" text-anchor="middle" class="skills-center" fill="#1565C0" filter="url(#enhancedTextShadow)">ÉTICO</text>
+    
+    <!-- Skill segments with friendly styling and icons -->
+    <g class="friendly-skills">
+        <!-- Programming (Green) -->
+      <path d="M 210 75 A 145 145 0 0 1 345 145 L 255 175 A 45 45 0 0 0 210 120 Z" 
+            fill="url(#friendlyProgrammingGradient)" 
+            filter="url(#friendlyShadow)" 
+            stroke="#FFF" stroke-width="2"/>
+      <text x="290" y="110" class="skills-label" fill="white" filter="url(#enhancedTextShadow)">💻 Programación</text>
+      <text x="280" y="125" class="skills-tech" fill="#E8F5E8">Python • Java • C++</text>
+      <text x="285" y="137" class="skills-motivational" fill="#E8F5E8">¡Código creativo!</text>
+      
+      <!-- Networking (Blue) -->
+      <path d="M 345 145 A 145 145 0 0 1 345 295 L 255 265 A 45 45 0 0 0 255 175 Z" 
+            fill="url(#friendlyNetworkGradient)" 
+            filter="url(#friendlyShadow)" 
+            stroke="#FFF" stroke-width="2"/>
+      <text x="310" y="210" class="skills-label" fill="white" filter="url(#enhancedTextShadow)">🌐 Redes</text>
+      <text x="295" y="225" class="skills-tech" fill="#E3F2FD">TCP/IP • OSI • WiFi</text>
+      <text x="295" y="237" class="skills-motivational" fill="#E3F2FD">¡Conecta todo!</text>
+      
+      <!-- Operating Systems (Orange) -->
+      <path d="M 345 295 A 145 145 0 0 1 210 365 L 210 320 A 45 45 0 0 0 255 265 Z" 
+            fill="url(#friendlySystemsGradient)" 
+            filter="url(#friendlyShadow)" 
+            stroke="#FFF" stroke-width="2"/>
+      <text x="280" y="325" class="skills-label" fill="white" filter="url(#enhancedTextShadow)">⚙️ Sistemas</text>
+      <text x="265" y="340" class="skills-tech" fill="#FFF3E0">Linux • Windows</text>
+      <text x="270" y="352" class="skills-motivational" fill="#FFF3E0">¡Domina las máquinas!</text>
+      
+      <!-- Security Tools (Red) -->
+      <path d="M 210 365 A 145 145 0 0 1 75 295 L 165 265 A 45 45 0 0 0 210 320 Z" 
+            fill="url(#friendlyToolsGradient)" 
+            filter="url(#friendlyShadow)" 
+            stroke="#FFF" stroke-width="2"/>
+      <text x="130" y="325" class="skills-label" fill="white" filter="url(#enhancedTextShadow)">🔧 Herramientas</text>
+      <text x="105" y="340" class="skills-tech" fill="#FFEBEE">Nmap • Metasploit</text>
+      <text x="115" y="352" class="skills-motivational" fill="#FFEBEE">¡Tu caja de trucos!</text>
+      
+      <!-- Web Technologies (Purple) -->
+      <path d="M 75 295 A 145 145 0 0 1 75 145 L 165 175 A 45 45 0 0 0 165 265 Z" 
+            fill="url(#friendlyWebGradient)" 
+            filter="url(#friendlyShadow)" 
+            stroke="#FFF" stroke-width="2"/>
+      <text x="110" y="210" class="skills-label" fill="white" filter="url(#enhancedTextShadow)">🌍 Web</text>
+      <text x="90" y="225" class="skills-tech" fill="#F3E5F5">HTML • SQL • JS</text>
+      <text x="95" y="237" class="skills-motivational" fill="#F3E5F5">¡El mundo digital!</text>
+      
+      <!-- Cryptography (Cyan) -->
+      <path d="M 75 145 A 145 145 0 0 1 210 75 L 210 120 A 45 45 0 0 0 165 175 Z" 
+            fill="url(#friendlyCryptoGradient)" 
+            filter="url(#friendlyShadow)" 
+            stroke="#FFF" stroke-width="2"/>
+      <text x="130" y="110" class="skills-label" fill="white" filter="url(#enhancedTextShadow)">🔐 Criptografía</text>
+      <text x="105" y="125" class="skills-tech" fill="#E0F2F1">AES • RSA • Hash</text>
+      <text x="115" y="137" class="skills-motivational" fill="#E0F2F1">¡Secretos seguros!</text>
+    </g>
+      <!-- Educational legend with friendly design -->
+    <g class="friendly-legend" transform="translate(40, 380)">
+      <rect width="340" height="35" fill="white" stroke="#E1F5FE" stroke-width="2" rx="15" opacity="0.95" filter="url(#friendlyShadow)"/>
+      <text x="170" y="15" text-anchor="middle" class="skills-legend" fill="#1976D2" filter="url(#enhancedTextShadow)">
+        🎓 ¡Estas son tus superpoderes para proteger el mundo digital!
+      </text>
+      <text x="170" y="27" text-anchor="middle" class="skills-legend-small" fill="#424242">
+        Cada habilidad te hace más fuerte como guardián de la ciberseguridad 🚀
+      </text>
+    </g>
+    
+    <!-- Fun decorative elements -->
+    <g class="decorative-stars" opacity="0.7">
+      <text x="50" y="80" font-size="16" fill="#FFD700">⭐</text>
+      <text x="370" y="90" font-size="12" fill="#FF6B6B">✨</text>
+      <text x="380" y="300" font-size="14" fill="#4ECDC4">💫</text>
+      <text x="40" y="320" font-size="12" fill="#95E1D3">🌟</text>
+      <text x="60" y="160" font-size="10" fill="#F38BA8">✨</text>
+      <text x="360" y="200" font-size="10" fill="#DDA0DD">⭐</text>
+    </g>
+    
+  </symbol>
+  <!-- Hacking Concepts Flow -->
+  <symbol id="hacking-concepts-flow" viewBox="0 0 900 520">
+    <defs>
+      <linearGradient id="conceptGradientFlow" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#FF6600;stop-opacity:1" />
+        <stop offset="50%" style="stop-color:#dc3545;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#0066CC;stop-opacity:1" />
+      </linearGradient>
+      <filter id="conceptsDropShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+        <feOffset dx="3" dy="3" result="offset"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.4"/>
+        </feComponentTransfer>
+        <feMerge> 
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/> 
+        </feMerge>
+      </filter>
+      <marker id="conceptFlowArrow" markerWidth="12" markerHeight="10" refX="11" refY="5" orient="auto" markerUnits="strokeWidth">
+        <polygon points="0,0 0,10 12,5" fill="#495057" />
+      </marker>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="900" height="520" fill="#f8f9fa" stroke="#dee2e6" stroke-width="3" rx="15"/>
+    
+    <!-- Title -->
+    <text x="450" y="35" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50" font-family="Arial, sans-serif">
+      Ecosistema de Conceptos del Hacking Ético
+    </text>
+    <text x="450" y="55" text-anchor="middle" font-size="14" fill="#7f8c8d" font-family="Arial, sans-serif">
+      Interrelación entre componentes fundamentales
+    </text>
+    
+    <!-- Central concept: Hacking Value -->
+    <circle cx="450" cy="260" r="70" fill="url(#conceptGradientFlow)" opacity="0.95" filter="url(#conceptsDropShadow)"/>
+    <text x="450" y="245" text-anchor="middle" font-size="15" font-weight="bold" fill="white" font-family="Arial, sans-serif">VALOR DEL</text>
+    <text x="450" y="265" text-anchor="middle" font-size="15" font-weight="bold" fill="white" font-family="Arial, sans-serif">HACKING</text>
+    <text x="450" y="280" text-anchor="middle" font-size="11" fill="#f8f9fa" font-family="Arial, sans-serif">Evaluación integral</text>
+    <text x="450" y="292" text-anchor="middle" font-size="11" fill="#f8f9fa" font-family="Arial, sans-serif">de objetivos</text>
+    
+    <!-- Target Assessment -->
+    <rect x="130" y="90" width="160" height="90" rx="15" fill="#dc3545" opacity="0.9" stroke="#b02a37" stroke-width="3" filter="url(#conceptsDropShadow)"/>
+    <text x="210" y="115" text-anchor="middle" font-size="14" font-weight="bold" fill="white" font-family="Arial, sans-serif">OBJETIVO DE</text>
+    <text x="210" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="white" font-family="Arial, sans-serif">EVALUACIÓN</text>
+    <text x="210" y="155" text-anchor="middle" font-size="10" fill="#fdeaea" font-family="Arial, sans-serif">Sistema, red o aplicación</text>
+    <text x="210" y="168" text-anchor="middle" font-size="10" fill="#fdeaea" font-family="Arial, sans-serif">sujeto a pentesting</text>
+    
+    <!-- Attack -->
+    <rect x="610" y="90" width="160" height="90" rx="15" fill="#FF6600" opacity="0.9" stroke="#e55a00" stroke-width="3" filter="url(#conceptsDropShadow)"/>
+    <text x="690" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="white" font-family="Arial, sans-serif">VECTOR DE</text>
+    <text x="690" y="145" text-anchor="middle" font-size="14" font-weight="bold" fill="white" font-family="Arial, sans-serif">ATAQUE</text>
+    <text x="690" y="165" text-anchor="middle" font-size="10" fill="#ffeee6" font-family="Arial, sans-serif">Método específico para</text>
+    <text x="690" y="178" text-anchor="middle" font-size="10" fill="#ffeee6" font-family="Arial, sans-serif">comprometer seguridad</text>
+    
+    <!-- Exploit -->
+    <rect x="130" y="340" width="160" height="90" rx="15" fill="#0066CC" opacity="0.9" stroke="#0056b3" stroke-width="3" filter="url(#conceptsDropShadow)"/>
+    <text x="210" y="375" text-anchor="middle" font-size="14" font-weight="bold" fill="white" font-family="Arial, sans-serif">EXPLOIT</text>
+    <text x="210" y="395" text-anchor="middle" font-size="14" font-weight="bold" fill="white" font-family="Arial, sans-serif">TÉCNICO</text>
+    <text x="210" y="415" text-anchor="middle" font-size="10" fill="#e6f2ff" font-family="Arial, sans-serif">Código o herramienta que</text>
+    <text x="210" y="428" text-anchor="middle" font-size="10" fill="#e6f2ff" font-family="Arial, sans-serif">aprovecha vulnerabilidades</text>
+    
+    <!-- Zero Day -->
+    <rect x="610" y="340" width="160" height="90" rx="15" fill="#6f42c1" opacity="0.9" stroke="#5a2d91" stroke-width="3" filter="url(#conceptsDropShadow)"/>
+    <text x="690" y="370" text-anchor="middle" font-size="14" font-weight="bold" fill="white" font-family="Arial, sans-serif">VULNERABILIDAD</text>
+    <text x="690" y="390" text-anchor="middle" font-size="14" font-weight="bold" fill="white" font-family="Arial, sans-serif">DÍA CERO</text>
+    <text x="690" y="410" text-anchor="middle" font-size="10" fill="#f0ebf7" font-family="Arial, sans-serif">Falla desconocida sin</text>
+    <text x="690" y="423" text-anchor="middle" font-size="10" fill="#f0ebf7" font-family="Arial, sans-serif">parche disponible</text>
+    
+    <!-- Daisy Chain -->
+    <rect x="370" y="90" width="160" height="90" rx="15" fill="#28a745" opacity="0.9" stroke="#1e7e34" stroke-width="3" filter="url(#conceptsDropShadow)"/>
+    <text x="450" y="115" text-anchor="middle" font-size="14" font-weight="bold" fill="white" font-family="Arial, sans-serif">CADENA DE</text>
+    <text x="450" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="white" font-family="Arial, sans-serif">MARGARITAS</text>
+    <text x="450" y="155" text-anchor="middle" font-size="10" fill="#e8f5e8" font-family="Arial, sans-serif">Secuencia de ataques</text>
+    <text x="450" y="168" text-anchor="middle" font-size="10" fill="#e8f5e8" font-family="Arial, sans-serif">interconectados</text>
+    
+    <!-- Connection arrows -->
+    <g class="connection-arrows" stroke="#495057" stroke-width="3" fill="none" marker-end="url(#conceptFlowArrow)">
+      <!-- From central to peripherals -->
+      <line x1="390" y1="230" x2="270" y2="180" stroke-dasharray="8,4" opacity="0.8"/>
+      <line x1="510" y1="230" x2="630" y2="180" stroke-dasharray="8,4" opacity="0.8"/>
+      <line x1="390" y1="290" x2="270" y2="340" stroke-dasharray="8,4" opacity="0.8"/>
+      <line x1="510" y1="290" x2="630" y2="340" stroke-dasharray="8,4" opacity="0.8"/>
+      <line x1="450" y1="190" x2="450" y2="180" stroke-dasharray="8,4" opacity="0.8"/>
+      
+      <!-- Interconnections -->
+      <line x1="290" y1="140" x2="370" y2="140" opacity="0.6"/>
+      <line x1="530" y1="140" x2="610" y2="140" opacity="0.6"/>
+      <line x1="290" y1="385" x2="610" y2="385" stroke-dasharray="5,5" opacity="0.6"/>
+    </g>
+    
+    <!-- Legend and explanation -->
+    <g class="legend" transform="translate(50, 460)">
+      <rect width="800" height="50" fill="white" stroke="#dee2e6" stroke-width="2" rx="10" opacity="0.95"/>
+      <text x="400" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#2c3e50" font-family="Arial, sans-serif">
+        Marco Conceptual del Hacking Ético
+      </text>
+      <text x="400" y="35" text-anchor="middle" font-size="11" fill="#495057" font-family="Arial, sans-serif">
+        El valor del hacking se determina por la evaluación sistemática de objetivos, vectores de ataque y herramientas disponibles
+      </text>
+      <text x="400" y="48" text-anchor="middle" font-size="10" fill="#6c757d" font-family="Arial, sans-serif">
+        Cada componente contribuye a una metodología integral de evaluación de seguridad
+      </text>
+    </g>
+  </symbol>
+  <!-- Attack Lifecycle -->
+  <symbol id="attack-lifecycle" viewBox="0 0 800 620">
+    <defs>
+      <filter id="lifecycleGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+        <feDropShadow dx="3" dy="3" stdDeviation="3" flood-opacity="0.3"/>
+        <feMerge> 
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <marker id="lifecycleArrow" markerWidth="14" markerHeight="10" refX="13" refY="5" orient="auto" markerUnits="strokeWidth">
+        <polygon points="0,0 0,10 14,5" fill="#495057" />
+      </marker>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="800" height="620" fill="#f8f9fa" stroke="#dee2e6" stroke-width="3" rx="15"/>
+    
+    <!-- Title -->
+    <text x="400" y="35" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50" font-family="Arial, sans-serif">
+      Ciclo de Vida del Ataque Ético
+    </text>
+    <text x="400" y="55" text-anchor="middle" font-size="14" fill="#7f8c8d" font-family="Arial, sans-serif">
+      Metodología cíclica de penetration testing
+    </text>
+    
+    <!-- Main circular flow -->
+    <circle cx="400" cy="320" r="220" fill="none" stroke="#dee2e6" stroke-width="4" stroke-dasharray="15,8" opacity="0.6"/>
+    <circle cx="400" cy="320" r="200" fill="none" stroke="#495057" stroke-width="2" stroke-dasharray="8,4" opacity="0.8"/>
+    
+    <!-- Phase 1: Reconnaissance (12 o'clock) -->
+    <g class="phase" transform="translate(400,130)">
+      <circle r="45" fill="#39A900" filter="url(#lifecycleGlow)" stroke="#2d7600" stroke-width="3"/>
+      <text y="-8" text-anchor="middle" font-size="12" fill="white" font-weight="bold" font-family="Arial, sans-serif">RECONOCIMIENTO</text>
+      <text y="5" text-anchor="middle" font-size="9" fill="#e8f5e8" font-family="Arial, sans-serif">Recopilación de</text>
+      <text y="17" text-anchor="middle" font-size="9" fill="#e8f5e8" font-family="Arial, sans-serif">información</text>
+      <!-- Phase number -->
+      <circle cx="35" cy="-35" r="12" fill="white" stroke="#39A900" stroke-width="2"/>
+      <text x="35" y="-30" text-anchor="middle" font-size="10" fill="#39A900" font-weight="bold" font-family="Arial, sans-serif">1</text>
+    </g>
+    
+    <!-- Phase 2: Scanning (2 o'clock) -->
+    <g class="phase" transform="translate(590,210)">
+      <circle r="40" fill="#28a745" filter="url(#lifecycleGlow)" stroke="#1e7e34" stroke-width="3"/>
+      <text y="-5" text-anchor="middle" font-size="12" fill="white" font-weight="bold" font-family="Arial, sans-serif">ESCANEO</text>
+      <text y="8" text-anchor="middle" font-size="9" fill="#e8f5e8" font-family="Arial, sans-serif">Identificación de</text>
+      <text y="20" text-anchor="middle" font-size="9" fill="#e8f5e8" font-family="Arial, sans-serif">sistemas activos</text>
+      <!-- Phase number -->
+      <circle cx="30" cy="-30" r="12" fill="white" stroke="#28a745" stroke-width="2"/>
+      <text x="30" y="-25" text-anchor="middle" font-size="10" fill="#28a745" font-weight="bold" font-family="Arial, sans-serif">2</text>
+    </g>
+    
+    <!-- Phase 3: Enumeration (4 o'clock) -->
+    <g class="phase" transform="translate(590,430)">
+      <circle r="40" fill="#FF6600" filter="url(#lifecycleGlow)" stroke="#e55a00" stroke-width="3"/>
+      <text y="-5" text-anchor="middle" font-size="12" fill="white" font-weight="bold" font-family="Arial, sans-serif">ENUMERACIÓN</text>
+      <text y="8" text-anchor="middle" font-size="9" fill="#ffeee6" font-family="Arial, sans-serif">Extracción</text>
+      <text y="20" text-anchor="middle" font-size="9" fill="#ffeee6" font-family="Arial, sans-serif">detallada</text>
+      <!-- Phase number -->
+      <circle cx="30" cy="30" r="12" fill="white" stroke="#FF6600" stroke-width="2"/>
+      <text x="30" y="35" text-anchor="middle" font-size="10" fill="#FF6600" font-weight="bold" font-family="Arial, sans-serif">3</text>
+    </g>
+    
+    <!-- Phase 4: Exploitation (6 o'clock) -->
+    <g class="phase" transform="translate(400,510)">
+      <circle r="45" fill="#dc3545" filter="url(#lifecycleGlow)" stroke="#b02a37" stroke-width="3"/>
+      <text y="-8" text-anchor="middle" font-size="12" fill="white" font-weight="bold" font-family="Arial, sans-serif">EXPLOTACIÓN</text>
+      <text y="5" text-anchor="middle" font-size="9" fill="#fdeaea" font-family="Arial, sans-serif">Aprovechamiento</text>
+      <text y="17" text-anchor="middle" font-size="9" fill="#fdeaea" font-family="Arial, sans-serif">vulnerabilidades</text>
+      <!-- Phase number -->
+      <circle cx="0" cy="35" r="12" fill="white" stroke="#dc3545" stroke-width="2"/>
+      <text y="40" text-anchor="middle" font-size="10" fill="#dc3545" font-weight="bold" font-family="Arial, sans-serif">4</text>
+    </g>
+    
+    <!-- Phase 5: Access Maintenance (8 o'clock) -->
+    <g class="phase" transform="translate(210,430)">
+      <circle r="40" fill="#0066CC" filter="url(#lifecycleGlow)" stroke="#0056b3" stroke-width="3"/>
+      <text y="-5" text-anchor="middle" font-size="12" fill="white" font-weight="bold" font-family="Arial, sans-serif">MANTENIMIENTO</text>
+      <text y="8" text-anchor="middle" font-size="9" fill="#e6f2ff" font-family="Arial, sans-serif">Persistencia</text>
+      <text y="20" text-anchor="middle" font-size="9" fill="#e6f2ff" font-family="Arial, sans-serif">del acceso</text>
+      <!-- Phase number -->
+      <circle cx="-30" cy="30" r="12" fill="white" stroke="#0066CC" stroke-width="2"/>
+      <text x="-30" y="35" text-anchor="middle" font-size="10" fill="#0066CC" font-weight="bold" font-family="Arial, sans-serif">5</text>
+    </g>
+    
+    <!-- Phase 6: Covering Tracks (10 o'clock) -->
+    <g class="phase" transform="translate(210,210)">
+      <circle r="40" fill="#6f42c1" filter="url(#lifecycleGlow)" stroke="#5a2d91" stroke-width="3"/>
+      <text y="-5" text-anchor="middle" font-size="12" fill="white" font-weight="bold" font-family="Arial, sans-serif">BORRADO</text>
+      <text y="8" text-anchor="middle" font-size="9" fill="#f0ebf7" font-family="Arial, sans-serif">Eliminación</text>
+      <text y="20" text-anchor="middle" font-size="9" fill="#f0ebf7" font-family="Arial, sans-serif">de huellas</text>
+      <!-- Phase number -->
+      <circle cx="-30" cy="-30" r="12" fill="white" stroke="#6f42c1" stroke-width="2"/>
+      <text x="-30" y="-25" text-anchor="middle" font-size="10" fill="#6f42c1" font-weight="bold" font-family="Arial, sans-serif">6</text>
+    </g>
+    
+    <!-- Flow arrows -->
+    <g stroke="#495057" stroke-width="4" fill="none" opacity="0.8" marker-end="url(#lifecycleArrow)">
+      <!-- Curved arrows following the circle -->
+      <path d="M 440 160 A 200 200 0 0 1 560 240" stroke-dasharray="6,3"/>
+      <path d="M 560 400 A 200 200 0 0 1 440 480" stroke-dasharray="6,3"/>
+      <path d="M 360 480 A 200 200 0 0 1 240 400" stroke-dasharray="6,3"/>
+      <path d="M 240 240 A 200 200 0 0 1 360 160" stroke-dasharray="6,3"/>
+      <path d="M 560 270 A 200 200 0 0 1 560 370" stroke-dasharray="6,3"/>
+      <path d="M 240 370 A 200 200 0 0 1 240 270" stroke-dasharray="6,3"/>
+    </g>
+    
+    <!-- Center information -->
+    <circle cx="400" cy="320" r="70" fill="white" stroke="#0066CC" stroke-width="4" filter="url(#lifecycleGlow)"/>
+    <text x="400" y="305" text-anchor="middle" font-size="14" fill="#0066CC" font-weight="bold" font-family="Arial, sans-serif">PROCESO</text>
+    <text x="400" y="325" text-anchor="middle" font-size="14" fill="#0066CC" font-weight="bold" font-family="Arial, sans-serif">ITERATIVO</text>
+    <text x="400" y="340" text-anchor="middle" font-size="11" fill="#495057" font-family="Arial, sans-serif">Metodología</text>
+    <text x="400" y="352" text-anchor="middle" font-size="11" fill="#495057" font-family="Arial, sans-serif">cíclica</text>
+    
+    <!-- Legend -->
+    <g class="legend" transform="translate(50, 570)">
+      <rect width="700" height="40" fill="white" stroke="#dee2e6" stroke-width="2" rx="8" opacity="0.95"/>
+      <text x="350" y="18" text-anchor="middle" font-size="13" font-weight="bold" fill="#2c3e50" font-family="Arial, sans-serif">
+        Ciclo Metodológico del Pentesting Ético
+      </text>
+      <text x="350" y="32" text-anchor="middle" font-size="11" fill="#495057" font-family="Arial, sans-serif">
+        Cada fase alimenta la siguiente, permitiendo iteraciones y refinamiento continuo del proceso de evaluación
+      </text>
+    </g>
+  </symbol>
+  <!-- Security Layers - Concentric Circles Model -->
+  <symbol id="security-pyramid" viewBox="0 0 800 600">
+    <defs>
+      <!-- Gradients for each layer -->
+      <radialGradient id="dataGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#0066CC;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#004494;stop-opacity:0.8" />
+      </radialGradient>
+      <radialGradient id="hostGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#17a2b8;stop-opacity:0.8" />
+        <stop offset="100%" style="stop-color:#117a8b;stop-opacity:0.6" />
+      </radialGradient>
+      <radialGradient id="networkGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#28a745;stop-opacity:0.8" />
+        <stop offset="100%" style="stop-color:#1e7e34;stop-opacity:0.6" />
+      </radialGradient>
+      <radialGradient id="perimeterGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#ffc107;stop-opacity:0.8" />
+        <stop offset="100%" style="stop-color:#e0a800;stop-opacity:0.6" />
+      </radialGradient>
+      <radialGradient id="physicalGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#fd7e14;stop-opacity:0.8" />
+        <stop offset="100%" style="stop-color:#e8690b;stop-opacity:0.6" />
+      </radialGradient>
+      <radialGradient id="awarenessGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#6f42c1;stop-opacity:0.8" />
+        <stop offset="100%" style="stop-color:#59359a;stop-opacity:0.6" />
+      </radialGradient>
+      <radialGradient id="policyGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#dc3545;stop-opacity:0.8" />
+        <stop offset="100%" style="stop-color:#bd2130;stop-opacity:0.6" />
+      </radialGradient>
+      
+      <!-- Drop shadow filter -->
+      <filter id="defenseDropShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+        <feOffset dx="2" dy="2" result="offset"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.3"/>
+        </feComponentTransfer>
+        <feMerge> 
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/> 
+        </feMerge>
+      </filter>
+
+      <!-- Arrow marker for threats -->
+      <marker id="threatArrowConc" markerWidth="10" markerHeight="8" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+        <polygon points="0,0 0,6 9,3" fill="#dc3545" />
+      </marker>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="800" height="600" fill="#f8f9fa" rx="10"/>
+    
+    <!-- Title -->
+    <text x="400" y="35" text-anchor="middle" font-size="22" font-weight="bold" fill="#333">
+      Modelo de Defensa en Profundidad
+    </text>
+    <text x="400" y="55" text-anchor="middle" font-size="14" fill="#666">
+      Estrategia de Seguridad Multicapa
+    </text>
+    
+    <!-- Center point for concentric circles -->
+    <g transform="translate(400, 320)">
+      
+      <!-- Layer 7: Policies (Outermost circle) -->
+      <circle r="180" fill="url(#policyGradient)" stroke="#bd2130" stroke-width="2" filter="url(#defenseDropShadow)"/>
+      <text y="-160" text-anchor="middle" font-size="14" font-weight="bold" fill="white">POLÍTICAS Y PROCEDIMIENTOS</text>
+      <text y="-145" text-anchor="middle" font-size="10" fill="white">Gobierno corporativo • Marcos normativos</text>
+      
+      <!-- Layer 6: Awareness -->
+      <circle r="150" fill="url(#awarenessGradient)" stroke="#59359a" stroke-width="2" filter="url(#defenseDropShadow)"/>
+      <text y="-130" text-anchor="middle" font-size="13" font-weight="bold" fill="white">CONCIENCIACIÓN</text>
+      <text y="-115" text-anchor="middle" font-size="10" fill="white">Capacitación • Cultura de seguridad</text>
+      
+      <!-- Layer 5: Physical Security -->
+      <circle r="120" fill="url(#physicalGradient)" stroke="#e8690b" stroke-width="2" filter="url(#defenseDropShadow)"/>
+      <text y="-100" text-anchor="middle" font-size="13" font-weight="bold" fill="white">SEGURIDAD FÍSICA</text>
+      <text y="-85" text-anchor="middle" font-size="10" fill="white">Control de acceso • Videovigilancia</text>
+      
+      <!-- Layer 4: Perimeter -->
+      <circle r="90" fill="url(#perimeterGradient)" stroke="#e0a800" stroke-width="2" filter="url(#defenseDropShadow)"/>
+      <text y="-70" text-anchor="middle" font-size="12" font-weight="bold" fill="white">PERÍMETRO DE RED</text>
+      <text y="-55" text-anchor="middle" font-size="10" fill="white">Firewalls • IDS/IPS</text>
+      
+      <!-- Layer 3: Internal Network -->
+      <circle r="60" fill="url(#networkGradient)" stroke="#1e7e34" stroke-width="2" filter="url(#defenseDropShadow)"/>
+      <text y="-40" text-anchor="middle" font-size="12" font-weight="bold" fill="white">RED INTERNA</text>
+      <text y="-25" text-anchor="middle" font-size="10" fill="white">Segmentación • VLANs</text>
+      
+      <!-- Layer 2: Host -->
+      <circle r="30" fill="url(#hostGradient)" stroke="#117a8b" stroke-width="2" filter="url(#defenseDropShadow)"/>
+      <text y="-10" text-anchor="middle" font-size="11" font-weight="bold" fill="white">HOSTS</text>
+      <text y="5" text-anchor="middle" font-size="9" fill="white">Antivirus • Patches</text>
+      
+      <!-- Layer 1: Data (Center) -->
+      <circle r="15" fill="url(#dataGradient)" stroke="#004494" stroke-width="3" filter="url(#defenseDropShadow)"/>
+      <text y="3" text-anchor="middle" font-size="10" font-weight="bold" fill="white">DATOS</text>
+      
+    </g>
+    
+    <!-- Threat indicators -->
+    <g class="threats">
+      <!-- External threats arrows -->
+      <g stroke="#dc3545" stroke-width="3" fill="none" opacity="0.8">
+        <path d="M 50 320 L 180 320" marker-end="url(#threatArrowConc)"/>
+        <path d="M 750 320 L 620 320" marker-end="url(#threatArrowConc)"/>
+        <path d="M 400 100 L 400 140" marker-end="url(#threatArrowConc)"/>
+        <path d="M 400 540 L 400 500" marker-end="url(#threatArrowConc)"/>
+      </g>
+      
+      <!-- Threat labels -->
+      <text x="70" y="310" font-size="12" font-weight="bold" fill="#dc3545">AMENAZAS</text>
+      <text x="70" y="325" font-size="12" font-weight="bold" fill="#dc3545">EXTERNAS</text>
+      
+      <text x="680" y="310" font-size="12" font-weight="bold" fill="#dc3545">ATAQUES</text>
+      <text x="680" y="325" font-size="12" font-weight="bold" fill="#dc3545">DIRIGIDOS</text>
+      
+      <text x="360" y="90" font-size="12" font-weight="bold" fill="#dc3545">AMENAZAS INTERNAS</text>
+      <text x="340" y="555" font-size="12" font-weight="bold" fill="#dc3545">VULNERABILIDADES</text>
+    </g>
+    
+    <!-- Legend and explanation -->
+    <g class="legend" transform="translate(50, 450)">
+      <rect width="700" height="120" fill="white" stroke="#dee2e6" stroke-width="1" rx="8" opacity="0.95"/>
+      
+      <!-- Legend title -->
+      <text x="350" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">
+        Principio de Defensa en Profundidad
+      </text>
+      
+      <!-- Key points -->
+      <g class="legend-items">
+        <circle cx="30" cy="40" r="8" fill="#39A900"/>
+        <text x="50" y="45" font-size="11" fill="#333">
+          <tspan font-weight="bold">Múltiples capas:</tspan> Cada círculo representa una capa de seguridad independiente
+        </text>
+        
+        <circle cx="30" cy="60" r="8" fill="#FF6600"/>
+        <text x="50" y="65" font-size="11" fill="#333">
+          <tspan font-weight="bold">Redundancia:</tspan> El fallo de una capa no compromete las demás
+        </text>
+        
+        <circle cx="30" cy="80" r="8" fill="#0066CC"/>
+        <text x="50" y="85" font-size="11" fill="#333">
+          <tspan font-weight="bold">Protección progresiva:</tspan> Los atacantes deben superar todas las capas
+        </text>
+        
+        <circle cx="370" cy="40" r="8" fill="#dc3545"/>
+        <text x="390" y="45" font-size="11" fill="#333">
+          <tspan font-weight="bold">Centro crítico:</tspan> Los datos son el activo más valioso a proteger
+        </text>
+        
+        <circle cx="370" cy="60" r="8" fill="#6f42c1"/>
+        <text x="390" y="65" font-size="11" fill="#333">          <tspan font-weight="bold">Detección temprana:</tspan> Las capas externas alertan sobre amenazas
+        </text>
+        
+        <circle cx="370" cy="80" r="8" fill="#28a745"/>
+        <text x="390" y="85" font-size="11" fill="#333">
+          <tspan font-weight="bold">Respuesta escalonada:</tspan> Tiempo para reaccionar ante incidentes
+        </text>
+      </g>
+    </g>
+    
+  </symbol>  <!-- ============================================ -->
+  <!-- DIAGRAMAS DEL MÓDULO 2: METODOLOGÍAS Y ESTÁNDARES -->
+  <!-- ============================================ -->
+
+  <!-- Ciclo de Metodología CEH -->
+    <defs>
+      <linearGradient id="owaspGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:#dc3545;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#a71e2a;stop-opacity:1" />
+      </linearGradient>
+      <linearGradient id="owaspGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:#fd7e14;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#d63384;stop-opacity:1" />
+      </linearGradient>
+      <linearGradient id="owaspGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:#ffc107;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#fd7e14;stop-opacity:1" />
+      </linearGradient>
+    </defs>
+
+    <!-- Background -->
+    <rect width="800" height="500" fill="#f8f9fa" stroke="#dc3545" stroke-width="2" rx="10"/>
+    
+    <!-- Title -->
+    <text x="400" y="35" text-anchor="middle" font-size="24" font-weight="bold" fill="#2c3e50" font-family="Arial, sans-serif">
+      OWASP Top 10 - Pirámide de Vulnerabilidades
+    </text>
+    
+    <!-- Level 1: Critical -->
+    <polygon points="400,80 320,160 480,160" fill="url(#owaspGradient1)" stroke="#000" stroke-width="1"/>
+    <text x="400" y="115" text-anchor="middle" font-size="14" font-weight="bold" fill="white" font-family="Arial, sans-serif">CRÍTICO</text>
+    <text x="400" y="135" text-anchor="middle" font-size="11" fill="#ffe6e6" font-family="Arial, sans-serif">Injection, Broken Auth</text>
+    <text x="400" y="150" text-anchor="middle" font-size="11" fill="#ffe6e6" font-family="Arial, sans-serif">Sensitive Data Exposure</text>
+    
+    <!-- Level 2: High -->
+    <polygon points="400,160 280,240 520,240" fill="url(#owaspGradient2)" stroke="#000" stroke-width="1"/>
+    <text x="400" y="190" text-anchor="middle" font-size="13" font-weight="bold" fill="white" font-family="Arial, sans-serif">ALTO</text>
+    <text x="400" y="210" text-anchor="middle" font-size="10" fill="#fff0e6" font-family="Arial, sans-serif">XXE, Broken Access Control</text>
+    <text x="400" y="225" text-anchor="middle" font-size="10" fill="#fff0e6" font-family="Arial, sans-serif">Security Misconfiguration</text>
+    
+    <!-- Level 3: Medium -->
+    <polygon points="400,240 240,320 560,320" fill="url(#owaspGradient3)" stroke="#000" stroke-width="1"/>
+    <text x="400" y="270" text-anchor="middle" font-size="12" font-weight="bold" fill="white" font-family="Arial, sans-serif">MEDIO</text>
+    <text x="400" y="290" text-anchor="middle" font-size="10" fill="#333" font-family="Arial, sans-serif">Cross-Site Scripting (XSS)</text>
+    <text x="400" y="305" text-anchor="middle" font-size="10" fill="#333" font-family="Arial, sans-serif">Insecure Deserialization</text>
+    
+    <!-- OWASP Testing Framework -->
+    <rect x="50" y="360" width="700" height="120" rx="10" fill="#ffffff" stroke="#dc3545" stroke-width="2"/>
+    <text x="400" y="385" text-anchor="middle" font-size="16" font-weight="bold" fill="#dc3545" font-family="Arial, sans-serif">
+      Framework de Testing OWASP
+    </text>
+    
+    <text x="150" y="415" text-anchor="middle" font-size="12" fill="#2c3e50" font-family="Arial, sans-serif">
+      <tspan font-weight="bold">1. Planificación:</tspan>
+    </text>
+    <text x="150" y="430" text-anchor="middle" font-size="10" fill="#6c757d" font-family="Arial, sans-serif">
+      Definir alcance y objetivos
+    </text>
+    
+    <text x="400" y="415" text-anchor="middle" font-size="12" fill="#2c3e50" font-family="Arial, sans-serif">
+      <tspan font-weight="bold">2. Ejecución:</tspan>
+    </text>
+    <text x="400" y="430" text-anchor="middle" font-size="10" fill="#6c757d" font-family="Arial, sans-serif">
+      Pruebas automatizadas y manuales
+    </text>
+    
+    <text x="650" y="415" text-anchor="middle" font-size="12" fill="#2c3e50" font-family="Arial, sans-serif">
+      <tspan font-weight="bold">3. Reporte:</tspan>
+    </text>
+    <text x="650" y="430" text-anchor="middle" font-size="10" fill="#6c757d" font-family="Arial, sans-serif">
+      Documentación de hallazgos
+    </text>
+    
+    <text x="275" y="455" text-anchor="middle" font-size="12" fill="#2c3e50" font-family="Arial, sans-serif">
+      <tspan font-weight="bold">4. Remediación:</tspan>
+    </text>
+    <text x="275" y="470" text-anchor="middle" font-size="10" fill="#6c757d" font-family="Arial, sans-serif">
+      Corrección de vulnerabilidades
+    </text>
+    
+    <text x="525" y="455" text-anchor="middle" font-size="12" fill="#2c3e50" font-family="Arial, sans-serif">
+      <tspan font-weight="bold">5. Verificación:</tspan>
+    </text>
+    <text x="525" y="470" text-anchor="middle" font-size="10" fill="#6c757d" font-family="Arial, sans-serif">
+      Validación de correcciones
+    </text>
+  </symbol>
+    <!-- Ciclo de Metodología CEH -->
+
+  <!-- ============================================ -->
+    <defs>
+      <linearGradient id="cehGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#0066CC;stop-opacity:1" />
+        <stop offset="50%" style="stop-color:#004499;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#003366;stop-opacity:1" />
+      </linearGradient>
+      <filter id="cehShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+        <feOffset dx="3" dy="3" result="offset"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.4"/>
+        </feComponentTransfer>
+        <feMerge> 
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/> 
+        </feMerge>
+      </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="800" height="600" fill="#f8f9fa" stroke="#0066CC" stroke-width="3" rx="15"/>
+    
+    <!-- Title -->
+    <text x="400" y="40" text-anchor="middle" font-size="26" font-weight="bold" fill="#0066CC" font-family="Arial, sans-serif">
+      Metodología CEH
+    </text>
+    <text x="400" y="65" text-anchor="middle" font-size="16" fill="#2c3e50" font-family="Arial, sans-serif">
+      Certified Ethical Hacker - Ciclo de Evaluación
+    </text>
+    
+    <!-- Central Circle -->
+    <circle cx="400" cy="300" r="80" fill="url(#cehGradient)" filter="url(#cehShadow)"/>
+    <text x="400" y="290" text-anchor="middle" font-size="16" font-weight="bold" fill="white" font-family="Arial, sans-serif">CEH</text>
+    <text x="400" y="310" text-anchor="middle" font-size="12" fill="#cce7ff" font-family="Arial, sans-serif">Metodología</text>
+    <text x="400" y="325" text-anchor="middle" font-size="12" fill="#cce7ff" font-family="Arial, sans-serif">Integral</text>
+    
+    <!-- Phase 1: Reconnaissance (Top) -->
+    <circle cx="400" cy="150" r="60" fill="url(#cehGradient)" filter="url(#cehShadow)"/>
+    <text x="400" y="140" text-anchor="middle" font-size="12" font-weight="bold" fill="white" font-family="Arial, sans-serif">1. RECONNAISSANCE</text>
+    <text x="400" y="155" text-anchor="middle" font-size="9" fill="#cce7ff" font-family="Arial, sans-serif">Footprinting</text>
+    <text x="400" y="168" text-anchor="middle" font-size="9" fill="#cce7ff" font-family="Arial, sans-serif">Información pasiva</text>
+    
+    <!-- Phase 2: Scanning (Top Right) -->
+    <circle cx="580" cy="220" r="60" fill="url(#cehGradient)" filter="url(#cehShadow)"/>
+    <text x="580" y="210" text-anchor="middle" font-size="12" font-weight="bold" fill="white" font-family="Arial, sans-serif">2. SCANNING</text>
+    <text x="580" y="225" text-anchor="middle" font-size="9" fill="#cce7ff" font-family="Arial, sans-serif">Descubrimiento</text>
+    <text x="580" y="238" text-anchor="middle" font-size="9" fill="#cce7ff" font-family="Arial, sans-serif">de servicios</text>
+    
+    <!-- Phase 3: Enumeration (Bottom Right) -->
+    <circle cx="580" cy="380" r="60" fill="url(#cehGradient)" filter="url(#cehShadow)"/>
+    <text x="580" y="370" text-anchor="middle" font-size="12" font-weight="bold" fill="white" font-family="Arial, sans-serif">3. ENUMERATION</text>
+    <text x="580" y="385" text-anchor="middle" font-size="9" fill="#cce7ff" font-family="Arial, sans-serif">Extracción</text>
+    <text x="580" y="398" text-anchor="middle" font-size="9" fill="#cce7ff" font-family="Arial, sans-serif">información</text>
+    
+    <!-- Phase 4: Gaining Access (Bottom) -->
+    <circle cx="400" cy="450" r="60" fill="url(#cehGradient)" filter="url(#cehShadow)"/>
+    <text x="400" y="440" text-anchor="middle" font-size="12" font-weight="bold" fill="white" font-family="Arial, sans-serif">4. GAINING ACCESS</text>
+    <text x="400" y="455" text-anchor="middle" font-size="9" fill="#cce7ff" font-family="Arial, sans-serif">Explotación</text>
+    <text x="400" y="468" text-anchor="middle" font-size="9" fill="#cce7ff" font-family="Arial, sans-serif">vulnerabilidades</text>
+    
+    <!-- Phase 5: Maintaining Access (Bottom Left) -->
+    <circle cx="220" cy="380" r="60" fill="url(#cehGradient)" filter="url(#cehShadow)"/>
+    <text x="220" y="370" text-anchor="middle" font-size="12" font-weight="bold" fill="white" font-family="Arial, sans-serif">5. MAINTAINING</text>
+    <text x="220" y="385" text-anchor="middle" font-size="9" fill="#cce7ff" font-family="Arial, sans-serif">Persistencia</text>
+    <text x="220" y="398" text-anchor="middle" font-size="9" fill="#cce7ff" font-family="Arial, sans-serif">en el sistema</text>
+    
+    <!-- Phase 6: Covering Tracks (Top Left) -->
+    <circle cx="220" cy="220" r="60" fill="url(#cehGradient)" filter="url(#cehShadow)"/>
+    <text x="220" y="210" text-anchor="middle" font-size="12" font-weight="bold" fill="white" font-family="Arial, sans-serif">6. COVERING</text>
+    <text x="220" y="225" text-anchor="middle" font-size="9" fill="#cce7ff" font-family="Arial, sans-serif">Eliminación</text>
+    <text x="220" y="238" text-anchor="middle" font-size="9" fill="#cce7ff" font-family="Arial, sans-serif">de evidencias</text>
+    
+    <!-- Arrows connecting phases -->
+    <path d="M 400 210 Q 490 180 520 220" stroke="#0066CC" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M 580 280 Q 580 330 580 320" stroke="#0066CC" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M 520 380 Q 460 415 460 450" stroke="#0066CC" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M 340 450 Q 280 415 280 380" stroke="#0066CC" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M 170 380 Q 150 290 170 240" stroke="#0066CC" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M 260 160 Q 350 130 340 160" stroke="#0066CC" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    
+    <!-- Arrow marker definition -->
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#0066CC"/>
+      </marker>
+    </defs>
+    
+    <!-- Documentation Box -->
+    <rect x="50" y="520" width="700" height="60" rx="10" fill="#e3f2fd" stroke="#0066CC" stroke-width="1"/>
+    <text x="400" y="540" text-anchor="middle" font-size="14" font-weight="bold" fill="#0066CC" font-family="Arial, sans-serif">
+      Documentación y Reporte CEH
+    </text>
+    <text x="200" y="560" text-anchor="middle" font-size="11" fill="#2c3e50" font-family="Arial, sans-serif">
+      • Evidencias de penetración exitosa
+    </text>
+    <text x="400" y="560" text-anchor="middle" font-size="11" fill="#2c3e50" font-family="Arial, sans-serif">
+      • Vulnerabilidades identificadas    </text>
+    <text x="600" y="560" text-anchor="middle" font-size="11" fill="#2c3e50" font-family="Arial, sans-serif">
+      • Recomendaciones de seguridad
+    </text>
+  </symbol>
+
+  <!-- OSSTMM Framework Diagram -->
+  <symbol id="osstmm-framework" viewBox="0 0 900 600">
+    <defs>
+      <linearGradient id="osstmmGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+      </linearGradient>
+      <filter id="osstmmShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+        <feOffset dx="2" dy="2" result="offset"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.3"/>
+        </feComponentTransfer>
+        <feMerge>
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="900" height="600" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" rx="15"/>
+    
+    <!-- Title -->
+    <text x="450" y="40" text-anchor="middle" font-size="28" font-weight="bold" fill="#1e293b">
+      OSSTMM Framework
+    </text>
+    <text x="450" y="65" text-anchor="middle" font-size="16" fill="#64748b">
+      Open Source Security Testing Methodology Manual
+    </text>
+    
+    <!-- Central circle -->
+    <circle cx="450" cy="320" r="100" fill="url(#osstmmGradient)" filter="url(#osstmmShadow)"/>
+    <text x="450" y="315" text-anchor="middle" font-size="16" font-weight="bold" fill="white">OSSTMM</text>
+    <text x="450" y="335" text-anchor="middle" font-size="12" fill="#e2e8f0">Core</text>
+    
+    <!-- Framework components -->
+    <!-- Scope -->
+    <rect x="50" y="120" width="150" height="80" rx="10" fill="#10b981" filter="url(#osstmmShadow)"/>
+    <text x="125" y="150" text-anchor="middle" font-size="14" font-weight="bold" fill="white">ALCANCE</text>
+    <text x="125" y="170" text-anchor="middle" font-size="11" fill="#d1fae5">Definición de</text>
+    <text x="125" y="185" text-anchor="middle" font-size="11" fill="#d1fae5">objetivos</text>
+    
+    <!-- Channels -->
+    <rect x="700" y="120" width="150" height="80" rx="10" fill="#f59e0b" filter="url(#osstmmShadow)"/>
+    <text x="775" y="150" text-anchor="middle" font-size="14" font-weight="bold" fill="white">CANALES</text>
+    <text x="775" y="170" text-anchor="middle" font-size="11" fill="#fef3c7">Vectores de</text>
+    <text x="775" y="185" text-anchor="middle" font-size="11" fill="#fef3c7">comunicación</text>
+    
+    <!-- Security Testing -->
+    <rect x="50" y="480" width="150" height="80" rx="10" fill="#ef4444" filter="url(#osstmmShadow)"/>
+    <text x="125" y="510" text-anchor="middle" font-size="14" font-weight="bold" fill="white">PRUEBAS</text>
+    <text x="125" y="530" text-anchor="middle" font-size="11" fill="#fecaca">Testing de</text>
+    <text x="125" y="545" text-anchor="middle" font-size="11" fill="#fecaca">seguridad</text>
+    
+    <!-- Metrics -->
+    <rect x="700" y="480" width="150" height="80" rx="10" fill="#8b5cf6" filter="url(#osstmmShadow)"/>
+    <text x="775" y="510" text-anchor="middle" font-size="14" font-weight="bold" fill="white">MÉTRICAS</text>
+    <text x="775" y="530" text-anchor="middle" font-size="11" fill="#e9d5ff">Medición de</text>
+    <text x="775" y="545" text-anchor="middle" font-size="11" fill="#e9d5ff">resultados</text>
+    
+    <!-- Connection lines -->
+    <line x1="200" y1="160" x2="350" y2="260" stroke="#64748b" stroke-width="2" stroke-dasharray="5,5"/>
+    <line x1="700" y1="160" x2="550" y2="260" stroke="#64748b" stroke-width="2" stroke-dasharray="5,5"/>
+    <line x1="200" y1="520" x2="350" y2="380" stroke="#64748b" stroke-width="2" stroke-dasharray="5,5"/>
+    <line x1="700" y1="520" x2="550" y2="380" stroke="#64748b" stroke-width="2" stroke-dasharray="5,5"/>
+  </symbol>
+
+  <!-- OWASP Methodology Diagram -->
+  <symbol id="owasp-methodology" viewBox="0 0 850 550">
+    <defs>
+      <linearGradient id="owaspGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#b91c1c;stop-opacity:1" />
+      </linearGradient>
+      <filter id="owaspShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+        <feOffset dx="2" dy="2" result="offset"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.3"/>
+        </feComponentTransfer>
+        <feMerge>
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="850" height="550" fill="#fef2f2" stroke="#fecaca" stroke-width="2" rx="15"/>
+    
+    <!-- Title -->
+    <text x="425" y="40" text-anchor="middle" font-size="26" font-weight="bold" fill="#991b1b">
+      OWASP Testing Guide
+    </text>
+    <text x="425" y="65" text-anchor="middle" font-size="15" fill="#7f1d1d">
+      Open Web Application Security Project
+    </text>
+    
+    <!-- Testing phases flow -->
+    <!-- Phase 1 -->
+    <rect x="50" y="120" width="140" height="60" rx="8" fill="url(#owaspGradient)" filter="url(#owaspShadow)"/>
+    <text x="120" y="140" text-anchor="middle" font-size="12" font-weight="bold" fill="white">PLANIFICACIÓN</text>
+    <text x="120" y="155" text-anchor="middle" font-size="10" fill="#fecaca">Definir alcance</text>
+    <text x="120" y="170" text-anchor="middle" font-size="10" fill="#fecaca">y objetivos</text>
+    
+    <!-- Arrow 1 -->
+    <polygon points="200,150 230,150 225,140 240,155 225,170 230,160 200,160" fill="#64748b"/>
+    
+    <!-- Phase 2 -->
+    <rect x="250" y="120" width="140" height="60" rx="8" fill="url(#owaspGradient)" filter="url(#owaspShadow)"/>
+    <text x="320" y="140" text-anchor="middle" font-size="12" font-weight="bold" fill="white">RECOPILACIÓN</text>
+    <text x="320" y="155" text-anchor="middle" font-size="10" fill="#fecaca">Información</text>
+    <text x="320" y="170" text-anchor="middle" font-size="10" fill="#fecaca">del objetivo</text>
+    
+    <!-- Arrow 2 -->
+    <polygon points="400,150 430,150 425,140 440,155 425,170 430,160 400,160" fill="#64748b"/>
+    
+    <!-- Phase 3 -->
+    <rect x="450" y="120" width="140" height="60" rx="8" fill="url(#owaspGradient)" filter="url(#owaspShadow)"/>
+    <text x="520" y="140" text-anchor="middle" font-size="12" font-weight="bold" fill="white">ANÁLISIS</text>
+    <text x="520" y="155" text-anchor="middle" font-size="10" fill="#fecaca">Identificar</text>
+    <text x="520" y="170" text-anchor="middle" font-size="10" fill="#fecaca">vulnerabilidades</text>
+    
+    <!-- Arrow 3 -->
+    <polygon points="600,150 630,150 625,140 640,155 625,170 630,160 600,160" fill="#64748b"/>
+    
+    <!-- Phase 4 -->
+    <rect x="650" y="120" width="140" height="60" rx="8" fill="url(#owaspGradient)" filter="url(#owaspShadow)"/>
+    <text x="720" y="140" text-anchor="middle" font-size="12" font-weight="bold" fill="white">REPORTE</text>
+    <text x="720" y="155" text-anchor="middle" font-size="10" fill="#fecaca">Documentar</text>
+    <text x="720" y="170" text-anchor="middle" font-size="10" fill="#fecaca">hallazgos</text>
+    
+    <!-- Testing categories -->
+    <text x="425" y="250" text-anchor="middle" font-size="18" font-weight="bold" fill="#991b1b">
+      Categorías de Testing
+    </text>
+    
+    <!-- Category boxes -->
+    <rect x="80" y="280" width="160" height="50" rx="5" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="160" y="300" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">Information Gathering</text>
+    <text x="160" y="315" text-anchor="middle" font-size="9" fill="#7f1d1d">Recopilación de datos</text>
+    
+    <rect x="260" y="280" width="160" height="50" rx="5" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="340" y="300" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">Configuration Testing</text>
+    <text x="340" y="315" text-anchor="middle" font-size="9" fill="#7f1d1d">Pruebas de configuración</text>
+    
+    <rect x="440" y="280" width="160" height="50" rx="5" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="520" y="300" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">Authentication Testing</text>
+    <text x="520" y="315" text-anchor="middle" font-size="9" fill="#7f1d1d">Pruebas de autenticación</text>
+    
+    <rect x="80" y="350" width="160" height="50" rx="5" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="160" y="370" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">Session Management</text>
+    <text x="160" y="385" text-anchor="middle" font-size="9" fill="#7f1d1d">Gestión de sesiones</text>
+    
+    <rect x="260" y="350" width="160" height="50" rx="5" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="340" y="370" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">Authorization Testing</text>
+    <text x="340" y="385" text-anchor="middle" font-size="9" fill="#7f1d1d">Pruebas de autorización</text>
+    
+    <rect x="440" y="350" width="160" height="50" rx="5" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="520" y="370" text-anchor="middle" font-size="11" font-weight="bold" fill="#991b1b">Data Validation Testing</text>
+    <text x="520" y="385" text-anchor="middle" font-size="9" fill="#7f1d1d">Validación de datos</text>
+    
+    <!-- OWASP Top 10 reference -->
+    <rect x="200" y="450" width="450" height="60" rx="8" fill="#fecaca" stroke="#dc2626"/>
+    <text x="425" y="470" text-anchor="middle" font-size="14" font-weight="bold" fill="#991b1b">
+      OWASP Top 10 - 2025
+    </text>
+    <text x="425" y="485" text-anchor="middle" font-size="11" fill="#7f1d1d">
+      Las 10 vulnerabilidades de seguridad web más críticas
+    </text>
+    <text x="425" y="500" text-anchor="middle" font-size="10" fill="#7f1d1d">
+      Injection • Broken Authentication • Sensitive Data • XXE • Broken Access Control
+    </text>
+  </symbol>
+  
+  <!-- CEH Process Flow Diagram -->
+  <symbol id="ceh-process-flow" viewBox="0 0 800 620">
+    <defs>
+      <linearGradient id="cehGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+      </linearGradient>
+      <filter id="cehShadow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+        <feOffset dx="2" dy="2" result="offset"/>
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="0.3"/>
+        </feComponentTransfer>
+        <feMerge>
+          <feMergeNode/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    
+    <!-- Background -->
+    <rect width="800" height="620" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="2" rx="15"/>
+    
+    <!-- Title -->
+    <text x="400" y="40" text-anchor="middle" font-size="26" font-weight="bold" fill="#065f46">
+      CEH Methodology
+    </text>
+    <text x="400" y="65" text-anchor="middle" font-size="15" fill="#047857">
+      Certified Ethical Hacker Process Flow
+    </text>
+    
+    <!-- Step 1 -->
+    <circle cx="150" cy="140" r="45" fill="url(#cehGradient)" filter="url(#cehShadow)"/>
+    <text x="150" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="white">PASO 1</text>
+    <text x="150" y="150" text-anchor="middle" font-size="10" fill="#d1fae5">Obtención de</text>
+    <text x="150" y="162" text-anchor="middle" font-size="10" fill="#d1fae5">Información</text>
+    
+    <!-- Arrow 1 -->
+    <line x1="195" y1="140" x2="255" y2="140" stroke="#047857" stroke-width="3" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 2 -->
+    <circle cx="300" cy="140" r="45" fill="url(#cehGradient)" filter="url(#cehShadow)"/>
+    <text x="300" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="white">PASO 2</text>
+    <text x="300" y="150" text-anchor="middle" font-size="10" fill="#d1fae5">Obtención de</text>
+    <text x="300" y="162" text-anchor="middle" font-size="10" fill="#d1fae5">Acceso</text>
+    
+    <!-- Arrow 2 -->
+    <line x1="345" y1="140" x2="405" y2="140" stroke="#047857" stroke-width="3" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 3 -->
+    <circle cx="450" cy="140" r="45" fill="url(#cehGradient)" filter="url(#cehShadow)"/>
+    <text x="450" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="white">PASO 3</text>
+    <text x="450" y="150" text-anchor="middle" font-size="10" fill="#d1fae5">Enumeración</text>
+    
+    <!-- Arrow 3 -->
+    <line x1="495" y1="140" x2="555" y2="140" stroke="#047857" stroke-width="3" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 4 -->
+    <circle cx="600" cy="140" r="45" fill="url(#cehGradient)" filter="url(#cehShadow)"/>
+    <text x="600" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="white">PASO 4</text>
+    <text x="600" y="150" text-anchor="middle" font-size="10" fill="#d1fae5">Escalamiento</text>
+    <text x="600" y="162" text-anchor="middle" font-size="10" fill="#d1fae5">Privilegios</text>
+    
+    <!-- Arrow down -->
+    <line x1="600" y1="185" x2="600" y2="245" stroke="#047857" stroke-width="3" marker-end="url(#arrowhead)"/>
+    
+    <!-- Step 5 -->
+    <circle cx="600" cy="290" r="45" fill="url(#cehGradient)" filter="url(#cehShadow)"/>
+    <text x="600" y="285" text-anchor="middle" font-size="12" font-weight="bold" fill="white">PASO 5</text>
+    <text x="600" y="300" text-anchor="middle" font-size="10" fill="#d1fae5">Reporte de</text>
+    <text x="600" y="312" text-anchor="middle" font-size="10" fill="#d1fae5">Hallazgos</text>
+    
+    <!-- Arrow marker definition -->
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#047857"/>
+      </marker>
+    </defs>
+    
+    <!-- Detailed descriptions -->
+    <rect x="50" y="380" width="700" height="200" rx="10" fill="#ecfdf5" stroke="#34d399"/>
+    
+    <text x="400" y="410" text-anchor="middle" font-size="16" font-weight="bold" fill="#065f46">
+      Descripción Detallada de Cada Fase
+    </text>
+    
+    <text x="80" y="440" font-size="12" font-weight="bold" fill="#047857">
+      1. Obtención de Información (Footprinting):
+    </text>
+    <text x="100" y="455" font-size="11" fill="#065f46">
+      • Recopilación pasiva y activa de datos • Análisis de DNS • WHOIS • Redes sociales
+    </text>
+    
+    <text x="80" y="480" font-size="12" font-weight="bold" fill="#047857">
+      2. Obtención de Acceso (Gaining Access):
+    </text>
+    <text x="100" y="495" font-size="11" fill="#065f46">
+      • Exploiting vulnerabilidades • Password cracking • SQL injection • Buffer overflow
+    </text>
+    
+    <text x="80" y="520" font-size="12" font-weight="bold" fill="#047857">
+      3. Enumeración:
+    </text>
+    <text x="100" y="535" font-size="11" fill="#065f46">
+      • Banner grabbing • Port scanning • Service enumeration • OS fingerprinting
+    </text>
+    
+    <text x="80" y="560" font-size="12" font-weight="bold" fill="#047857">
+      4. Escalamiento de Privilegios & 5. Reporte:
+    </text>
+    <text x="100" y="575" font-size="11" fill="#065f46">
+      • Privilege escalation • Mantener acceso • Documentar hallazgos • Recomendaciones
+    </text>
+  </symbol>
+
+  <!-- Placeholder for Scan Types Overview -->  <!-- MÓDULO: FOOTPRINTING Y RECONOCIMIENTO -->
+    <symbol id="footprinting-process-flow" viewBox="0 0 900 620">
+    <rect x="50" y="50" width="800" height="520" fill="#f8f9fa" stroke="#6c757d" stroke-width="2" rx="10"/>
+    <text x="450" y="80" text-anchor="middle" font-size="20" font-weight="bold" fill="#495057">Proceso de Footprinting</text>
+    
+    <rect x="100" y="120" width="150" height="60" fill="#007bff" stroke="#0056b3" stroke-width="2" rx="5"/>
+    <text x="175" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Reconocimiento</text>
+    <text x="175" y="170" text-anchor="middle" font-size="12" fill="white">Pasivo</text>
+    
+    <rect x="300" y="120" width="150" height="60" fill="#28a745" stroke="#1e7e34" stroke-width="2" rx="5"/>
+    <text x="375" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Recolección</text>
+    <text x="375" y="170" text-anchor="middle" font-size="12" fill="white">de Información</text>
+    
+    <rect x="500" y="120" width="150" height="60" fill="#ffc107" stroke="#e0a800" stroke-width="2" rx="5"/>
+    <text x="575" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057">Análisis</text>
+    <text x="575" y="170" text-anchor="middle" font-size="12" fill="#495057">de Datos</text>
+    
+    <rect x="700" y="120" width="150" height="60" fill="#dc3545" stroke="#c82333" stroke-width="2" rx="5"/>
+    <text x="775" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Documentación</text>
+    <text x="775" y="170" text-anchor="middle" font-size="12" fill="white">de Resultados</text>
+    
+    <!-- Flechas -->
+    <defs>
+        <marker id="arrowhead-flow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#495057"/>
+        </marker>
+    </defs>
+    <path d="M 250 150 L 300 150" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead-flow)"/>
+    <path d="M 450 150 L 500 150" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead-flow)"/>
+    <path d="M 650 150 L 700 150" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead-flow)"/>
+    
+    <!-- Detalles adicionales -->
+    <rect x="100" y="250" width="700" height="300" fill="#e9ecef" stroke="#6c757d" stroke-width="1" rx="5"/>
+    <text x="450" y="280" text-anchor="middle" font-size="16" font-weight="bold" fill="#495057">Técnicas y Herramientas</text>
+    
+    <text x="120" y="310" font-size="14" font-weight="bold" fill="#007bff">WHOIS Lookup</text>
+    <text x="120" y="330" font-size="12" fill="#495057">• Información de dominio</text>
+    <text x="120" y="345" font-size="12" fill="#495057">• Datos de contacto</text>
+    
+    <text x="320" y="310" font-size="14" font-weight="bold" fill="#28a745">DNS Enumeration</text>
+    <text x="320" y="330" font-size="12" fill="#495057">• Registros DNS</text>
+    <text x="320" y="345" font-size="12" fill="#495057">• Subdominios</text>
+    
+    <text x="520" y="310" font-size="14" font-weight="bold" fill="#ffc107">Google Dorking</text>
+    <text x="520" y="330" font-size="12" fill="#495057">• Búsquedas avanzadas</text>
+    <text x="520" y="345" font-size="12" fill="#495057">• Información expuesta</text>
+    
+    <text x="120" y="390" font-size="14" font-weight="bold" fill="#dc3545">Social Media</text>
+    <text x="120" y="410" font-size="12" fill="#495057">• Perfiles corporativos</text>
+    <text x="120" y="425" font-size="12" fill="#495057">• Información de empleados</text>
+    
+    <text x="320" y="390" font-size="14" font-weight="bold" fill="#6f42c1">Wayback Machine</text>
+    <text x="320" y="410" font-size="12" fill="#495057">• Versiones históricas</text>
+    <text x="320" y="425" font-size="12" fill="#495057">• Archivos eliminados</text>
+    
+    <text x="520" y="390" font-size="14" font-weight="bold" fill="#20c997">Shodan</text>
+    <text x="520" y="410" font-size="12" fill="#495057">• Dispositivos conectados</text>
+    <text x="520" y="425" font-size="12" fill="#495057">• Servicios expuestos</text>
+  </symbol>
+  <symbol id="methodology-diagram" viewBox="0 0 850 550">
+    <rect x="50" y="50" width="750" height="450" fill="#f8f9fa" stroke="#6c757d" stroke-width="2" rx="10"/>
+    <text x="425" y="80" text-anchor="middle" font-size="20" font-weight="bold" fill="#495057">Metodología de Footprinting</text>
+    
+    <!-- Fase 1 -->
+    <circle cx="150" cy="150" r="40" fill="#007bff" stroke="#0056b3" stroke-width="3"/>
+    <text x="150" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Fase 1</text>
+    <text x="150" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">Reconocimiento</text>
+    <text x="150" y="215" text-anchor="middle" font-size="10" fill="#6c757d">Pasivo</text>
+    
+    <!-- Fase 2 -->
+    <circle cx="350" cy="150" r="40" fill="#28a745" stroke="#1e7e34" stroke-width="3"/>
+    <text x="350" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Fase 2</text>
+    <text x="350" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">Enumeración</text>
+    <text x="350" y="215" text-anchor="middle" font-size="10" fill="#6c757d">Semi-activa</text>
+    
+    <!-- Fase 3 -->
+    <circle cx="550" cy="150" r="40" fill="#ffc107" stroke="#e0a800" stroke-width="3"/>
+    <text x="550" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057">Fase 3</text>
+    <text x="550" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">Escaneo</text>
+    <text x="550" y="215" text-anchor="middle" font-size="10" fill="#6c757d">Activo</text>
+    
+    <!-- Fase 4 -->
+    <circle cx="750" cy="150" r="40" fill="#dc3545" stroke="#c82333" stroke-width="3"/>
+    <text x="750" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Fase 4</text>
+    <text x="750" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">Análisis</text>
+    <text x="750" y="215" text-anchor="middle" font-size="10" fill="#6c757d">Documentación</text>
+    
+    <!-- Conexiones -->
+    <defs>
+        <marker id="arrowhead-method" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#495057"/>
+        </marker>
+    </defs>
+    <path d="M 190 150 L 310 150" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead-method)"/>
+    <path d="M 390 150 L 510 150" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead-method)"/>
+    <path d="M 590 150 L 710 150" stroke="#495057" stroke-width="2" marker-end="url(#arrowhead-method)"/>
+    
+    <!-- Detalles de cada fase -->
+    <rect x="75" y="280" width="650" height="180" fill="#e9ecef" stroke="#6c757d" stroke-width="1" rx="5"/>
+    <text x="400" y="305" text-anchor="middle" font-size="16" font-weight="bold" fill="#495057">Actividades por Fase</text>
+    
+    <text x="100" y="330" font-size="12" font-weight="bold" fill="#007bff">Reconocimiento:</text>
+    <text x="100" y="345" font-size="10" fill="#495057">• Google Dorking</text>
+    <text x="100" y="358" font-size="10" fill="#495057">• Redes Sociales</text>
+    
+    <text x="250" y="330" font-size="12" font-weight="bold" fill="#28a745">Enumeración:</text>
+    <text x="250" y="345" font-size="10" fill="#495057">• WHOIS Lookup</text>
+    <text x="250" y="358" font-size="10" fill="#495057">• DNS Records</text>
+    
+    <text x="400" y="330" font-size="12" font-weight="bold" fill="#ffc107">Escaneo:</text>
+    <text x="400" y="345" font-size="10" fill="#495057">• Port Scanning</text>
+    <text x="400" y="358" font-size="10" fill="#495057">• Service Detection</text>
+    
+    <text x="550" y="330" font-size="12" font-weight="bold" fill="#dc3545">Análisis:</text>
+    <text x="550" y="345" font-size="10" fill="#495057">• Vulnerabilities</text>
+    <text x="550" y="358" font-size="10" fill="#495057">• Risk Assessment</text>
+  </symbol>
+  <symbol id="tools-comparison" viewBox="0 0 800 450">
+    <rect x="50" y="50" width="700" height="350" fill="#f8f9fa" stroke="#6c757d" stroke-width="2" rx="10"/>
+    <text x="400" y="80" text-anchor="middle" font-size="20" font-weight="bold" fill="#495057">Comparación de Herramientas</text>
+    
+    <!-- Encabezados -->
+    <rect x="75" y="100" width="120" height="40" fill="#007bff" stroke="#0056b3" stroke-width="2" rx="3"/>
+    <text x="135" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Herramienta</text>
+    
+    <rect x="200" y="100" width="100" height="40" fill="#28a745" stroke="#1e7e34" stroke-width="2" rx="3"/>
+    <text x="250" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Tipo</text>
+    
+    <rect x="305" y="100" width="120" height="40" fill="#ffc107" stroke="#e0a800" stroke-width="2" rx="3"/>
+    <text x="365" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057">Función</text>
+    
+    <rect x="430" y="100" width="100" height="40" fill="#dc3545" stroke="#c82333" stroke-width="2" rx="3"/>
+    <text x="480" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Dificultad</text>
+    
+    <rect x="535" y="100" width="140" height="40" fill="#6f42c1" stroke="#59359a" stroke-width="2" rx="3"/>
+    <text x="605" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Plataforma</text>
+    
+    <!-- Filas de datos -->
+    <rect x="75" y="145" width="600" height="30" fill="#ffffff" stroke="#dee2e6" stroke-width="1"/>
+    <text x="135" y="165" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">WHOIS</text>
+    <text x="250" y="165" text-anchor="middle" font-size="12" fill="#495057">Consulta</text>
+    <text x="365" y="165" text-anchor="middle" font-size="12" fill="#495057">Info dominio</text>
+    <text x="480" y="165" text-anchor="middle" font-size="12" fill="#28a745">Fácil</text>
+    <text x="605" y="165" text-anchor="middle" font-size="12" fill="#495057">Web/CLI</text>
+    
+    <rect x="75" y="180" width="600" height="30" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+    <text x="135" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">theHarvester</text>
+    <text x="250" y="200" text-anchor="middle" font-size="12" fill="#495057">OSINT</text>
+    <text x="365" y="200" text-anchor="middle" font-size="12" fill="#495057">Email/Sub</text>
+    <text x="480" y="200" text-anchor="middle" font-size="12" fill="#ffc107">Media</text>
+    <text x="605" y="200" text-anchor="middle" font-size="12" fill="#495057">CLI</text>
+    
+    <rect x="75" y="215" width="600" height="30" fill="#ffffff" stroke="#dee2e6" stroke-width="1"/>
+    <text x="135" y="235" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">Shodan</text>
+    <text x="250" y="235" text-anchor="middle" font-size="12" fill="#495057">Motor</text>
+    <text x="365" y="235" text-anchor="middle" font-size="12" fill="#495057">IoT/Servicios</text>
+    <text x="480" y="235" text-anchor="middle" font-size="12" fill="#28a745">Fácil</text>
+    <text x="605" y="235" text-anchor="middle" font-size="12" fill="#495057">Web/API</text>
+    
+    <rect x="75" y="250" width="600" height="30" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+    <text x="135" y="270" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">Maltego</text>
+    <text x="250" y="270" text-anchor="middle" font-size="12" fill="#495057">OSINT</text>
+    <text x="365" y="270" text-anchor="middle" font-size="12" fill="#495057">Relaciones</text>
+    <text x="480" y="270" text-anchor="middle" font-size="12" fill="#dc3545">Difícil</text>
+    <text x="605" y="270" text-anchor="middle" font-size="12" fill="#495057">Desktop</text>
+    
+    <rect x="75" y="285" width="600" height="30" fill="#ffffff" stroke="#dee2e6" stroke-width="1"/>
+    <text x="135" y="305" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">Fierce</text>
+    <text x="250" y="305" text-anchor="middle" font-size="12" fill="#495057">DNS</text>
+    <text x="365" y="305" text-anchor="middle" font-size="12" fill="#495057">Subdominios</text>
+    <text x="480" y="305" text-anchor="middle" font-size="12" fill="#ffc107">Media</text>
+    <text x="605" y="305" text-anchor="middle" font-size="12" fill="#495057">CLI</text>
+    
+    <rect x="75" y="320" width="600" height="30" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"/>
+    <text x="135" y="340" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">Netcraft</text>
+    <text x="250" y="340" text-anchor="middle" font-size="12" fill="#495057">Web</text>
+    <text x="365" y="340" text-anchor="middle" font-size="12" fill="#495057">Tecnologías</text>
+    <text x="480" y="340" text-anchor="middle" font-size="12" fill="#28a745">Fácil</text>
+    <text x="605" y="340" text-anchor="middle" font-size="12" fill="#495057">Web</text>
+  </symbol>
+  <symbol id="google-dorks-map" viewBox="0 0 750 500">
+    <rect x="50" y="50" width="650" height="400" fill="#f8f9fa" stroke="#6c757d" stroke-width="2" rx="10"/>
+    <text x="375" y="80" text-anchor="middle" font-size="20" font-weight="bold" fill="#495057">Google Dorks Map</text>
+    
+    <!-- Categorías principales -->
+    <rect x="100" y="120" width="150" height="80" fill="#007bff" stroke="#0056b3" stroke-width="2" rx="5"/>
+    <text x="175" y="150" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Información</text>
+    <text x="175" y="165" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Básica</text>
+    <text x="175" y="185" text-anchor="middle" font-size="10" fill="#cce7ff">site:</text>
+    <text x="175" y="195" text-anchor="middle" font-size="10" fill="#cce7ff">filetype:</text>
+    
+    <rect x="300" y="120" width="150" height="80" fill="#28a745" stroke="#1e7e34" stroke-width="2" rx="5"/>
+    <text x="375" y="150" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Archivos</text>
+    <text x="375" y="165" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Sensibles</text>
+    <text x="375" y="185" text-anchor="middle" font-size="10" fill="#d4e7d4">intitle:</text>
+    <text x="375" y="195" text-anchor="middle" font-size="10" fill="#d4e7d4">inurl:</text>
+    
+    <rect x="500" y="120" width="150" height="80" fill="#ffc107" stroke="#e0a800" stroke-width="2" rx="5"/>
+    <text x="575" y="150" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057">Vulnerabilidades</text>
+    <text x="575" y="165" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057">Web</text>
+    <text x="575" y="185" text-anchor="middle" font-size="10" fill="#6c6c00">intext:</text>
+    <text x="575" y="195" text-anchor="middle" font-size="10" fill="#6c6c00">cache:</text>
+    
+    <!-- Ejemplos específicos -->
+    <rect x="100" y="230" width="550" height="180" fill="#e9ecef" stroke="#6c757d" stroke-width="1" rx="5"/>
+    <text x="375" y="255" text-anchor="middle" font-size="16" font-weight="bold" fill="#495057">Ejemplos de Google Dorks</text>
+    
+    <text x="120" y="280" font-size="12" font-weight="bold" fill="#007bff">Información de dominio:</text>
+    <text x="120" y="295" font-size="10" font-family="monospace" fill="#495057">site:example.com</text>
+    <text x="120" y="308" font-size="10" font-family="monospace" fill="#495057">site:example.com filetype:pdf</text>
+    
+    <text x="120" y="330" font-size="12" font-weight="bold" fill="#28a745">Archivos expuestos:</text>
+    <text x="120" y="345" font-size="10" font-family="monospace" fill="#495057">filetype:xls "password"</text>
+    <text x="120" y="358" font-size="10" font-family="monospace" fill="#495057">intitle:"index of" "config.php"</text>
+    
+    <text x="120" y="380" font-size="12" font-weight="bold" fill="#ffc107">Páginas vulnerables:</text>
+    <text x="120" y="395" font-size="10" font-family="monospace" fill="#495057">inurl:admin.php</text>
+    
+    <!-- Advertencia -->
+    <rect x="400" y="280" width="220" height="100" fill="#fff3cd" stroke="#ffeaa7" stroke-width="2" rx="5"/>
+    <text x="510" y="300" text-anchor="middle" font-size="12" font-weight="bold" fill="#856404">⚠️ ADVERTENCIA</text>
+    <text x="510" y="320" text-anchor="middle" font-size="10" fill="#856404">Usar Google Dorks</text>
+    <text x="510" y="335" text-anchor="middle" font-size="10" fill="#856404">con fines educativos</text>
+    <text x="510" y="350" text-anchor="middle" font-size="10" fill="#856404">y éticos únicamente.</text>
+    <text x="510" y="370" text-anchor="middle" font-size="10" fill="#856404">Respetar términos de servicio.</text>
+  </symbol>
+  <symbol id="techniques-matrix" viewBox="0 0 800 600">
+    <rect x="50" y="50" width="700" height="500" fill="#f8f9fa" stroke="#6c757d" stroke-width="2" rx="10"/>
+    <text x="400" y="80" text-anchor="middle" font-size="20" font-weight="bold" fill="#495057">Matriz de Técnicas de Footprinting</text>
+    
+    <!-- Ejes -->
+    <text x="30" y="300" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057" transform="rotate(-90 30 300)">Nivel de Detección</text>
+    <text x="400" y="530" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057">Complejidad Técnica</text>
+    
+    <!-- Líneas de referencia -->
+    <line x1="100" y1="120" x2="700" y2="120" stroke="#dee2e6" stroke-width="1"/>
+    <line x1="100" y1="200" x2="700" y2="200" stroke="#dee2e6" stroke-width="1"/>
+    <line x1="100" y1="280" x2="700" y2="280" stroke="#dee2e6" stroke-width="1"/>
+    <line x1="100" y1="360" x2="700" y2="360" stroke="#dee2e6" stroke-width="1"/>
+    <line x1="100" y1="440" x2="700" y2="440" stroke="#dee2e6" stroke-width="1"/>
+    
+    <line x1="100" y1="120" x2="100" y2="440" stroke="#dee2e6" stroke-width="1"/>
+    <line x1="200" y1="120" x2="200" y2="440" stroke="#dee2e6" stroke-width="1"/>
+    <line x1="300" y1="120" x2="300" y2="440" stroke="#dee2e6" stroke-width="1"/>
+    <line x1="400" y1="120" x2="400" y2="440" stroke="#dee2e6" stroke-width="1"/>
+    <line x1="500" y1="120" x2="500" y2="440" stroke="#dee2e6" stroke-width="1"/>
+    <line x1="600" y1="120" x2="600" y2="440" stroke="#dee2e6" stroke-width="1"/>
+    <line x1="700" y1="120" x2="700" y2="440" stroke="#dee2e6" stroke-width="1"/>
+    
+    <!-- Etiquetas de ejes -->
+    <text x="80" y="125" text-anchor="middle" font-size="10" fill="#6c757d">Alto</text>
+    <text x="80" y="205" text-anchor="middle" font-size="10" fill="#6c757d">Medio-Alto</text>
+    <text x="80" y="285" text-anchor="middle" font-size="10" fill="#6c757d">Medio</text>
+    <text x="80" y="365" text-anchor="middle" font-size="10" fill="#6c757d">Medio-Bajo</text>
+    <text x="80" y="445" text-anchor="middle" font-size="10" fill="#6c757d">Bajo</text>
+    
+    <text x="150" y="460" text-anchor="middle" font-size="10" fill="#6c757d">Básica</text>
+    <text x="250" y="460" text-anchor="middle" font-size="10" fill="#6c757d">Intermedia</text>
+    <text x="450" y="460" text-anchor="middle" font-size="10" fill="#6c757d">Avanzada</text>
+    <text x="650" y="460" text-anchor="middle" font-size="10" fill="#6c757d">Experta</text>
+    
+    <!-- Técnicas posicionadas en la matriz -->
+    <!-- Reconocimiento Pasivo (Bajo riesgo, Básico) -->
+    <circle cx="150" cy="400" r="15" fill="#28a745" stroke="#1e7e34" stroke-width="2"/>
+    <text x="150" y="405" text-anchor="middle" font-size="8" font-weight="bold" fill="white">OSINT</text>
+    <text x="150" y="425" text-anchor="middle" font-size="8" fill="#495057">Google</text>
+    
+    <!-- WHOIS (Bajo riesgo, Básico) -->
+    <circle cx="180" cy="380" r="15" fill="#007bff" stroke="#0056b3" stroke-width="2"/>
+    <text x="180" y="385" text-anchor="middle" font-size="8" font-weight="bold" fill="white">WHOIS</text>
+    
+    <!-- DNS Lookup (Medio-Bajo riesgo, Intermedio) -->
+    <circle cx="250" cy="320" r="15" fill="#17a2b8" stroke="#138496" stroke-width="2"/>
+    <text x="250" y="325" text-anchor="middle" font-size="8" font-weight="bold" fill="white">DNS</text>
+    
+    <!-- Port Scanning (Medio-Alto riesgo, Avanzado) -->
+    <circle cx="450" cy="180" r="15" fill="#ffc107" stroke="#e0a800" stroke-width="2"/>
+    <text x="450" y="185" text-anchor="middle" font-size="8" font-weight="bold" fill="#495057">Ports</text>
+    
+    <!-- Vulnerability Scanning (Alto riesgo, Experto) -->
+    <circle cx="600" cy="140" r="15" fill="#dc3545" stroke="#c82333" stroke-width="2"/>
+    <text x="600" y="145" text-anchor="middle" font-size="8" font-weight="bold" fill="white">Vuln</text>
+    
+    <!-- Social Engineering (Medio riesgo, Intermedio) -->
+    <circle cx="280" cy="280" r="15" fill="#6f42c1" stroke="#59359a" stroke-width="2"/>
+    <text x="280" y="285" text-anchor="middle" font-size="8" font-weight="bold" fill="white">Social</text>
+    
+    <!-- Shodan (Medio-Bajo riesgo, Intermedio) -->
+    <circle cx="300" cy="340" r="15" fill="#fd7e14" stroke="#e55a00" stroke-width="2"/>
+    <text x="300" y="345" text-anchor="middle" font-size="8" font-weight="bold" fill="white">Shodan</text>
+    
+    <!-- Leyenda -->
+    <rect x="520" y="480" width="200" height="60" fill="#ffffff" stroke="#6c757d" stroke-width="1" rx="3"/>
+    <text x="620" y="500" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">Leyenda</text>
+    <circle cx="540" cy="515" r="5" fill="#28a745"/>
+    <text x="555" y="520" font-size="10" fill="#495057">Bajo Riesgo</text>
+    <circle cx="540" cy="530" r="5" fill="#ffc107"/>
+    <text x="555" y="535" font-size="10" fill="#495057">Medio Riesgo</text>
+    <circle cx="640" cy="515" r="5" fill="#dc3545"/>
+    <text x="655" y="520" font-size="10" fill="#495057">Alto Riesgo</text>
+  </symbol>
+  <symbol id="osint-framework" viewBox="0 0 900 650">
+    <rect x="50" y="50" width="800" height="550" fill="#f8f9fa" stroke="#6c757d" stroke-width="2" rx="10"/>
+    <text x="450" y="80" text-anchor="middle" font-size="20" font-weight="bold" fill="#495057">Framework OSINT</text>
+    
+    <!-- Centro: OSINT -->
+    <circle cx="450" cy="320" r="50" fill="#007bff" stroke="#0056b3" stroke-width="3"/>
+    <text x="450" y="325" text-anchor="middle" font-size="16" font-weight="bold" fill="white">OSINT</text>
+    
+    <!-- Categorías principales -->
+    <!-- Dominios y DNS -->
+    <rect x="120" y="150" width="120" height="60" fill="#28a745" stroke="#1e7e34" stroke-width="2" rx="5"/>
+    <text x="180" y="175" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Dominios</text>
+    <text x="180" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="white">&amp; DNS</text>
+    <text x="180" y="205" text-anchor="middle" font-size="9" fill="#d4e7d4">WHOIS, DNS</text>
+    
+    <!-- Redes Sociales -->
+    <rect x="280" y="120" width="120" height="60" fill="#6f42c1" stroke="#59359a" stroke-width="2" rx="5"/>
+    <text x="340" y="145" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Redes</text>
+    <text x="340" y="160" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Sociales</text>
+    <text x="340" y="175" text-anchor="middle" font-size="9" fill="#e6d7ff">LinkedIn, Twitter</text>
+    
+    <!-- Motores de Búsqueda -->
+    <rect x="480" y="120" width="120" height="60" fill="#17a2b8" stroke="#138496" stroke-width="2" rx="5"/>
+    <text x="540" y="145" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Motores</text>
+    <text x="540" y="160" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Búsqueda</text>
+    <text x="540" y="175" text-anchor="middle" font-size="9" fill="#d1ecf1">Google, Bing</text>
+    
+    <!-- Dispositivos IoT -->
+    <rect x="640" y="150" width="120" height="60" fill="#fd7e14" stroke="#e55a00" stroke-width="2" rx="5"/>
+    <text x="700" y="175" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Dispositivos</text>
+    <text x="700" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="white">IoT</text>
+    <text x="700" y="205" text-anchor="middle" font-size="9" fill="#fff2e6">Shodan, Censys</text>
+    
+    <!-- Archivos y Documentos -->
+    <rect x="120" y="450" width="120" height="60" fill="#dc3545" stroke="#c82333" stroke-width="2" rx="5"/>
+    <text x="180" y="475" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Archivos</text>
+    <text x="180" y="490" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Documentos</text>
+    <text x="180" y="505" text-anchor="middle" font-size="9" fill="#f5c6cb">PDFs, Office</text>
+    
+    <!-- Bases de Datos -->
+    <rect x="280" y="480" width="120" height="60" fill="#20c997" stroke="#1aa37a" stroke-width="2" rx="5"/>
+    <text x="340" y="505" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Bases de</text>
+    <text x="340" y="520" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Datos</text>
+    <text x="340" y="535" text-anchor="middle" font-size="9" fill="#d1f2eb">Leaks, Breaches</text>
+    
+    <!-- Tecnologías Web -->
+    <rect x="480" y="480" width="120" height="60" fill="#ffc107" stroke="#e0a800" stroke-width="2" rx="5"/>
+    <text x="540" y="505" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">Tecnologías</text>
+    <text x="540" y="520" text-anchor="middle" font-size="12" font-weight="bold" fill="#495057">Web</text>
+    <text x="540" y="535" text-anchor="middle" font-size="9" fill="#6c6c00">Wappalyzer</text>
+    
+    <!-- Archivos Históricos -->
+    <rect x="640" y="450" width="120" height="60" fill="#6c757d" stroke="#545b62" stroke-width="2" rx="5"/>
+    <text x="700" y="475" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Archivos</text>
+    <text x="700" y="490" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Históricos</text>
+    <text x="700" y="505" text-anchor="middle" font-size="9" fill="#d6d8db">Wayback Machine</text>
+    
+    <!-- Conexiones desde el centro -->
+    <line x1="420" y1="290" x2="220" y2="200" stroke="#495057" stroke-width="2"/>
+    <line x1="440" y1="280" x2="350" y2="180" stroke="#495057" stroke-width="2"/>
+    <line x1="460" y1="280" x2="530" y2="180" stroke="#495057" stroke-width="2"/>
+    <line x1="480" y1="290" x2="680" y2="200" stroke="#495057" stroke-width="2"/>
+    
+    <line x1="420" y1="350" x2="220" y2="460" stroke="#495057" stroke-width="2"/>
+    <line x1="440" y1="360" x2="350" y2="480" stroke="#495057" stroke-width="2"/>
+    <line x1="460" y1="360" x2="530" y2="480" stroke="#495057" stroke-width="2"/>
+    <line x1="480" y1="350" x2="680" y2="460" stroke="#495057" stroke-width="2"/>
+    
+    <!-- Información adicional -->
+    <rect x="320" y="250" width="260" height="100" fill="#e9ecef" stroke="#6c757d" stroke-width="1" rx="5"/>
+    <text x="450" y="270" text-anchor="middle" font-size="14" font-weight="bold" fill="#495057">Open Source Intelligence</text>
+    <text x="450" y="290" text-anchor="middle" font-size="10" fill="#495057">Recopilación de información</text>
+    <text x="450" y="302" text-anchor="middle" font-size="10" fill="#495057">de fuentes públicas</text>
+    <text x="450" y="320" text-anchor="middle" font-size="10" fill="#495057">Legal y ético</text>
+    <text x="450" y="332" text-anchor="middle" font-size="10" fill="#495057">No intrusivo</text>
+  </symbol>
+
+  <!-- MÓDULO: ESCANEO DE DISPOSITIVOS -->
+  
+  <symbol id="scan-types-overview" viewBox="0 0 900 500">
+    <rect width="900" height="500" fill="#fff8e1" stroke="#f57f17" stroke-width="3" rx="15"/>
+    <text x="450" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#f57f17" font-family="Arial, sans-serif">
+      Scan Types Overview
+    </text>
+    <text x="450" y="250" text-anchor="middle" font-size="16" fill="#6c757d" font-family="Arial, sans-serif">
+      Vista general de tipos de escaneo
+    </text>
+  </symbol>
+
+  <symbol id="scanning-methodology" viewBox="0 0 800 600">
+    <rect width="800" height="600" fill="#e0f2f1" stroke="#00695c" stroke-width="3" rx="15"/>
+    <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#00695c" font-family="Arial, sans-serif">
+      Scanning Methodology
+    </text>
+    <text x="400" y="300" text-anchor="middle" font-size="16" fill="#6c757d" font-family="Arial, sans-serif">
+      Metodología de escaneo de dispositivos
+    </text>
+  </symbol>
+
+  <symbol id="ceh-methodology" viewBox="0 0 900 650">
+    <rect width="900" height="650" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="3" rx="15"/>
+    <text x="450" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#7b1fa2" font-family="Arial, sans-serif">
+      CEH Methodology
+    </text>
+    <text x="450" y="325" text-anchor="middle" font-size="16" fill="#6c757d" font-family="Arial, sans-serif">
+      Metodología CEH para escaneo
+    </text>
+  </symbol>
+
+  <symbol id="nmap-process-flow" viewBox="0 0 800 400">
+    <rect width="800" height="400" fill="#ffebee" stroke="#d32f2f" stroke-width="3" rx="15"/>
+    <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#d32f2f" font-family="Arial, sans-serif">
+      Nmap Process Flow
+    </text>
+    <text x="400" y="200" text-anchor="middle" font-size="16" fill="#6c757d" font-family="Arial, sans-serif">
+      Flujo de proceso de Nmap
+    </text>
+  </symbol>
+
+  <symbol id="banner-grabbing" viewBox="0 0 700 500">
+    <rect width="700" height="500" fill="#e8f5e9" stroke="#388e3c" stroke-width="3" rx="15"/>
+    <text x="350" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#388e3c" font-family="Arial, sans-serif">
+      Banner Grabbing
+    </text>
+    <text x="350" y="250" text-anchor="middle" font-size="16" fill="#6c757d" font-family="Arial, sans-serif">
+      Técnicas de captura de banners
+    </text>
+  </symbol>
+
+  <symbol id="proxy-tor-network" viewBox="0 0 900 400">
+    <rect width="900" height="400" fill="#fff3e0" stroke="#ff9800" stroke-width="3" rx="15"/>
+    <text x="450" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#ff9800" font-family="Arial, sans-serif">
+      Proxy Tor Network
+    </text>
+    <text x="450" y="200" text-anchor="middle" font-size="16" fill="#6c757d" font-family="Arial, sans-serif">
+      Red Proxy y Tor para anonimato
+    </text>
+  </symbol>
+
+  <symbol id="vulnerability-analysis" viewBox="0 0 800 550">
+    <rect width="800" height="550" fill="#fce4ec" stroke="#e91e63" stroke-width="3" rx="15"/>
+    <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#e91e63" font-family="Arial, sans-serif">
+      Vulnerability Analysis
+    </text>
+    <text x="400" y="275" text-anchor="middle" font-size="16" fill="#6c757d" font-family="Arial, sans-serif">
+      Análisis de vulnerabilidades
+    </text>
+  </symbol>
+
+</svg>

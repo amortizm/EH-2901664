@@ -1,0 +1,580 @@
+/* ========================================
+   PAGES STYLES - PROGRESS & RESOURCES
+   ======================================== */
+
+/* Page Header */
+.page-header {
+    background: var(--sena-gradient);
+    padding: 120px 0 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+/* Overall Progress Card */
+.overall-progress-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.progress-ring {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.progress-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--sena-secondary) 0deg,
+        var(--sena-primary) var(--progress-angle, 0deg),
+        rgba(255, 255, 255, 0.2) var(--progress-angle, 0deg)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.progress-circle::before {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+}
+
+.progress-percentage {
+    position: relative;
+    z-index: 2;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sena-primary);
+}
+
+/* Statistics Cards */
+.stat-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    box-shadow: var(--sena-shadow-dark);
+    transition: all 0.3s ease;
+    border: none;
+    height: 100%;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    margin: 0 auto 1rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--sena-primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--sena-gray);
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+/* Module Progress Cards */
+.module-progress-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: var(--sena-shadow-dark);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.module-progress-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.module-progress-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.module-progress-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    margin-right: 1rem;
+}
+
+.module-progress-info h5 {
+    margin-bottom: 0.25rem;
+    color: var(--sena-primary);
+}
+
+.module-progress-info small {
+    color: var(--sena-gray);
+}
+
+.progress-bar-animated {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar-animated::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--sena-gradient);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    width: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 3rem;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 3rem;
+}
+
+.timeline-content {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: var(--sena-shadow-dark);
+    position: relative;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    right: -20px;
+    border-left-color: white;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    left: -20px;
+    border-right-color: white;
+}
+
+.timeline-marker {
+    position: absolute;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background: var(--sena-primary);
+    border: 4px solid white;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.timeline-item:nth-child(odd) .timeline-marker {
+    right: -42px;
+}
+
+.timeline-item:nth-child(even) .timeline-marker {
+    left: -42px;
+}
+
+.timeline-date {
+    color: var(--sena-secondary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-title {
+    color: var(--sena-primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-description {
+    color: var(--sena-gray);
+    margin-bottom: 0;
+}
+
+/* Achievement Badges */
+.achievement-badge {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--sena-shadow-dark);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-badge.earned {
+    border: 2px solid var(--sena-primary);
+}
+
+.achievement-badge.earned::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--sena-gradient);
+}
+
+.achievement-badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.achievement-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+.achievement-badge.earned .achievement-icon {
+    background: var(--sena-gradient);
+}
+
+.achievement-badge:not(.earned) .achievement-icon {
+    background: var(--sena-gray);
+    opacity: 0.5;
+}
+
+.achievement-title {
+    font-weight: 600;
+    color: var(--sena-primary);
+    margin-bottom: 0.5rem;
+}
+
+.achievement-description {
+    color: var(--sena-gray);
+    font-size: 0.9rem;
+}
+
+/* Resource Categories */
+.category-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--sena-shadow-dark);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    height: 100%;
+}
+
+.category-card:hover,
+.category-card.active {
+    border-color: var(--sena-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(57, 169, 0, 0.15);
+}
+
+.category-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--sena-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--sena-primary);
+    margin: 0 auto 1rem;
+    transition: all 0.3s ease;
+}
+
+.category-card.active .category-icon {
+    background: var(--sena-gradient);
+    color: white;
+}
+
+.category-card h5 {
+    color: var(--sena-primary);
+    margin-bottom: 0.5rem;
+}
+
+.resource-count {
+    background: var(--sena-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Resource Cards */
+.resource-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: var(--sena-shadow-dark);
+    transition: all 0.3s ease;
+    height: 100%;
+    border: none;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.resource-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.resource-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    margin-right: 1rem;
+}
+
+.resource-title {
+    color: var(--sena-primary);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.resource-category {
+    color: var(--sena-gray);
+    font-size: 0.9rem;
+}
+
+.resource-description {
+    color: var(--sena-gray);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.resource-tags {
+    margin-bottom: 1rem;
+}
+
+.resource-tag {
+    background: var(--sena-light);
+    color: var(--sena-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.resource-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Quick Access Cards */
+.quick-access-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--sena-shadow-dark);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.quick-access-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.qa-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    margin: 0 auto 1rem;
+}
+
+.quick-access-card h5 {
+    color: var(--sena-primary);
+    margin-bottom: 1rem;
+}
+
+.quick-access-card p {
+    color: var(--sena-gray);
+    margin-bottom: 1.5rem;
+}
+
+/* Search Box */
+.search-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-box .form-control {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 10px;
+}
+
+.search-box .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(57, 169, 0, 0.25);
+    border-color: var(--sena-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 3rem !important;
+        padding-right: 0 !important;
+    }
+    
+    .timeline-marker {
+        left: 10px !important;
+        right: auto !important;
+    }
+    
+    .timeline-content::before {
+        left: -20px !important;
+        right: auto !important;
+        border-right-color: white !important;
+        border-left-color: transparent !important;
+    }
+    
+    .overall-progress-card {
+        margin-top: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .category-card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-header {
+        padding: 100px 0 40px;
+    }
+    
+    .display-5 {
+        font-size: 2rem;
+    }
+    
+    .progress-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .progress-circle::before {
+        width: 75px;
+        height: 75px;
+    }
+    
+    .progress-percentage {
+        font-size: 1.2rem;
+    }
+}

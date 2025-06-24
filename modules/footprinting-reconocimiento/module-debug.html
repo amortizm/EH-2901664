@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico SVG - Footprinting Module</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .button {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+        }
+        .button.success { background: linear-gradient(135deg, #27ae60, #229954); }
+        .button.warning { background: linear-gradient(135deg, #f39c12, #e67e22); }
+        .button.danger { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.4;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-success { background-color: #27ae60; }
+        .status-warning { background-color: #f39c12; }
+        .status-error { background-color: #e74c3c; }
+        
+        .info-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .info-card h3 {
+            margin-top: 0;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Diagnóstico SVG - Módulo Footprinting</h1>
+        
+        <div class="info-card">
+            <h3>📋 Estado del Sistema</h3>
+            <p><span class="status-indicator" id="serverStatus"></span>Servidor HTTP: <span id="serverText">Verificando...</span></p>
+            <p><span class="status-indicator" id="moduleStatus"></span>Módulo cargado: <span id="moduleText">Verificando...</span></p>
+            <p><span class="status-indicator" id="svgStatus"></span>Sistema SVG: <span id="svgText">Verificando...</span></p>
+        </div>
+        
+        <div class="test-section">
+            <h3>🔍 Tests de Diagnóstico</h3>
+            <button class="button" onclick="runBasicTest()">Test Básico</button>
+            <button class="button success" onclick="runFullDiagnostic()">Diagnóstico Completo</button>
+            <button class="button warning" onclick="runSVGPathTest()">Test de Rutas SVG</button>
+            <button class="button danger" onclick="forceRefresh()">Forzar Recarga</button>
+        </div>
+        
+        <div class="test-section">
+            <h3>🛠️ Herramientas de Recuperación</h3>
+            <button class="button" onclick="clearCache()">Limpiar Caché</button>
+            <button class="button success" onclick="activateFallbacks()">Activar Respaldos</button>
+            <button class="button warning" onclick="resetSystem()">Reiniciar Sistema</button>
+        </div>
+        
+        <div id="console-output" class="results">
+            === Consola de Diagnóstico ===
+            Esperando comandos...
+        </div>
+    </div>
+
+    <!-- Cargar el módulo para tener acceso a las funciones de diagnóstico -->
+    <script src="module.js"></script>
+    
+    <script>
+        // Capturar console.log para mostrar en la interfaz
+        const originalConsoleLog = console.log;
+        const originalConsoleWarn = console.warn;
+        const originalConsoleError = console.error;
+        
+        const consoleOutput = document.getElementById('console-output');
+        
+        function addToConsole(message, type = 'log') {
+            const timestamp = new Date().toLocaleTimeString();
+            const prefix = type === 'error' ? '❌' : type === 'warn' ? '⚠️' : 'ℹ️';
+            const formattedMessage = `[${timestamp}] ${prefix} ${message}`;
+            
+            consoleOutput.textContent += formattedMessage + '\n';
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+            
+            // También mantener el log original
+            if (type === 'error') originalConsoleError(message);
+            else if (type === 'warn') originalConsoleWarn(message);
+            else originalConsoleLog(message);
+        }
+        
+        console.log = (...args) => addToConsole(args.join(' '), 'log');
+        console.warn = (...args) => addToConsole(args.join(' '), 'warn');
+        console.error = (...args) => addToConsole(args.join(' '), 'error');
+        
+        // Funciones de diagnóstico
+        async function runBasicTest() {
+            console.log('🚀 === INICIANDO TEST BÁSICO ===');
+            
+            // Verificar disponibilidad de funciones
+            const functions = [
+                'testSVGLoad',
+                'forceRefreshSVG',
+                'getDiagramStatus',
+                'testDiagrams'
+            ];
+            
+            functions.forEach(funcName => {
+                if (typeof window[funcName] === 'function') {
+                    console.log(`✅ ${funcName} - Disponible`);
+                } else {
+                    console.log(`❌ ${funcName} - No disponible`);
+                }
+            });
+            
+            // Verificar sistema universal
+            if (typeof UNIVERSAL_DIAGRAM_SYSTEM !== 'undefined') {
+                console.log('✅ UNIVERSAL_DIAGRAM_SYSTEM - Disponible');
+                console.log(`   - Inicializado: ${UNIVERSAL_DIAGRAM_SYSTEM.isInitialized}`);
+                console.log(`   - Intentos: ${UNIVERSAL_DIAGRAM_SYSTEM.fixAttempts}/${UNIVERSAL_DIAGRAM_SYSTEM.maxAttempts}`);
+                console.log(`   - Procesando: ${UNIVERSAL_DIAGRAM_SYSTEM.isProcessing}`);
+                console.log(`   - Cache SVG: ${UNIVERSAL_DIAGRAM_SYSTEM.svgCache ? 'Sí' : 'No'}`);
+            } else {
+                console.log('❌ UNIVERSAL_DIAGRAM_SYSTEM - No disponible');
+            }
+        }
+        
+        async function runFullDiagnostic() {
+            console.log('🔍 === INICIANDO DIAGNÓSTICO COMPLETO ===');
+            
+            if (typeof window.testSVGLoad === 'function') {
+                await window.testSVGLoad();
+            } else {
+                console.error('❌ testSVGLoad no está disponible');
+            }
+            
+            if (typeof window.getDiagramStatus === 'function') {
+                const status = window.getDiagramStatus();
+                console.log('📊 Estado de diagramas:', status);
+            }
+        }
+        
+        async function runSVGPathTest() {
+            console.log('🔗 === TEST DE RUTAS SVG ===');
+            
+            const paths = [
+                '../../assets/images/diagrams.svg',
+                '/assets/images/diagrams.svg',
+                'http://localhost:8000/assets/images/diagrams.svg'
+            ];
+            
+            for (const path of paths) {
+                try {
+                    const response = await fetch(path, { cache: 'no-cache' });
+                    if (response.ok) {
+                        const size = (await response.text()).length;
+                        console.log(`✅ ${path} - OK (${size} chars)`);
+                    } else {
+                        console.log(`❌ ${path} - HTTP ${response.status}`);
+                    }
+                } catch (error) {
+                    console.log(`❌ ${path} - ${error.message}`);
+                }
+            }
+        }
+        
+        async function forceRefresh() {
+            console.log('🔄 === FORZANDO RECARGA ===');
+            
+            if (typeof window.forceRefreshSVG === 'function') {
+                const result = await window.forceRefreshSVG();
+                console.log(`Resultado: ${result ? 'Éxito' : 'Falló'}`);
+            } else {
+                console.error('❌ forceRefreshSVG no está disponible');
+            }
+        }
+        
+        function clearCache() {
+            console.log('🧹 === LIMPIANDO CACHÉ ===');
+            
+            if (typeof UNIVERSAL_DIAGRAM_SYSTEM !== 'undefined') {
+                UNIVERSAL_DIAGRAM_SYSTEM.svgCache = null;
+                UNIVERSAL_DIAGRAM_SYSTEM.fixAttempts = 0;
+                console.log('✅ Caché limpiado');
+            } else {
+                console.log('❌ Sistema no disponible');
+            }
+        }
+        
+        function activateFallbacks() {
+            console.log('🛠️ === ACTIVANDO RESPALDOS ===');
+            
+            if (typeof UNIVERSAL_DIAGRAM_SYSTEM !== 'undefined' && 
+                typeof UNIVERSAL_DIAGRAM_SYSTEM.applyFallbacks === 'function') {
+                UNIVERSAL_DIAGRAM_SYSTEM.applyFallbacks();
+                console.log('✅ Respaldos activados');
+            } else {
+                console.log('❌ Sistema de respaldos no disponible');
+            }
+        }
+        
+        function resetSystem() {
+            console.log('🔄 === REINICIANDO SISTEMA ===');
+            location.reload();
+        }
+        
+        // Verificar estado inicial
+        window.addEventListener('load', async () => {
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Esperar carga
+            
+            // Verificar servidor
+            try {
+                await fetch('/assets/images/diagrams.svg');
+                document.getElementById('serverStatus').className = 'status-indicator status-success';
+                document.getElementById('serverText').textContent = 'Activo';
+            } catch {
+                document.getElementById('serverStatus').className = 'status-indicator status-error';
+                document.getElementById('serverText').textContent = 'Inactivo';
+            }
+            
+            // Verificar módulo
+            if (typeof UNIVERSAL_DIAGRAM_SYSTEM !== 'undefined') {
+                document.getElementById('moduleStatus').className = 'status-indicator status-success';
+                document.getElementById('moduleText').textContent = 'Cargado';
+            } else {
+                document.getElementById('moduleStatus').className = 'status-indicator status-error';
+                document.getElementById('moduleText').textContent = 'Error';
+            }
+            
+            // Verificar SVG
+            if (typeof window.testSVGLoad === 'function') {
+                document.getElementById('svgStatus').className = 'status-indicator status-success';
+                document.getElementById('svgText').textContent = 'Funcional';
+            } else {
+                document.getElementById('svgStatus').className = 'status-indicator status-warning';
+                document.getElementById('svgText').textContent = 'Limitado';
+            }
+            
+            console.log('🎯 Diagnóstico listo. Use los botones para ejecutar tests.');
+        });
+    </script>
+</body>
+</html>

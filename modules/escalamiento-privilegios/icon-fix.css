@@ -1,0 +1,223 @@
+/* ========================================
+   ICON FIX STYLES - ESCALAMIENTO DE PRIVILEGIOS
+   ======================================== */
+
+/* Correcciones específicas para iconos del módulo de Escalamiento de Privilegios */
+
+/* SVG Icon corrections */
+svg.icon-loading {
+    animation: spin 1s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Privilege escalation specific icon fixes */
+.priv-icon,
+.escalation-icon,
+.privilege-icon {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+}
+
+/* Fix for missing privilege icons */
+.icon-privilege-horizontal::before {
+    content: "\f07e"; /* fa-arrows-alt-h */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.icon-privilege-vertical::before {
+    content: "\f062"; /* fa-arrow-up */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.icon-tools::before {
+    content: "\f552"; /* fa-toolbox */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.icon-windows::before {
+    content: "\f17a"; /* fa-windows */
+    font-family: "Font Awesome 6 Brands";
+    font-weight: 400;
+}
+
+.icon-linux::before {
+    content: "\f17c"; /* fa-linux */
+    font-family: "Font Awesome 6 Brands";
+    font-weight: 400;
+}
+
+.icon-injection::before {
+    content: "\f48e"; /* fa-syringe */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+.icon-password::before {
+    content: "\f084"; /* fa-key */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+/* Fallback for broken SVG diagrams */
+svg[data-diagram] {
+    min-height: 300px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px dashed #8e44ad;
+    border-radius: 10px;
+}
+
+svg[data-diagram] .fallback-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    fill: #8e44ad;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+/* Icon size adjustments */
+.privilege-card i {
+    color: inherit;
+    opacity: 0.8;
+}
+
+.technique-card i {
+    color: #8e44ad;
+}
+
+.tool-item i {
+    color: #8e44ad;
+}
+
+.step-number {
+    font-size: 14px;
+}
+
+/* Responsive icon adjustments */
+@media (max-width: 768px) {
+    .privilege-card i {
+        font-size: 1.5rem;
+    }
+    
+    .technique-card i,
+    .tool-item i {
+        font-size: 1.2rem;
+    }
+}
+
+/* Animation for privilege escalation icons */
+.privilege-card:hover i {
+    animation: privilegeIconPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes privilegeIconPulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Fix for technique icons alignment */
+.technique-card h5 i {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Tool category icon enhancements */
+.tool-category h3 i {
+    color: #8e44ad;
+    margin-right: 10px;
+}
+
+/* Code example icon fixes */
+.code-example i {
+    color: #28a745;
+    margin-right: 5px;
+}
+
+/* Warning and info box icon styles */
+.warning-box i,
+.prevention-box i,
+.tool-selection-guide i,
+.concept-box i {
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.warning-box i {
+    color: #f39c12;
+}
+
+.prevention-box i {
+    color: #27ae60;
+}
+
+.tool-selection-guide i {
+    color: #3498db;
+}
+
+.concept-box i {
+    color: #8e44ad;
+}
+
+/* OS card icon styling */
+.os-card.windows i {
+    color: #0078d4;
+}
+
+.os-card.linux i {
+    color: #ff6600;
+}
+
+/* Feature category icons */
+.feature-category h6 i {
+    color: #8e44ad;
+    margin-right: 8px;
+}
+
+/* Attack mode icons */
+.attack-mode h6 i {
+    color: #27ae60;
+    margin-right: 8px;
+}
+
+/* Loading state for SVG icons */
+svg.loading {
+    opacity: 0.5;
+    filter: grayscale(50%);
+}
+
+svg.loaded {
+    opacity: 1;
+    filter: none;
+    transition: all 0.3s ease;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .privilege-card i,
+    .technique-card i,
+    .tool-item i {
+        opacity: 1;
+        font-weight: 900;
+    }
+    
+    svg[data-diagram] {
+        border-width: 3px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .privilege-card:hover i,
+    svg.icon-loading {
+        animation: none;
+    }
+}

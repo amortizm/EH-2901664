@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Enumeración de Activos</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link href="../../assets/css/global.css" rel="stylesheet">
+    <link href="../../assets/css/module.css" rel="stylesheet">
+    <link href="module-styles.css" rel="stylesheet">
+    <link href="icon-fix.css" rel="stylesheet">
+    
+    <style>
+        .test-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+        }
+        .test-item {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        .status-ok { color: #28a745; }
+        .status-error { color: #dc3545; }
+        .status-warning { color: #ffc107; }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Test: Enumeración de Activos - Diagramas e Iconos</h1>
+        
+        <!-- Test FontAwesome Icons -->
+        <div class="test-section">
+            <h3>1. Test FontAwesome Icons</h3>
+            <div class="test-item">
+                <i class="fas fa-shield-alt"></i> Shield (fa-shield-alt)
+                <i class="fas fa-search"></i> Search (fa-search)
+                <i class="fas fa-database"></i> Database (fa-database)
+                <i class="fas fa-users"></i> Users (fa-users)
+                <i class="fas fa-tools"></i> Tools (fa-tools)
+            </div>
+        </div>
+        
+        <!-- Test SVG Diagrams -->
+        <div class="test-section">
+            <h3>2. Test SVG Diagrams</h3>
+            
+            <div class="test-item">
+                <h5>Diagrama 1: Methodology Diagram</h5>
+                <svg data-diagram="methodology-diagram" style="width: 100%; height: 200px; border: 1px solid #ccc;">
+                    <use href="../../assets/images/diagrams.svg#methodology-diagram"></use>
+                </svg>
+            </div>
+            
+            <div class="test-item">
+                <h5>Diagrama 2: Tools Comparison</h5>
+                <svg data-diagram="tools-comparison" style="width: 100%; height: 200px; border: 1px solid #ccc;">
+                    <use href="../../assets/images/diagrams.svg#tools-comparison"></use>
+                </svg>
+            </div>
+            
+            <div class="test-item">
+                <h5>Diagrama 3: Techniques Matrix</h5>
+                <svg data-diagram="techniques-matrix" style="width: 100%; height: 200px; border: 1px solid #ccc;">
+                    <use href="../../assets/images/diagrams.svg#techniques-matrix"></use>
+                </svg>
+            </div>
+            
+            <div class="test-item">
+                <h5>Diagrama 4: Scanning Methodology</h5>
+                <svg data-diagram="scanning-methodology" style="width: 100%; height: 200px; border: 1px solid #ccc;">
+                    <use href="../../assets/images/diagrams.svg#scanning-methodology"></use>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Test Results -->
+        <div class="test-section">
+            <h3>3. Test Results</h3>
+            <div id="test-results">
+                <p>Ejecutando tests...</p>
+            </div>
+        </div>
+        
+        <!-- Debug Info -->
+        <div class="test-section">
+            <h3>4. Debug Information</h3>
+            <div id="debug-info">
+                <p>Cargando información de debug...</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- SVG Systems -->
+    <script src="svg-inline-injector.js"></script>
+    <script src="icon-fix.js"></script>
+    <script src="simple-icon-loader.js"></script>
+    <script src="icon-diagnostics.js"></script>
+    
+    <!-- Test Script -->
+    <script>
+        // Test script
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('🧪 Iniciando tests del módulo...');
+            
+            // Wait for systems to initialize
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            runTests();
+            updateDebugInfo();
+        });
+        
+        function runTests() {
+            const results = [];
+            
+            // Test 1: FontAwesome Icons
+            const faIcons = document.querySelectorAll('.fa, .fas, .far, .fab');
+            const loadedIcons = Array.from(faIcons).filter(icon => {
+                const style = getComputedStyle(icon);
+                return style.getPropertyValue('font-family').includes('Font Awesome');
+            });
+            
+            results.push({
+                test: 'FontAwesome Icons',
+                status: loadedIcons.length === faIcons.length ? 'OK' : 'ERROR',
+                details: `${loadedIcons.length}/${faIcons.length} iconos cargados`
+            });
+            
+            // Test 2: SVG Diagrams
+            const svgDiagrams = document.querySelectorAll('svg[data-diagram]');
+            const loadedDiagrams = Array.from(svgDiagrams).filter(svg => {
+                return svg.querySelector('use') || svg.innerHTML.trim().length > 0;
+            });
+            
+            results.push({
+                test: 'SVG Diagrams',
+                status: loadedDiagrams.length > 0 ? 'OK' : 'WARNING',
+                details: `${loadedDiagrams.length}/${svgDiagrams.length} diagramas detectados`
+            });
+            
+            // Test 3: Systems Initialization
+            const systems = ['IconFixSystem', 'SvgInlineInjector', 'SimpleIconLoader'];
+            const initializedSystems = systems.filter(name => window[name] && window[name].isInitialized !== false);
+            
+            results.push({
+                test: 'Systems Initialization',
+                status: initializedSystems.length > 0 ? 'OK' : 'ERROR',
+                details: `${initializedSystems.length}/${systems.length} sistemas inicializados`
+            });
+            
+            // Display results
+            displayResults(results);
+        }
+        
+        function displayResults(results) {
+            const container = document.getElementById('test-results');
+            container.innerHTML = results.map(result => `
+                <div class="test-item">
+                    <strong>${result.test}:</strong>
+                    <span class="status-${result.status.toLowerCase()}">${result.status}</span>
+                    - ${result.details}
+                </div>
+            `).join('');
+        }
+        
+        function updateDebugInfo() {
+            const debugInfo = {
+                'FontAwesome CSS': document.querySelector('link[href*="font-awesome"]') ? 'Loaded' : 'Missing',
+                'Bootstrap CSS': document.querySelector('link[href*="bootstrap"]') ? 'Loaded' : 'Missing',
+                'SVG Diagrams File': 'Checking...',
+                'Icon Fix System': window.IconFixSystem ? 'Available' : 'Missing',
+                'SVG Injector': window.SvgInlineInjector ? 'Available' : 'Missing',
+                'Simple Icon Loader': window.SimpleIconLoader ? 'Available' : 'Missing'
+            };
+            
+            // Check SVG file
+            fetch('../../assets/images/diagrams.svg')
+                .then(response => {
+                    debugInfo['SVG Diagrams File'] = response.ok ? 'Available' : 'Not Found';
+                    displayDebugInfo(debugInfo);
+                })
+                .catch(() => {
+                    debugInfo['SVG Diagrams File'] = 'Error Loading';
+                    displayDebugInfo(debugInfo);
+                });
+        }
+        
+        function displayDebugInfo(info) {
+            const container = document.getElementById('debug-info');
+            container.innerHTML = Object.entries(info).map(([key, value]) => `
+                <div class="test-item">
+                    <strong>${key}:</strong> ${value}
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+/* ========================================
+   GLOBAL STYLES - SENA INTERACTIVE GUIDE
+   ======================================== */
+
+/* SENA Official Colors */
+:root {
+    /* Primary SENA Colors */
+    --sena-primary: #39A900;      /* Verde principal SENA */
+    --sena-secondary: #FF6600;    /* Naranja SENA */
+    --sena-accent: #0066CC;       /* Azul SENA */
+    --sena-dark: #2C5F2D;         /* Verde oscuro */
+    --sena-light: #E8F5E8;        /* Verde claro */
+    
+    /* Complementary Colors */
+    --sena-gray: #6C757D;
+    --sena-light-gray: #F8F9FA;
+    --sena-white: #FFFFFF;
+    --sena-black: #212529;
+    
+    /* Gradients */
+    --sena-gradient: linear-gradient(135deg, var(--sena-primary) 0%, var(--sena-dark) 100%);
+    --sena-gradient-secondary: linear-gradient(135deg, var(--sena-secondary) 0%, #E55100 100%);
+    --sena-gradient-accent: linear-gradient(135deg, var(--sena-accent) 0%, #004499 100%);
+    
+    /* Shadows */
+    --sena-shadow: 0 4px 15px rgba(57, 169, 0, 0.15);
+    --sena-shadow-hover: 0 8px 25px rgba(57, 169, 0, 0.25);
+    --sena-shadow-dark: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--sena-black);
+    background-color: var(--sena-white);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+.sena-text-primary { color: var(--sena-primary) !important; }
+.sena-text-secondary { color: var(--sena-secondary) !important; }
+.sena-text-accent { color: var(--sena-accent) !important; }
+
+/* Background Classes */
+.sena-bg-primary { background-color: var(--sena-primary) !important; }
+.sena-bg-secondary { background-color: var(--sena-secondary) !important; }
+.sena-bg-accent { background-color: var(--sena-accent) !important; }
+.sena-bg-light { background-color: var(--sena-light) !important; }
+.sena-bg-gradient { background: var(--sena-gradient) !important; }
+
+/* Button Styles */
+.btn-sena-primary {
+    background: var(--sena-gradient);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: var(--sena-shadow);
+}
+
+.btn-sena-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sena-shadow-hover);
+    color: white;
+}
+
+.btn-sena-secondary {
+    background: var(--sena-gradient-secondary);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 102, 0, 0.15);
+}
+
+.btn-sena-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 102, 0, 0.25);
+    color: white;
+}
+
+.btn-sena-outline {
+    border: 2px solid var(--sena-primary);
+    color: var(--sena-primary);
+    background: transparent;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-sena-outline:hover {
+    background: var(--sena-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Card Styles */
+.sena-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--sena-shadow-dark);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.sena-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.sena-card-header {
+    background: var(--sena-gradient);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    padding: 1.5rem;
+    border: none;
+}
+
+/* Navigation Styles */
+.sena-navbar {
+    background: var(--sena-gradient) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(57, 169, 0, 0.15);
+    padding: 1rem 0;
+}
+
+.sena-navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.sena-navbar .nav-link {
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin: 0 0.5rem;
+    border-radius: 25px;
+    padding: 0.5rem 1rem !important;
+}
+
+.sena-navbar .nav-link:hover,
+.sena-navbar .nav-link.active {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.sena-logo-container {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* Footer Styles */
+.sena-footer {
+    background: var(--sena-gradient);
+    color: white;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Utility Classes */
+.rounded-custom {
+    border-radius: 15px !important;
+}
+
+.shadow-custom {
+    box-shadow: var(--sena-shadow-dark) !important;
+}
+
+.transition-smooth {
+    transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .btn-sena-primary,
+    .btn-sena-secondary,
+    .btn-sena-outline {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .sena-navbar .nav-link {
+        margin: 0.2rem 0;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Highlight Effect - Simplified */
+.sena-highlight {
+    color: var(--sena-secondary);
+    font-weight: 700;
+}
+
+/* Pulse Animation */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}

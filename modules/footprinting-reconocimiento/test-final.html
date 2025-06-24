@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Final - Footprinting Diagrams</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .diagram-container { margin: 20px 0; border: 2px solid #ddd; padding: 20px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        svg { border: 1px solid #ccc; max-width: 100%; }
+    </style>
+</head>
+<body>
+    <h1>🎯 Test Final - Diagramas Footprinting</h1>
+    
+    <div id="status" class="status">Inicializando...</div>
+    
+    <div class="diagram-container">
+        <h3>Footprinting Process Flow</h3>
+        <svg width="800" height="400">
+            <use href="#footprinting-process-flow"></use>
+        </svg>
+    </div>
+    
+    <div class="diagram-container">
+        <h3>Methodology Diagram</h3>
+        <svg width="800" height="400">
+            <use href="#methodology-diagram"></use>
+        </svg>
+    </div>
+    
+    <div class="diagram-container">
+        <h3>Tools Comparison</h3>
+        <svg width="800" height="400">
+            <use href="#tools-comparison"></use>
+        </svg>
+    </div>
+    
+    <button onclick="runTest()">🧪 Ejecutar Test</button>
+    <button onclick="forceApplyFix()">🔧 Aplicar Corrección</button>
+    <button onclick="activateFallbacks()">🛠️ Activar Respaldos</button>
+    
+    <div id="results" style="margin-top: 20px; padding: 10px; background: #f8f9fa; font-family: monospace; white-space: pre-wrap;"></div>
+    
+    <script src="module.js"></script>
+    <script>
+        const statusDiv = document.getElementById('status');
+        const resultsDiv = document.getElementById('results');
+        
+        function updateStatus(message, isError = false) {
+            statusDiv.textContent = message;
+            statusDiv.className = `status ${isError ? 'error' : 'success'}`;
+            
+            resultsDiv.textContent += `[${new Date().toLocaleTimeString()}] ${message}\n`;
+        }
+        
+        async function runTest() {
+            updateStatus('🔍 Ejecutando test completo...');
+            
+            // Test 1: Verificar disponibilidad del sistema
+            if (typeof UNIVERSAL_DIAGRAM_SYSTEM !== 'undefined') {
+                updateStatus('✅ Sistema universal disponible');
+                
+                // Test 2: Probar carga de SVG
+                if (typeof window.testSVGLoad === 'function') {
+                    updateStatus('🔗 Probando carga de SVG...');
+                    const results = await window.testSVGLoad();
+                    const successful = results.filter(r => r.ok && r.hasContent);
+                    
+                    if (successful.length > 0) {
+                        updateStatus(`✅ SVG accesible desde ${successful.length} rutas`);
+                    } else {
+                        updateStatus('❌ SVG no accesible', true);
+                    }
+                } else {
+                    updateStatus('❌ testSVGLoad no disponible', true);
+                }
+                
+                // Test 3: Verificar elementos SVG en DOM
+                const svgElements = document.querySelectorAll('svg use');
+                updateStatus(`📊 Encontrados ${svgElements.length} elementos <use>`);
+                
+                // Test 4: Verificar si hay diagramas corregidos
+                const fixedSvgs = document.querySelectorAll('svg[data-universal-fixed="true"]');
+                updateStatus(`🎯 Diagramas corregidos: ${fixedSvgs.length}`);
+                
+                if (fixedSvgs.length === 0) {
+                    updateStatus('⚠️ No hay diagramas corregidos, ejecutando corrección...', false);
+                    forceApplyFix();
+                }
+                
+            } else {
+                updateStatus('❌ Sistema universal no disponible', true);
+            }
+        }
+        
+        async function forceApplyFix() {
+            updateStatus('🔧 Aplicando correcciones...');
+            
+            if (typeof UNIVERSAL_DIAGRAM_SYSTEM !== 'undefined') {
+                // Reiniciar sistema
+                UNIVERSAL_DIAGRAM_SYSTEM.fixAttempts = 0;
+                UNIVERSAL_DIAGRAM_SYSTEM.isProcessing = false;
+                UNIVERSAL_DIAGRAM_SYSTEM.svgCache = null;
+                
+                // Aplicar correcciones
+                await UNIVERSAL_DIAGRAM_SYSTEM.applyFixes();
+                
+                // Verificar resultado
+                setTimeout(() => {
+                    const fixedSvgs = document.querySelectorAll('svg[data-universal-fixed="true"]');
+                    if (fixedSvgs.length > 0) {
+                        updateStatus(`✅ Corrección exitosa: ${fixedSvgs.length} diagramas corregidos`);
+                    } else {
+                        updateStatus('⚠️ Corrección no aplicada, intentando respaldos...', false);
+                        activateFallbacks();
+                    }
+                }, 2000);
+            }
+        }
+        
+        function activateFallbacks() {
+            updateStatus('🛠️ Activando respaldos...');
+            
+            if (typeof UNIVERSAL_DIAGRAM_SYSTEM !== 'undefined' && 
+                typeof UNIVERSAL_DIAGRAM_SYSTEM.applyFallbacks === 'function') {
+                UNIVERSAL_DIAGRAM_SYSTEM.applyFallbacks();
+                
+                setTimeout(() => {
+                    const fallbackSvgs = document.querySelectorAll('svg[data-fallback-applied="true"]');
+                    updateStatus(`✅ Respaldos activados: ${fallbackSvgs.length} diagramas con respaldo`);
+                }, 1000);
+            }
+        }
+        
+        // Ejecutar test automáticamente al cargar
+        window.addEventListener('load', () => {
+            setTimeout(runTest, 1000);
+        });
+    </script>
+</body>
+</html>

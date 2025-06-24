@@ -1,0 +1,191 @@
+/* Icon Fix Styles for Footprinting y Reconocimiento Module */
+
+/* Ensure SVG icons display correctly */
+.diagram-container svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Icon visibility fix */
+.fa, .fas, .far, .fab {
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* SVG icons fix */
+svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Diagram specific fixes */
+.concept-diagram, .methodology-diagram, .tools-diagram {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.concept-diagram svg,
+.methodology-diagram svg,
+.tools-diagram svg {
+    width: 100%;
+    max-width: 800px;
+    max-height: 520px;
+    height: auto;
+}
+
+/* Footprinting specific diagrams */
+.footprinting-flow-diagram svg {
+    max-height: 520px;
+}
+
+.methodology-flow-diagram svg {
+    max-height: 450px;
+}
+
+/* Secondary diagrams */
+.process-diagram svg,
+.comparison-diagram svg {
+    max-height: 320px;
+}
+
+/* Interactive elements in diagrams */
+.interactive-element {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.interactive-element:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* Diagram loading state */
+.diagram-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    font-size: 18px;
+    color: #6c757d;
+}
+
+.diagram-loading::before {
+    content: "🔄";
+    margin-right: 10px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Ensure proper icon sizing in navigation */
+.module-nav .fas,
+.module-nav .far,
+.breadcrumb .fas {
+    font-size: 14px;
+    width: 16px;
+    text-align: center;
+}
+
+/* Fix for progress indicators */
+.progress-bar-custom {
+    transition: width 0.3s ease;
+}
+
+/* Enhanced visibility for interactive elements */
+.btn .fas,
+.btn .far {
+    margin-right: 8px;
+}
+
+/* Ensure consistent icon display in cards */
+.card .fas,
+.card .far {
+    color: #0d6efd;
+    font-size: 1.2em;
+}
+
+/* Enhanced visual consistency rules based on reference module */
+
+/* Topic icons standardization */
+.topic-icon {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.concept-icon, .method-icon, .quiz-icon, .case-icon, .lab-icon, .btn-icon {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+/* Welcome page icon */
+.welcome-content .fa-4x {
+    font-size: 4rem !important;
+}
+
+/* Button icons */
+.btn .fas, .btn .far {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Navigation icons */
+.module-nav .fas, .module-nav .far {
+    font-size: 14px;
+    width: 16px;
+    text-align: center;
+}
+
+/* Card icons */
+.card .fas, .card .far {
+    font-size: 1.2em;
+    color: #0d6efd;
+}
+
+/* Interactive diagram elements */
+.interactive-element {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.interactive-element:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* Responsive diagram sizing */
+@media (max-width: 768px) {
+    .footprinting-flow-diagram svg,
+    .methodology-flow-diagram svg,
+    .concept-diagram svg,
+    .methodology-diagram svg,
+    .tools-diagram svg {
+        max-height: 320px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footprinting-flow-diagram svg,
+    .methodology-flow-diagram svg,
+    .concept-diagram svg,
+    .methodology-diagram svg,
+    .tools-diagram svg {
+        max-height: 250px;
+    }
+    
+    .topic-icon {
+        width: 28px !important;
+        height: 28px !important;
+    }
+    
+    .concept-icon, .method-icon, .quiz-icon, .case-icon, .lab-icon {
+        width: 20px !important;
+        height: 20px !important;
+    }
+}

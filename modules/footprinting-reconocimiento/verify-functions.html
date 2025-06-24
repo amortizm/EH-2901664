@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Verificación Rápida de Funciones</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f8f9fa; }
+        .result { padding: 10px; margin: 5px 0; border-radius: 5px; }
+        .ok { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .warning { background: #fff3cd; color: #856404; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Verificación de Funciones del Sistema</h1>
+    <div id="results"></div>
+
+    <script src="module.js"></script>
+    <script>
+        const results = document.getElementById('results');
+        
+        function addResult(message, type = 'ok') {
+            const div = document.createElement('div');
+            div.className = `result ${type}`;
+            div.textContent = message;
+            results.appendChild(div);
+        }
+        
+        // Verificar que UNIVERSAL_DIAGRAM_SYSTEM existe
+        if (typeof UNIVERSAL_DIAGRAM_SYSTEM !== 'undefined') {
+            addResult('✅ UNIVERSAL_DIAGRAM_SYSTEM está definido', 'ok');
+            
+            // Verificar métodos principales
+            const methods = ['init', 'applyFixes', 'loadSVGContent', 'processDiagrams', 'applyFallbacks'];
+            methods.forEach(method => {
+                if (typeof UNIVERSAL_DIAGRAM_SYSTEM[method] === 'function') {
+                    addResult(`✅ UNIVERSAL_DIAGRAM_SYSTEM.${method} está definido`, 'ok');
+                } else {
+                    addResult(`❌ UNIVERSAL_DIAGRAM_SYSTEM.${method} NO está definido`, 'error');
+                }
+            });
+            
+            // Verificar propiedades
+            const properties = ['diagrams', 'isInitialized', 'fixAttempts', 'maxAttempts', 'isProcessing', 'svgCache'];
+            properties.forEach(prop => {
+                if (UNIVERSAL_DIAGRAM_SYSTEM.hasOwnProperty(prop)) {
+                    addResult(`✅ UNIVERSAL_DIAGRAM_SYSTEM.${prop} está definido`, 'ok');
+                } else {
+                    addResult(`❌ UNIVERSAL_DIAGRAM_SYSTEM.${prop} NO está definido`, 'error');
+                }
+            });
+            
+            // Verificar diagramas configurados
+            if (UNIVERSAL_DIAGRAM_SYSTEM.diagrams && UNIVERSAL_DIAGRAM_SYSTEM.diagrams.length > 0) {
+                addResult(`✅ ${UNIVERSAL_DIAGRAM_SYSTEM.diagrams.length} diagramas configurados`, 'ok');
+                UNIVERSAL_DIAGRAM_SYSTEM.diagrams.forEach(diagram => {
+                    addResult(`  - ${diagram.id} (Topic ${diagram.topic})`, 'ok');
+                });
+            } else {
+                addResult('❌ No hay diagramas configurados', 'error');
+            }
+            
+        } else {
+            addResult('❌ UNIVERSAL_DIAGRAM_SYSTEM NO está definido', 'error');
+        }
+        
+        // Verificar funciones globales de diagnóstico
+        const globalFunctions = ['forceFixDiagrams', 'getDiagramStatus', 'testDiagrams', 'forceApplyFallbacks', 'resetDiagramSystem'];
+        globalFunctions.forEach(func => {
+            if (typeof window[func] === 'function') {
+                addResult(`✅ window.${func} está definido`, 'ok');
+            } else {
+                addResult(`⚠️ window.${func} NO está definido (se definirá después)`, 'warning');
+            }
+        });
+        
+        // Verificar función de inicialización
+        if (typeof initializeModule === 'function') {
+            addResult('✅ initializeModule está definido', 'ok');
+        } else {
+            addResult('❌ initializeModule NO está definido', 'error');
+        }
+        
+        // Verificar datos del módulo
+        if (typeof footprintingModuleData !== 'undefined') {
+            addResult(`✅ footprintingModuleData está definido con ${footprintingModuleData.topics.length} temas`, 'ok');
+        } else {
+            addResult('❌ footprintingModuleData NO está definido', 'error');
+        }
+        
+        addResult('🎯 Verificación completada', 'ok');
+    </script>
+</body>
+</html>

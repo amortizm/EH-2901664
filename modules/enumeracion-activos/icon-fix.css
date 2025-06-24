@@ -1,0 +1,221 @@
+/* ========================================
+   ICON FIX STYLES - ENUMERACIÓN DE ACTIVOS
+   ======================================== */
+
+/* Estilos para corrección de iconos SVG */
+.icon-fix-container {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-fix-svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: -0.125em;
+}
+
+/* Corrección específica para iconos de enumeración */
+.enumeration-icon {
+    color: #39A900; /* Verde SENA */
+}
+
+.database-icon {
+    color: #0066CC; /* Azul SENA */
+}
+
+.user-icon {
+    color: #39A900; /* Verde SENA */
+}
+
+.tool-icon {
+    color: #FF6600; /* Naranja SENA */
+}
+
+/* Estados de carga de iconos */
+.icon-loading {
+    opacity: 0.5;
+    animation: iconPulse 1.5s infinite ease-in-out;
+}
+
+.icon-loaded {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.icon-error {
+    color: #dc3545;
+    opacity: 0.7;
+}
+
+@keyframes iconPulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Estilos para diagramas específicos del módulo */
+.diagram-fallback {
+    border: 2px dashed #dee2e6;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    color: #6c757d;
+}
+
+.diagram-fallback i {
+    font-size: 3rem;
+    color: #adb5bd;
+    margin-bottom: 1rem;
+}
+
+.diagram-fallback h5 {
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.diagram-fallback p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.diagram-fallback small {
+    margin-top: 1rem;
+    opacity: 0.7;
+    display: block;
+}
+
+/* ========================================
+   SISTEMA DE RESPALDOS MEJORADO
+   ======================================== */
+
+/* Correcciones adicionales para FontAwesome */
+.fa, .fas, .far, .fab, .fal, .fad {
+    display: inline-block !important;
+    font-style: normal !important;  
+    font-variant: normal !important;
+    text-rendering: auto !important;
+    line-height: 1 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* SVG específicos del módulo */
+svg[data-diagram] {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+}
+
+svg[data-fallback] {
+    border: 2px dashed #e9ecef;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+/* Estados de carga para diagramas */
+.diagram-loading {
+    position: relative;
+    min-height: 200px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diagram-loading::before {
+    content: "Cargando diagrama...";
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.diagram-loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-top: 30px;
+    border: 2px solid #dee2e6;
+    border-top-color: #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Estilos mejorados para el contenido del módulo */
+.topic-content svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.module-nav .nav-link {
+    position: relative;
+}
+
+.module-nav .nav-link i {
+    width: 1.2em;
+    text-align: center;
+    margin-right: 0.5rem;
+}
+
+/* Indicadores de estado para elementos cargados */
+[data-loaded="true"] {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+[data-loaded="false"] {
+    opacity: 0.5;
+}
+
+/* Correcciones específicas para enumeración */
+.enumeration-step {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.enumeration-step::before {
+    content: "\f058";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #28a745;
+}
+
+.enumeration-tool {
+    border-left: 3px solid #007bff;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.enumeration-technique {
+    background: #f8f9fa;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    svg[data-diagram] {
+        margin: 0.5rem auto;
+    }
+    
+    .enumeration-step {
+        padding-left: 1.5rem;
+    }
+}

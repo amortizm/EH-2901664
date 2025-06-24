@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Topics 3-6 - Footprinting Diagrams</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .topic-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 5px solid #007bff;
+        }
+        .topic-section h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .diagram-container {
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            background-color: #f8f9fa;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .warning { background-color: #fff3cd; color: #856404; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .info { background-color: #d1ecf1; color: #0c5460; }
+        
+        svg {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .controls {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .btn:hover { background: #0056b3; }
+        .btn.success { background: #28a745; }
+        .btn.warning { background: #ffc107; color: #212529; }
+        .btn.danger { background: #dc3545; }
+        
+        .console-output {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.4;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Test de Diagramas Topics 3-6</h1>
+        
+        <div class="controls">
+            <h3>🛠️ Controles de Diagnóstico</h3>
+            <button class="btn" onclick="testAllDiagrams()">🧪 Test Completo</button>
+            <button class="btn success" onclick="forceFixTopics()">🔧 Reparar Topics 3-6</button>
+            <button class="btn warning" onclick="activateFallbacks()">🛠️ Activar Respaldos</button>
+            <button class="btn danger" onclick="clearAndReload()">🔄 Reiniciar Sistema</button>
+        </div>
+        
+        <div id="global-status" class="status info">
+            Inicializando sistema de diagnóstico...
+        </div>
+        
+        <!-- Topic 3: Herramientas de Footprinting -->
+        <div class="topic-section">
+            <h2>📋 Topic 3: Herramientas de Footprinting</h2>
+            <div id="status-topic3" class="status warning">Verificando...</div>
+            <div class="diagram-container">
+                <h4>Tools Comparison</h4>                <svg width="800" height="450" id="svg-topic3" viewBox="0 0 100 100">
+                    <use href="../../assets/images/diagrams.svg#tools-comparison"></use>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Topic 4: Google Hacking -->
+        <div class="topic-section">
+            <h2>🔍 Topic 4: Google Hacking</h2>
+            <div id="status-topic4" class="status warning">Verificando...</div>
+            <div class="diagram-container">
+                <h4>Google Dorks Map</h4>                <svg width="750" height="500" id="svg-topic4" viewBox="0 0 100 100">
+                    <use href="../../assets/images/diagrams.svg#google-dorks-map"></use>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Topic 5: Técnicas de Footprinting -->
+        <div class="topic-section">
+            <h2>🎯 Topic 5: Técnicas de Footprinting</h2>
+            <div id="status-topic5" class="status warning">Verificando...</div>
+            <div class="diagram-container">
+                <h4>Techniques Matrix</h4>                <svg width="800" height="600" id="svg-topic5" viewBox="0 0 100 100">
+                    <use href="../../assets/images/diagrams.svg#techniques-matrix"></use>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Topic 6: OSINT -->
+        <div class="topic-section">
+            <h2>🌐 Topic 6: OSINT</h2>
+            <div id="status-topic6" class="status warning">Verificando...</div>
+            <div class="diagram-container">
+                <h4>OSINT Framework</h4>                <svg width="900" height="650" id="svg-topic6" viewBox="0 0 100 100">
+                    <use href="../../assets/images/diagrams.svg#osint-framework"></use>
+                </svg>
+            </div>
+        </div>
+        
+        <div id="console-output" class="console-output">
+            === Consola de Diagnóstico para Topics 3-6 ===
+            Iniciando verificación...
+        </div>
+    </div>
+
+    <!-- Cargar el módulo principal -->
+    <script src="module.js"></script>
+    
+    <!-- Cargar script de reparación específica -->
+    <script src="fix-topics-3-6.js"></script>
+    
+    <script>
+        // Capturar logs de consola
+        const originalConsoleLog = console.log;
+        const originalConsoleWarn = console.warn;
+        const originalConsoleError = console.error;
+        
+        const consoleOutput = document.getElementById('console-output');
+        
+        function addToConsole(message, type = 'log') {
+            const timestamp = new Date().toLocaleTimeString();
+            const prefix = type === 'error' ? '❌' : type === 'warn' ? '⚠️' : 'ℹ️';
+            const formattedMessage = `[${timestamp}] ${prefix} ${message}`;
+            
+            consoleOutput.textContent += formattedMessage + '\n';
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+            
+            // Mantener log original
+            if (type === 'error') originalConsoleError(message);
+            else if (type === 'warn') originalConsoleWarn(message);
+            else originalConsoleLog(message);
+        }
+        
+        console.log = (...args) => addToConsole(args.join(' '), 'log');
+        console.warn = (...args) => addToConsole(args.join(' '), 'warn');
+        console.error = (...args) => addToConsole(args.join(' '), 'error');
+        
+        // Funciones de control
+        function updateGlobalStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('global-status');
+            statusDiv.textContent = message;
+            statusDiv.className = `status ${type}`;
+        }
+        
+        function updateTopicStatus(topic, message, type = 'warning') {
+            const statusDiv = document.getElementById(`status-topic${topic}`);
+            statusDiv.textContent = message;
+            statusDiv.className = `status ${type}`;
+        }
+        
+        async function testAllDiagrams() {
+            console.log('🧪 === INICIANDO TEST COMPLETO DE TOPICS 3-6 ===');
+            updateGlobalStatus('Ejecutando test completo...', 'info');
+            
+            const topics = [
+                { number: 3, id: 'tools-comparison', name: 'Tools Comparison' },
+                { number: 4, id: 'google-dorks-map', name: 'Google Dorks Map' },
+                { number: 5, id: 'techniques-matrix', name: 'Techniques Matrix' },
+                { number: 6, id: 'osint-framework', name: 'OSINT Framework' }
+            ];
+            
+            let successCount = 0;
+            
+            for (const topic of topics) {
+                console.log(`\n📊 Verificando Topic ${topic.number}: ${topic.name}`);
+                
+                const useElements = document.querySelectorAll(`use[href*="#${topic.id}"]`);
+                const fixedElements = document.querySelectorAll(`svg[data-diagram-id="${topic.id}"]`);
+                const svgElement = document.getElementById(`svg-topic${topic.number}`);
+                
+                console.log(`  - Elementos <use>: ${useElements.length}`);
+                console.log(`  - Elementos corregidos: ${fixedElements.length}`);
+                console.log(`  - SVG en DOM: ${svgElement ? 'Sí' : 'No'}`);
+                
+                if (fixedElements.length > 0) {
+                    updateTopicStatus(topic.number, `✅ Diagrama corregido y visible`, 'success');
+                    successCount++;
+                } else if (useElements.length > 0) {
+                    updateTopicStatus(topic.number, `⚠️ Diagrama presente pero no corregido`, 'warning');
+                } else {
+                    updateTopicStatus(topic.number, `❌ Diagrama no encontrado`, 'error');
+                }
+            }
+            
+            const message = `Test completado: ${successCount}/4 diagramas funcionando`;
+            const statusType = successCount === 4 ? 'success' : successCount > 0 ? 'warning' : 'error';
+            updateGlobalStatus(message, statusType);
+            
+            console.log(`\n📊 RESULTADO FINAL: ${successCount}/4 diagramas funcionando correctamente`);
+        }
+        
+        async function forceFixTopics() {
+            console.log('🔧 === FORZANDO REPARACIÓN DE TOPICS 3-6 ===');
+            updateGlobalStatus('Aplicando reparaciones...', 'warning');
+            
+            if (typeof UNIVERSAL_DIAGRAM_SYSTEM !== 'undefined') {
+                // Limpiar y reinicializar
+                UNIVERSAL_DIAGRAM_SYSTEM.svgCache = null;
+                UNIVERSAL_DIAGRAM_SYSTEM.fixAttempts = 0;
+                UNIVERSAL_DIAGRAM_SYSTEM.isProcessing = false;
+                
+                // Aplicar correcciones
+                await UNIVERSAL_DIAGRAM_SYSTEM.applyFixes();
+                
+                // Esperar un momento y verificar
+                setTimeout(async () => {
+                    await testAllDiagrams();
+                }, 2000);
+            } else {
+                console.error('❌ Sistema universal no disponible');
+                updateGlobalStatus('❌ Sistema no disponible', 'error');
+            }
+        }
+        
+        function activateFallbacks() {
+            console.log('🛠️ === ACTIVANDO RESPALDOS ===');
+            updateGlobalStatus('Activando respaldos...', 'warning');
+            
+            if (typeof UNIVERSAL_DIAGRAM_SYSTEM !== 'undefined' && 
+                typeof UNIVERSAL_DIAGRAM_SYSTEM.applyFallbacks === 'function') {
+                UNIVERSAL_DIAGRAM_SYSTEM.applyFallbacks();
+                
+                setTimeout(async () => {
+                    await testAllDiagrams();
+                }, 1000);
+            } else {
+                console.error('❌ Sistema de respaldos no disponible');
+            }
+        }
+        
+        function clearAndReload() {
+            console.log('🔄 === REINICIANDO PÁGINA ===');
+            location.reload();
+        }
+        
+        // Ejecutar test inicial al cargar
+        window.addEventListener('load', () => {
+            setTimeout(async () => {
+                console.log('🎯 Iniciando verificación automática...');
+                await testAllDiagrams();
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
