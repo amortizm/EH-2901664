@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Avanzada: Borrado de Huellas en Hacking Ético</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        header img {
+            height: 50px; /* Adjust height as needed */
+            margin-right: 15px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #0056b3; /* Sena blue */
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        h3 {
+            color: #007bff;
+            margin-top: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+        pre {
+            background-color: #333;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+        .navigation-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .navigation-buttons button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .navigation-buttons button#prev-btn {
+             background-color: #6c757d;
+             color: white;
+        }
+        .navigation-buttons button#prev-btn:hover:not(:disabled) {
+             background-color: #5a6268;
+        }
+         .navigation-buttons button#next-btn {
+            background-color: #28a745;
+            color: white;
+        }
+         .navigation-buttons button#next-btn:hover:not(:disabled) {
+            background-color: #218838;
+        }
+        .navigation-buttons button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .step-content {
+            display: none; /* Hide all steps initially */
+        }
+        .step-content.active {
+            display: block; /* Show the active step */
+        }
+
+        #exercise-area {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+        #exercise-area label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        #exercise-area textarea {
+            width: calc(100% - 22px); /* Adjust for padding */
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            resize: vertical;
+        }
+        #exercise-area button {
+             padding: 10px 20px;
+             background-color: #007bff;
+             color: white;
+             border: none;
+             border-radius: 5px;
+             cursor: pointer;
+             font-size: 1em;
+             margin-top: 10px;
+             transition: background-color 0.3s ease;
+        }
+        #exercise-area button:hover {
+             background-color: #0056b3;
+        }
+        #exercise-feedback {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .feedback-success {
+            background-color: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+        .feedback-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+        .exercise-buttons {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://i.postimg.cc/mZzx20gW/Logosimbolo-SENA-PRINCIPAL.png" alt="Logo del SENA">
+        <h1>Centro de Servicios y Gestión Empresarial</h1>
+    </header>
+
+    <div class="container">
+        <div id="guide-content">
+            <!-- Content will be loaded here by JavaScript -->
+        </div>
+
+        <div id="exercise-area" style="display: none;">
+            <label for="exercise-input">Introduce los comandos o la respuesta aquí:</label>
+            <textarea id="exercise-input"></textarea>
+            <div class="exercise-buttons">
+                <button id="check-exercise-btn">Verificar Respuesta</button>
+                <button id="continue-after-exercise" style="display: none;">Continuar &raquo;</button>
+            </div>
+            <div id="exercise-feedback"></div>
+        </div>
+
+
+        <div class="navigation-buttons">
+            <button id="prev-btn">&laquo; Anterior</button>
+            <button id="next-btn">Siguiente &raquo;</button>
+        </div>
+    </div>
+
+    <script>
+        const steps = [
+            {
+                title: "Introducción: ¿Por qué borrar huellas?",
+                content: `
+                    <h2>Introducción al Borrado de Huellas (Footprint Deletion) Avanzado</h2>
+                    <p>En el ámbito del Hacking Ético Avanzado, la capacidad de operar de manera sigilosa y borrar los rastros después de una intrusión simulada (o real en escenarios de pentesting) es tan crucial como la fase de explotación misma. Dejar huellas puede permitir a los equipos de respuesta a incidentes rastrear la actividad maliciosa hasta su origen, invalidando el ejercicio o, en un escenario real, llevando a la identificación del atacante.</p>
+                    <p>El borrado de huellas (también conocido como "covering tracks" o "anti-forensics") no busca simplemente eliminar archivos, sino modificar, corromper o eliminar sistemáticamente cualquier evidencia digital que pueda quedar en el sistema comprometido y en la red.</p>
+                    <h3>Huellas Comunes a Eliminar</h3>
+                    <ul>
+                        <li><strong>Logs del sistema:</strong> Registros de inicio de sesión, errores, actividades del sistema operativo.</li>
+                        <li><strong>Logs de aplicaciones:</strong> Registros de servidores web, bases de datos, software específico.</li>
+                        <li><strong>Historial de comandos:</strong> Comandos ejecutados en shells (Bash, PowerShell, etc.).</li>
+                        <li><strong>Archivos temporales:</strong> Datos dejados por procesos o descargas.</li>
+                        <li><strong>Metadatos:</strong> Información incrustada en archivos (autor, fecha, ubicación).</li>
+                        <li><strong>Rastros en la red:</strong> Conexiones, tráfico, registros en dispositivos de red (routers, firewalls).</li>
+                        <li><strong>Artefactos de memoria:</strong> Datos volátiles en la RAM.</li>
+                        <li><strong>Modificaciones del registro (Windows):</strong> Cambios en la configuración del sistema.</li>
+                    </ul>
+                    <p>Un pentester avanzado debe entender no solo <em>dónde</em> están estas huellas, sino también <em>cómo</em> los forenses digitales las buscan y cómo las técnicas de borrado pueden ser detectadas o mitigadas.</p>
+                `,
+                type: 'theory'
+            },
+            {
+                title: "Identificando y Limpiando Logs del Sistema",
+                content: `
+                    <h2>Identificando y Limpiando Logs del Sistema</h2>
+                    <p>Los logs del sistema operativo son la fuente de información más rica para un analista forense. Contienen detalles sobre accesos, cambios de configuración, ejecución de programas, errores y mucho más.</p>
+                    <h3>Sistemas Linux</h3>
+                    <p>En la mayoría de distribuciones Linux, los logs se encuentran en el directorio <code>/var/log/</code>. Algunos archivos clave incluyen:</p>
+                    <ul>
+                        <li><code>/var/log/syslog</code> o <code>/var/log/messages</code>: Mensajes generales del sistema.</li>
+                        <li><code>/var/log/auth.log</code> (Debian/Ubuntu) o <code>/var/log/secure</code> (RHEL/CentOS): Registros de autenticación y seguridad (intentos de login, uso de sudo, etc.).</li>
+                        <li><code>/var/log/kern.log</code>: Mensajes del kernel.</li>
+                        <li><code>/var/log/faillog</code>: Intentos de login fallidos.</li>
+                        <li><code>/var/log/lastlog</code>: Registros de los últimos inicios de sesión por usuario.</li>
+                        <li>Logs de servicios específicos (ej: <code>/var/log/apache2/</code>, <code>/var/log/mysql/</code>).</li>
+                    </ul>
+                    <h4>Técnicas de Borrado (Linux):</h4>
+                    <p>Eliminar archivos de log directamente es una opción, pero es ruidoso (el borrado en sí puede ser loggeado) y puede causar problemas si el servicio que escribe el log no puede recrearlo.</p>
+                    <p><strong>Opción 1: Eliminar y Recrear (Básico, Potencialmente Ruidoso)</strong></p>
+                    <pre><code>sudo rm /var/log/auth.log
+sudo systemctl restart rsyslog # Reiniciar el servicio de logs si es necesario</code></pre>
+                    <p><strong>Opción 2: Vaciar el archivo (Más Sigiloso)</strong></p>
+                    <pre><code>sudo echo "" > /var/log/auth.log
+# O una forma más "limpia"
+sudo truncate -s 0 /var/log/auth.log</code></pre>
+                    <p>Esto reemplaza el contenido del archivo con nada, manteniendo el inode y los permisos, lo que es menos evidente que la eliminación completa.</p>
+                     <p><strong>Opción 3: Manipular lastlog/faillog</strong></p>
+                    <p>Estas son bases de datos binarias. Vaciar no es suficiente. Herramientas especializadas o conocimiento de su estructura son necesarios, o usar comandos como <code>lastlog -C</code> o editores hex. (Avanzado: Requiere herramientas o scripts específicos que interactúen con la estructura binaria).</p>
+                    <p><strong>Consideraciones Avanzadas (Linux):</strong></p>
+                    <ul>
+                        <li><strong>syslog-ng/rsyslog:</strong> Entender cómo estos servicios manejan los logs es crucial. A veces, las reglas de filtrado pueden ser modificadas temporalmente.</li>
+                        <li><strong>journald:</strong> En sistemas modernos (systemd), muchos logs van a <code>journald</code>. Los logs persisten a menos que la configuración <code>Storage</code> en <code>/etc/systemd/journald.conf</code> esté en <code>volatile</code>. Eliminar logs de journald requiere:</p>
+                        <pre><code># Eliminar logs anteriores a una fecha
+sudo journalctl --vacuum-since "YYYY-MM-DD hh:mm:ss"
+# Eliminar logs por tamaño
+sudo journalctl --vacuum-size=100M
+# Eliminar todos los logs persistentes (requires restart or reboot for full effect)
+sudo rm -rf /var/log/journal/*</code></pre>
+                        <p>Eliminar el directorio de almacenamiento es efectivo pero muy ruidoso y podría ser detectado por monitoreo de integridad de archivos (FIM).</p>
+                        <li><strong>Logs Remotos:</strong> Si los logs se envían a un servidor central (SIEM), la eliminación local es inútil. Identificar esto requiere análisis de configuración de rsyslog/syslog-ng o tráfico de red.</li>
+                    </ul>
+                    <h3>Sistemas Windows</h3>
+                    <p>Los logs en Windows se gestionan a través del Visor de Eventos (Event Viewer). Se almacenan en archivos <code>.evtx</code> en <code>C:\Windows\System32\winevt\Logs\</code>.</p>
+                    <p>Categorías principales:</p>
+                    <ul>
+                        <li>Security (Seguridad): Intentos de inicio de sesión, acceso a archivos, cambios de políticas, etc.</li>
+                        <li>System (Sistema): Eventos del sistema operativo y drivers.</li>
+                        <li>Application (Aplicación): Eventos de aplicaciones instaladas.</li>
+                        <li>Setup (Instalación): Eventos durante la instalación de Windows.</li>
+                        <li>Forwarded Events (Eventos Reenviados): Logs recibidos de otros sistemas.</li>
+                    </ul>
+                    <h4>Técnicas de Borrado (Windows):</h4>
+                     <p><strong>Opción 1: Usando wevtutil (Línea de comandos)</strong></p>
+                     <p><code>wevtutil</code> es una herramienta potente para gestionar logs.</p>
+                    <pre><code># Listar logs
+wevtutil el
+
+# Limpiar un log específico (por ejemplo, Seguridad)
+wevtutil cl Security
+# Opcional: Limpiar y hacer backup (por si queremos restaurarlo después)
+wevtutil cl Security /bu:C:\temp\security_log_backup.evtx</code></pre>
+                    <p><strong>Opción 2: Usando PowerShell</strong></p>
+                    <pre><code># Obtener todos los nombres de log
+Get-EventLog -List | Format-Table LogDisplayName
+
+# Limpiar un log específico (ej. Security)
+Clear-EventLog -LogName Security
+
+# Limpiar múltiples logs comunes
+$logsToClear = "Application", "System", "Security", "Windows PowerShell"
+$logsToClear | ForEach-Object { Clear-EventLog -LogName $_ }</code></pre>
+                     <p><strong>Consideraciones Avanzadas (Windows):</strong></p>
+                     <ul>
+                         <li><strong>Sysmon:</strong> Si Sysmon está instalado, genera logs de actividad muy detallados que van a un canal específico del Visor de Eventos ("Microsoft-Windows-Sysmon/Operational"). Estos también deben ser limpiados usando <code>wevtutil cl "Microsoft-Windows-Sysmon/Operational"</code> o PowerShell.</li>
+                         <li><strong>Borrado de Eventos Específicos:</strong> Borrar todo el log es ruidoso (puede haber un evento de borrado de log). Eliminar <em>eventos específicos</em> (ej: tu evento de login exitoso o la ejecución de tu payload) es más sigiloso pero mucho más complejo, requiriendo herramientas o scripts que manipulen directamente el archivo <code>.evtx</code> o la API de eventos. (Avanzado: Esto a menudo requiere herramientas fuera de las nativas de Windows para evitar dejar rastro del borrado selectivo).</li>
+                          <li><strong>Logs Remotos (Event Forwarding):</strong> Similar a Linux, si los eventos se reenvían a otro servidor (por ejemplo, un servidor SIEM o un colector de eventos de Windows), limpiar localmente no sirve de nada. Detectar esto implica revisar la configuración de Event Forwarding o analizar el tráfico.</li>
+                     </ul>
+                `,
+                type: 'theory'
+            },
+            {
+                title: "Gestionando el Historial de Comandos",
+                content: `
+                    <h2>Gestionando el Historial de Comandos</h2>
+                    <p>El historial de comandos es una de las primeras cosas que un forense revisará. Revela exactamente qué acciones se ejecutaron en la línea de comandos.</p>
+                    <h3>Bash (Linux)</h3>
+                    <p>Bash almacena el historial en un archivo (generalmente <code>~/.bash_history</code>). Cada comando se guarda después de que la sesión de shell finaliza o el historial se sincroniza.</p>
+                    <h4>Técnicas de Borrado (Bash):</h4>
+                    <p><strong>Opción 1: Borrar historial de la sesión actual y del archivo</strong></p>
+                    <pre><code># Borrar el historial de la sesión actual en memoria
+history -c
+# Borrar el contenido del archivo de historial
+echo "" > ~/.bash_history
+# Opcional: Eliminar el archivo completamente (más ruidoso)
+rm ~/.bash_history</code></pre>
+                     <p><strong>Opción 2: Desactivar el historial temporalmente</strong></p>
+                     <p>Puedes evitar que los comandos se guarden durante tu sesión.</p>
+                     <pre><code># No guardar historial en esta sesión
+unset HISTFILE
+# Opcional: Configurar para ignorar comandos con espacio inicial
+# Esto debe hacerse ANTES de ejecutar los comandos sensibles
+HISTCONTROL=ignorespace
+# Ejecuta comandos sensibles con un espacio al inicio: &lt;espacio&gt;ls -l /root</code></pre>
+                    <p><strong>Consideraciones Avanzadas (Bash):</strong></p>
+                    <ul>
+                        <li><strong>Sincronización del Historial:</strong> Bash guarda el historial al salir. Si la sesión termina de forma abrupta (ej: kill -9 $$), los últimos comandos pueden no guardarse en el archivo, pero <em>sí pueden estar en la memoria del proceso</em>.</li>
+                        <li><strong>Historial de Otros Shells:</strong> Asegúrate de limpiar el historial de otros shells si los usaste (zsh: <code>~/.zsh_history</code>, fish: <code>~/.local/share/fish/fish_history</code>).</li>
+                        <li><strong>Auditoría del Sistema:</strong> Sistemas configurados con auditoría (ej: auditd) pueden registrar comandos ejecutados independientemente del historial de Bash.</li>
+                    </ul>
+                    <h3>PowerShell (Windows)</h3>
+                    <p>PowerShell guarda el historial en un archivo (la ubicación depende de la versión, típicamente en el perfil del usuario, ej: <code>%userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt</code>).</p>
+                    <h4>Técnicas de Borrado (PowerShell):</h4>
+                     <p><strong>Opción 1: Borrar historial de la sesión actual</strong></p>
+                    <pre><code>Clear-History</code></pre>
+                     <p><strong>Opción 2: Borrar historial de la sesión actual Y del archivo</strong></p>
+                      <p><code>Clear-History</code> por defecto solo borra el historial en memoria. Para borrar el archivo, necesitas eliminarlo o vaciarlo.</p>
+                      <pre><code># Borrar historial en memoria
+Clear-History
+# Obtener la ruta del archivo de historial
+$historyFile = (Get-PSReadLineOption).HistorySavePath
+# Vaciar el archivo (más sigiloso)
+"" | Out-File $historyFile
+# Opcional: Eliminar el archivo (más ruidoso)
+# Remove-Item $historyFile</code></pre>
+                    <p><strong>Consideraciones Avanzadas (PowerShell):</strong></p>
+                    <ul>
+                        <li><strong>Transcription:</strong> PowerShell puede ser configurado para transcribir todas las sesiones a un archivo. Si la transcripción está activa (GPO, etc.), limpiar el historial o los logs de eventos es inútil. La ruta de transcripción se puede obtener con <code>Get-Host | Select-Object -ExpandProperty PrivateData.TranscriptPath</code>.</li>
+                        <li><strong>AMSI (Antimalware Scan Interface):</strong> AMSI puede registrar la ejecución de scripts PowerShell maliciosos antes de que se ejecuten completamente o antes de que el historial se grabe.</li>
+                    </ul>
+                `,
+                type: 'theory'
+            },
+             {
+                title: "Limpiando Archivos Temporales y Rastros de Datos",
+                content: `
+                    <h2>Limpiando Archivos Temporales y Rastros de Datos</h2>
+                    <p>Durante una operación, se pueden crear archivos temporales (descargas, herramientas extraídas, archivos de configuración, etc.) que deben ser eliminados. Además, los sistemas operativos y las aplicaciones crean sus propios archivos temporales.</p>
+                    <h3>Sistemas Linux</h3>
+                    <p>El directorio principal para archivos temporales es <code>/tmp/</code>. Este directorio a menudo se limpia al reiniciar, pero no siempre, y los archivos pueden persistir durante la sesión o más allá.</p>
+                    <h4>Técnicas de Borrado (Linux):</h4>
+                     <p><strong>Opción 1: Borrar contenido de /tmp (Requiere permisos)</strong></p>
+                    <pre><code>sudo rm -rf /tmp/*</code></pre>
+                    <p><strong>&gt;&gt; ¡Advertencia! &lt;&lt;</strong> Borrar <code>/tmp</code> indiscriminadamente puede interrumpir procesos en ejecución que estén utilizando archivos temporales. Es muy ruidoso y peligroso en un sistema de producción.</p>
+                    <p><strong>Opción 2: Identificar y eliminar archivos específicos</strong></p>
+                     <p>Es mejor identificar los archivos que creaste o usaste y eliminarlos específicamente. Herramientas como <code>find</code> pueden ser útiles.</p>
+                     <pre><code># Buscar archivos modificados en el último día por el usuario actual
+find /tmp /var/tmp -mtime 0 -user $(whoami) -ls
+
+# Eliminar un archivo específico de forma segura (ver consideraciones avanzadas)
+shred -u /tmp/mi_herramienta_descargada.tar.gz</code></pre>
+                    <p><strong>Consideraciones Avanzadas (Linux):</strong></p>
+                    <ul>
+                        <li><strong>Secure Deletion:</strong> Simplemente borrar un archivo (<code>rm</code>) no elimina los datos del disco, solo elimina la referencia a ellos en el sistema de archivos. Herramientas como <code>shred</code> (sobreescribe el archivo varias veces) o <code>wipe</code> son necesarias para una eliminación segura que dificulte la recuperación de datos.</li>
+                        <li><strong>Swap Space:</strong> Datos sensibles (contraseñas, claves) pueden terminar en el área de swap del disco si el sistema se queda sin RAM. El contenido de la swap puede persistir después del reinicio si no está cifrada. Limpiar la swap requiere <code>sudo swapoff -a</code> y luego <code>sudo swapon -a</code> (lo cual puede ser disruptivo).</li>
+                        <li><strong>Inode Timestamps:</strong> Eliminar o modificar archivos actualiza los timestamps (atime, mtime, ctime). Manipular estos timestamps ("Timestomping") puede usarse para ocultar la actividad, pero requiere herramientas como <code>touch</code> (básico) o herramientas forenses modificadas (avanzado).
+                         <pre><code># Copiar timestamps de un archivo original a un archivo modificado
+touch -r archivo_original.txt archivo_modificado.txt
+
+# Establecer timestamps manualmente (formato YYYYMMDDhhmm.ss)
+touch -t 202310271030.00 archivo_modificado.txt</code></pre>
+                        Manipular el ctime (change time) es más difícil y a menudo requiere acceso a nivel de kernel o herramientas especiales, ya que el ctime se actualiza cuando los metadatos (incluyendo atime/mtime) cambian.
+                        </li>
+                    </ul>
+
+                    <h3>Sistemas Windows</h3>
+                    <p>Los directorios temporales comunes son <code>%TEMP%</code> y <code>%TMP%</code> (generalmente apuntando a <code>C:\Users\[Username]\AppData\Local\Temp</code>) y <code>C:\Windows\Temp</code>.</p>
+                    <h4>Técnicas de Borrado (Windows):</h4>
+                     <p><strong>Opción 1: Usando la línea de comandos (cmd)</strong></p>
+                     <pre><code>REM Cambiar a los directorios temporales
+cd %TEMP%
+REM Eliminar archivos y carpetas de forma recursiva, silenciosa
+del /s /q *.*
+for /d %i in (*) do rmdir /s /q "%i"
+
+REM Repetir para C:\Windows\Temp si tienes permisos elevados
+cd C:\Windows\Temp
+del /s /q *.*
+for /d %i in (*) do rmdir /s /q "%i"</code></pre>
+                     <p><strong>Opción 2: Usando PowerShell</strong></p>
+                      <pre><code># Obtener rutas temporales
+$userTemp = $env:TEMP
+$windowsTemp = "$env:SystemRoot\Temp" # C:\Windows\Temp
+
+# Eliminar contenido de la carpeta temporal del usuario
+Get-ChildItem $userTemp -Recurse -Force -ErrorAction SilentlyContinue | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue
+
+# Eliminar contenido de la carpeta temporal de Windows (requiere elevación)
+Get-ChildItem $windowsTemp -Recurse -Force -ErrorAction SilentlyContinue | Remove-Item -Force -Recurse -ErrorAction SilentlyContinue</code></pre>
+                    <p><strong>Consideraciones Avanzadas (Windows):</strong></p>
+                    <ul>
+                        <li><strong>Secure Deletion:</strong> Similar a Linux, <code>del</code> o <code>Remove-Item</code> no borran los datos de forma segura. Herramientas como <code>sdelete</code> de Sysinternals (<code>sdelete -z C:</code> para espacio libre, <code>sdelete -s -q C:\path\to\file</code> para archivo específico) son necesarias para sobreescribir los datos.</li>
+                        <li><strong>Prefetch Files:</strong> Windows crea archivos <code>.pf</code> en <code>C:\Windows\Prefetch</code> que registran la ejecución de programas. Borrar estos archivos (con permisos elevados) puede eliminar este rastro, pero también es un indicador forense.</li>
+                        <li><strong>Registro (Registry):</strong> Algunas herramientas o payloads pueden dejar rastros en el registro (ej: Run keys para persistencia). Limpiar el registro es delicado y requiere precisión para no dañar el sistema.</li>
+                         <li><strong>Alternate Data Streams (ADS):</strong> En sistemas de archivos NTFS, los archivos pueden tener ADS ocultos que no se ven con un simple <code>dir</code>. Malware o herramientas pueden ocultarse en ADS. Identificarlos (ej: <code>dir /r</code> o herramientas como streams.exe de Sysinternals) y eliminarlos es crucial.</li>
+                         <pre><code># Ver ADS de un archivo
+dir /r c:\path\to\your_tool.exe
+
+# Eliminar un ADS llamado ":malwarestream" de un archivo
+echo &gt; c:\path\to\your_tool.exe:malwarestream</code></pre>
+                         <li><strong>Timestomping (Windows):</strong> Herramientas nativas como <code>copy /d</code> pueden manipular fechas, pero herramientas forenses como <code>SetMace</code> o scripts personalizados son más potentes para modificar MACE (Modification, Access, Creation, Entry Modified) timestamps de forma arbitraria.</li>
+                    </ul>
+                `,
+                type: 'theory'
+            },
+            {
+                title: "Metadatos y Otros Rastros Menos Obvios",
+                content: `
+                    <h2>Metadatos y Otros Rastros Menos Obvios</h2>
+                    <p>Las huellas no solo se limitan a logs e historial. Los metadatos en archivos y otros artefactos del sistema pueden ser muy reveladores.</p>
+                    <h3>Metadatos de Archivos</h3>
+                    <p>Documentos, imágenes, videos y otros tipos de archivos contienen metadatos que pueden incluir información sensible como:</p>
+                    <ul>
+                        <li>Autor del documento.</li>
+                        <li>Software usado para crearlo/modificarlo.</li>
+                        <li>Fecha y hora de creación/modificación.</li>
+                        <li>Ubicación GPS (en imágenes).</li>
+                        <li>Información del sistema operativo o dispositivo.</li>
+                    </ul>
+                     <p>Si subiste o modificaste archivos en el sistema objetivo, sus metadatos podrían vincularse contigo.</p>
+                     <h4>Técnicas de Borrado (Metadatos):</h4>
+                     <p>Herramientas dedicadas son la mejor opción. En Linux, <code>exiftool</code> o <code>mat2 (Metadata Anonymisation Toolkit)</code> son populares. En Windows, hay varias GUI y scripts de PowerShell.</p>
+                     <pre><code># Usando exiftool (Linux)
+# Ver metadatos
+exiftool imagen.jpg
+# Eliminar todos los metadatos (crea un archivo _original)
+exiftool -all= imagen.jpg
+# Eliminar metadatos y sobrescribir el archivo original
+exiftool -all= -overwrite_original imagen.jpg</code></pre>
+                    <p>Para documentos (DOCX, PDF, etc.), a menudo hay opciones de "Inspeccionar documento" o "Eliminar información personal" en el propio software (Word, Adobe Acrobat), pero las herramientas especializadas dan más control.</p>
+                    <h3>Otros Rastros</h3>
+                    <ul>
+                        <li><strong>Registros del Navegador:</strong> Si usaste un navegador web (incluso uno portátil), el historial, caché y cookies deben ser limpiados.</li>
+                        <li><strong>Archivos de Recuperación Automática:</strong> Algunos programas (editores de texto, suites de oficina) guardan copias temporales para recuperación.</li>
+                         <li><strong>Eventos de Auditoría Personalizados:</strong> Algunas organizaciones configuran su propia auditoría o logging, más allá de los eventos estándar del SO.</li>
+                        <li><strong>Artefactos en Memoria:</strong> Datos volátiles (procesos en ejecución, conexiones de red activas, claves de cifrado) existen solo en la RAM. Un 'Memory Dump' puede capturarlos. No se pueden "borrar" de la RAM de forma remota y fiable sin apagar el sistema, pero herramientas anti-forenses pueden intentar corromper estructuras de datos en memoria.</li>
+                         <li><strong>Rastros de Herramientas:</strong> Algunas herramientas de pentesting dejan sus propios archivos de log o configuración. ¡Limpia el directorio de tu kit de herramientas!</li>
+                    </ul>
+                    <p><strong>Consideraciones Avanzadas:</strong></p>
+                    <ul>
+                        <li><strong>Firmas de Archivos:</strong> Los sistemas de detección pueden identificar archivos por su hash (MD5, SHA256). Si usaste una herramienta conocida, su hash puede estar en una lista negra. Modificar la herramienta (incluso ligeramente) cambia el hash.</li>
+                        <li><strong>Análisis de Tráfico de Red:</strong> Incluso si limpias el host, la actividad de red (conexiones a tu C2, descargas, escaneos) es visible para dispositivos de red intermedios (firewalls, IDS/IPS, monitores de tráfico). Identificar estos dispositivos y si registran el tráfico es una tarea de reconocimiento avanzada que precede al borrado.</li>
+                         <li><strong>Backups y Snapshots:</strong> Las organizaciones a menudo hacen backups o snapshots de sistemas. Tus huellas pueden existir en una copia de seguridad inmutable. No puedes limpiar esto desde el host comprometido.</li>
+                         <li><strong>Hardware-based Logs:</strong> Algunos sistemas de alto nivel tienen logs a nivel de firmware o hardware (ej: iDRAC, iLO) que son muy difíciles de manipular.</li>
+                    </ul>
+                    <p>El borrado de huellas avanzado implica una comprensión profunda no solo de los sistemas operativos, sino también de las técnicas de forensia digital y la infraestructura de seguridad del objetivo.</p>
+                `,
+                type: 'theory'
+            },
+            {
+                title: "Ejercicio Práctico: Limpiando Huellas en un Escenario Linux",
+                content: `
+                    <h2>Ejercicio Práctico: Limpiando Huellas en un Escenario Linux</h2>
+                    <p><strong>Escenario:</strong> Has obtenido acceso a un servidor web Linux (Ubuntu) a través de una vulnerabilidad y has ejecutado algunos comandos como el usuario comprometido, y también escalaste a root brevemente usando <code>sudo</code> para ver archivos sensibles. Necesitas limpiar tus rastros más obvios antes de salir.</p>
+                    <p>Identifica y ejecuta los comandos necesarios para realizar las siguientes acciones:</p>
+                    <ol>
+                        <li>Borrar el historial de comandos de Bash para el usuario actual.</li>
+                        <li>Vaciar el contenido del log de autenticación (<code>/var/log/auth.log</code>) para eliminar los registros de tu login y el uso de sudo.</li>
+                        <li>Eliminar un archivo temporal que dejaste en <code>/tmp/</code> llamado <code>herramienta_escaneo.sh</code>.</li>
+                    </ol>
+                    <p>En el área de texto de abajo, escribe los comandos que ejecutarías en el servidor comprometido para lograr esto. Escribe un comando por línea. Considera usar técnicas que sean menos ruidosas si es posible (vaciar vs. eliminar).</p>
+                    <p><strong>Nota:</strong> No necesitas simular la ejecución, solo proporciona los comandos correctos.</p>
+                `,
+                type: 'exercise'
+            },
+            {
+                title: "Retroalimentación del Ejercicio",
+                 content: "", // Content will be generated based on exercise result
+                 type: 'feedback'
+            },
+            {
+                title: "Conclusión y Mejores Prácticas",
+                content: `
+                    <h2>Conclusión y Mejores Prácticas</h2>
+                    <p>El borrado de huellas es una parte esencial del ciclo de vida del pentesting avanzado. No se trata de ser malicioso, sino de simular con precisión las tácticas de adversarios reales y evaluar la capacidad de respuesta a incidentes de una organización.</p>
+                    <h3>Principios Clave</h3>
+                    <ul>
+                        <li><strong>Conocimiento Profundo:</strong> Entender cómo funcionan los logs, el historial, los sistemas de archivos y otras fuentes de artefactos.</li>
+                        <li><strong>Planificación:</strong> Considerar el borrado de huellas como parte del plan de ataque, no como una ocurrencia tardía.</li>
+                        <li><strong>Sigilo vs. Eliminación Completa:</strong> A menudo es mejor modificar o vaciar logs y archivos que eliminarlos completamente, ya que la eliminación puede ser un evento sospechoso en sí mismo.</li>
+                        <li><strong>Considerar el Ecosistema:</strong> Las huellas existen no solo en el host, sino también en la red, en sistemas remotos, en backups, etc.</li>
+                        <li><strong>Probar tus Métodos:</strong> Verifica en un entorno controlado que tus técnicas de borrado realmente funcionan y no dejan rastros inesperados.</li>
+                        <li><strong>Adaptabilidad:</strong> Las defensas (monitoreo, SIEM, EDR) evolucionan, por lo que tus técnicas de borrado también deben hacerlo.</li>
+                    </ul>
+                    <h3>Limitaciones del Borrado de Huellas</h3>
+                    <p>Es casi imposible eliminar absolutamente <em>todas</em> las huellas, especialmente contra un equipo forense dedicado y con buena instrumentación de seguridad. Las huellas pueden persistir en:</p>
+                    <ul>
+                        <li>Logs remotos (SIEMs).</li>
+                        <li>Capturas de tráfico de red.</li>
+                        <li>Backups y snapshots.</li>
+                        <li>Artefactos en la memoria (si se realiza un memory dump).</li>
+                        <li>Logs de hardware/firmware.</li>
+                        <li>Dispositivos intermedios (proxies, balanceadores de carga).</li>
+                        <li>Logs de otros sistemas con los que interactuaste.</li>
+                    </ul>
+                    <p>El objetivo del borrado de huellas en pentesting es dificultar la atribución y aumentar el tiempo que le toma a un defensor entender lo que sucedió, no lograr la invisibilidad total.</p>
+                    <p>Dominar estas técnicas te permitirá realizar simulaciones de adversario más realistas y evaluar de manera más efectiva la postura de seguridad de una organización desde la perspectiva de un atacante persistente.</p>
+                `,
+                type: 'theory'
+            }
+        ];
+
+        let currentStepIndex = 0;
+        const guideContentDiv = document.getElementById('guide-content');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const exerciseArea = document.getElementById('exercise-area');
+        const exerciseInput = document.getElementById('exercise-input');
+        const checkExerciseBtn = document.getElementById('check-exercise-btn');
+        const continueAfterExerciseBtn = document.getElementById('continue-after-exercise');
+        const exerciseFeedbackDiv = document.getElementById('exercise-feedback');
+        const navigationButtonsDiv = document.querySelector('.navigation-buttons');
+
+        function displayStep(index) {
+            if (index < 0 || index >= steps.length) {
+                return; // Stay within bounds
+            }
+
+            currentStepIndex = index;
+            const step = steps[currentStepIndex];
+
+            // Clear previous content
+            guideContentDiv.innerHTML = '';
+            exerciseArea.style.display = 'none';
+            navigationButtonsDiv.style.display = 'block';
+            exerciseFeedbackDiv.innerHTML = '';
+            exerciseFeedbackDiv.className = '';
+            continueAfterExerciseBtn.style.display = 'none';
+
+
+            // Load content
+            guideContentDiv.innerHTML = step.content;
+
+            // Handle step type
+            if (step.type === 'exercise') {
+                exerciseArea.style.display = 'block';
+                navigationButtonsDiv.style.display = 'none'; // Hide default nav during exercise
+                exerciseInput.value = ''; // Clear previous input
+                checkExerciseBtn.style.display = 'block'; // Show check button
+            } else {
+                 exerciseArea.style.display = 'none';
+                 navigationButtonsDiv.style.display = 'block'; // Show default nav
+            }
+
+             if (step.type === 'feedback') {
+                 // Feedback content is generated in checkExercise
+                 navigationButtonsDiv.style.display = 'block';
+             }
+
+
+            // Update button states
+            prevBtn.disabled = currentStepIndex === 0;
+            nextBtn.disabled = currentStepIndex === steps.length - 1 || step.type === 'exercise' || step.type === 'feedback' && continueAfterExerciseBtn.style.display === 'none';
+
+            // Add the active class for potential styling (not strictly needed with display: none/block)
+             const allSteps = document.querySelectorAll('.step-content');
+             allSteps.forEach(s => s.classList.remove('active'));
+             // We don't have separate step divs, so we just update the content.
+             // If we used separate divs, we'd find the current one and add the class.
+        }
+
+        function nextStep() {
+             displayStep(currentStepIndex + 1);
+        }
+
+        function prevStep() {
+             displayStep(currentStepIndex - 1);
+        }
+
+        function checkExercise() {
+            const userInput = exerciseInput.value.trim();
+            const commands = userInput.split('\n').map(cmd => cmd.trim()).filter(cmd => cmd !== '');
+
+            const requiredCommands = [
+                /history\s+-c/, // Matches 'history -c'
+                /echo\s+""\s+>\s+\/var\/log\/auth\.log/, // Matches 'echo "" > /var/log/auth.log'
+                 /truncate\s+-s\s+0\s+\/var\/log\/auth\.log/, // Matches 'truncate -s 0 /var/log/auth.log'
+                 /rm\s+\/var\/log\/auth\.log/, // Matches 'rm /var/log/auth.log' - less ideal but acceptable
+                 /rm\s+\/tmp\/herramienta_escaneo\.sh/, // Matches 'rm /tmp/herramienta_escaneo.sh'
+                 /shred\s+-u\s+\/tmp\/herramienta_escaneo\.sh/ // Matches 'shred -u /tmp/herramienta_escaneo.sh' - better
+            ];
+
+            let foundHistory = false;
+            let foundLogClear = false;
+            let foundFileDelete = false;
+
+            commands.forEach(cmd => {
+                if (requiredCommands[0].test(cmd.toLowerCase())) {
+                    foundHistory = true;
+                }
+                if (requiredCommands[1].test(cmd.toLowerCase()) || requiredCommands[2].test(cmd.toLowerCase()) || requiredCommands[3].test(cmd.toLowerCase())) {
+                    foundLogClear = true;
+                }
+                if (requiredCommands[4].test(cmd.toLowerCase()) || requiredCommands[5].test(cmd.toLowerCase())) {
+                    foundFileDelete = true;
+                }
+            });
+
+            exerciseFeedbackDiv.innerHTML = '';
+            exerciseFeedbackDiv.className = 'exercise-feedback';
+            let feedbackHtml = "<h3>Retroalimentación:</h3>";
+            let isCorrect = true;
+
+            if (foundHistory && foundLogClear && foundFileDelete) {
+                feedbackHtml += "<p class='feedback-success'><strong>¡Correcto!</strong> Has incluido los comandos clave para borrar el historial de Bash, vaciar el log de autenticación y eliminar el archivo temporal.</p>";
+                 feedbackHtml += "<p>Técnicas como vaciar logs (<code>echo \"\" ></code> o <code>truncate -s 0</code>) y usar <code>shred -u</code> para eliminación segura son preferibles a <code>rm</code> y eliminación completa en muchos escenarios avanzados por su sigilo.</p>";
+                 exerciseFeedbackDiv.classList.add('feedback-success');
+                 continueAfterExerciseBtn.style.display = 'inline-block'; // Show continue button
+                 checkExerciseBtn.style.display = 'none'; // Hide check button
+            } else {
+                isCorrect = false;
+                feedbackHtml += "<p class='feedback-error'><strong>Incorrecto.</strong> Faltan comandos o son incorrectos:</p><ul>";
+                if (!foundHistory) feedbackHtml += "<li>Falta el comando para borrar el historial de Bash (<code>history -c</code> es común).</li>";
+                if (!foundLogClear) feedbackHtml += "<li>Falta el comando para limpiar el log de autenticación (<code>/var/log/auth.log</code>).</li>";
+                if (!foundFileDelete) feedbackHtml += "<li>Falta el comando para eliminar el archivo temporal (<code>/tmp/herramienta_escaneo.sh</code>).</li>";
+                 feedbackHtml += "</ul><p class='feedback-error'>Por favor, revisa la sección anterior sobre Logs y Comandos y vuelve a intentarlo.</p>";
+                 exerciseFeedbackDiv.classList.add('feedback-error');
+                 continueAfterExerciseBtn.style.display = 'none'; // Hide continue button
+                 checkExerciseBtn.style.display = 'block'; // Show check button
+            }
+
+            exerciseFeedbackDiv.innerHTML = feedbackHtml;
+
+             // Update next button state after feedback is shown (especially important if correct)
+             nextBtn.disabled = currentStepIndex === steps.length - 1 || !isCorrect; // Disable next if exercise failed or not finished
+        }
+
+         function continueGuide() {
+             displayStep(currentStepIndex + 1); // Move to the feedback/next step
+         }
+
+
+        // Event Listeners
+        prevBtn.addEventListener('click', prevStep);
+        nextBtn.addEventListener('click', nextStep);
+        checkExerciseBtn.addEventListener('click', checkExercise);
+        continueAfterExerciseBtn.addEventListener('click', continueGuide);
+
+
+        // Initial display
+        document.addEventListener('DOMContentLoaded', () => {
+             // Pre-fill feedback step content to avoid errors on display
+             steps[steps.findIndex(step => step.type === 'feedback')].content = "<h3>Retroalimentación del Ejercicio</h3><p>La retroalimentación se mostrará aquí después de verificar tu respuesta en el paso anterior.</p>";
+             displayStep(0);
+        });
+
+    </script>
+
+</body>
+</html>
